@@ -68,14 +68,8 @@ position = Vector2(0, 18)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_8f24g")
 
-[node name="Polygon2D" type="Polygon2D" parent="Floor"]
-visible = false
-texture = SubResource("NoiseTexture2D_1arhw")
-texture_scale = Vector2(0.01, 1)
-polygon = PackedVector2Array(-500, 0, 20000, 0, 20000, 1000, -500, 1000)
-
 [node name="Line2D" type="Line2D" parent="Floor"]
-points = PackedVector2Array(-1000, 500, 10000, 500)
+points = PackedVector2Array(-1000, 500, 20000, 500)
 width = 1000.0
 texture = SubResource("NoiseTexture2D_1arhw")
 texture_mode = 2
