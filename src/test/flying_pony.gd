@@ -69,7 +69,7 @@ func fly_logic(delta: float):
 
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatEnum.DRAG)
-	var dot: float= global_transform.x.dot(Vector2.RIGHT)
+	var dot: float= global_transform.x.dot(velocity.normalized())
 	return lerp(maximum_drag, optimal_drag, clampf(dot, 0.0, 1.0))
 
 
