@@ -1,6 +1,7 @@
 class_name PonyStat
 extends Resource
 
+@export var display_name: String
 @export var base_value: float
 @export var step_value: float
 

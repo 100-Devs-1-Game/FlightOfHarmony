@@ -22,13 +22,13 @@ func _ready() -> void:
 
 func reset():
 	position= Vector2.ZERO
-	velocity= stats.get_initial_speed() * Vector2.RIGHT
+	velocity= stats.get_stat(PonyStats.Stat.SPEED) * Vector2.RIGHT
 	state= State.PREPPING
 	
 	
 func jump():
 	state= State.FLYING
-	velocity= stats.get_initial_speed() * Vector2.from_angle(-deg_to_rad(jump_angle))
+	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 
 
 func _physics_process(delta: float) -> void:
@@ -43,8 +43,16 @@ func _physics_process(delta: float) -> void:
 
 func fly_logic(delta: float):
 	velocity.y+= gravity * delta
+	velocity.x*= 1 - get_drag() * delta
+	
 	if move_and_collide(velocity * delta):
 		state= State.LANDING
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
 	rotate(rot_inp * rotation_speed * delta)
+
+
+func get_drag()-> float:
+	var optimal_drag: float= stats.get_stat(PonyStats.Stat.DRAG)
+	var dot: float= global_transform.x.dot(velocity.normalized())
+	return lerp(1.0, optimal_drag, clampf(dot, 0.0, 1.0)) * 0.2

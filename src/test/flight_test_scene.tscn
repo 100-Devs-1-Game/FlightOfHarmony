@@ -34,6 +34,7 @@ follow = NodePath("../Pony")
 
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("2_8f24g")
+jump_angle = 30
 gravity = 100.0
 stats = ExtResource("4_is3fb")
 
