@@ -72,7 +72,7 @@ shape = SubResource("WorldBoundaryShape2D_8f24g")
 visible = false
 texture = SubResource("NoiseTexture2D_1arhw")
 texture_scale = Vector2(0.01, 1)
-polygon = PackedVector2Array(-500, 0, 10000, 0, 10000, 1000, -500, 1000)
+polygon = PackedVector2Array(-500, 0, 20000, 0, 20000, 1000, -500, 1000)
 
 [node name="Line2D" type="Line2D" parent="Floor"]
 points = PackedVector2Array(-1000, 500, 10000, 500)
