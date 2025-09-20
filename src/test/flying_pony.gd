@@ -7,6 +7,7 @@ enum State { PREPPING, FLYING, LANDING }
 @export var rotation_speed: float= 2.0
 @export var gravity: float= 10.0
 @export var maximum_drag: float= 0.5
+@export var perfect_lift_angle: float= 20
 
 @export var stats: PonyStats
 
@@ -43,6 +44,7 @@ func _physics_process(delta: float) -> void:
 func fly_logic(delta: float):
 	velocity.y+= gravity * delta
 	velocity.x*= 1 - get_drag() * delta
+	velocity+= -global_transform.y * velocity.dot(global_transform.x) * get_lift() * delta
 	
 	if move_and_collide(velocity * delta):
 		state= State.LANDING
@@ -55,3 +57,11 @@ func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat(PonyStats.Stat.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
 	return lerp(maximum_drag, optimal_drag, clampf(dot, 0.0, 1.0))
+
+
+func get_lift()-> float:
+	var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
+	var dot: float= global_transform.x.dot(perfect_angle)
+	var maximum_lift: float= stats.get_stat(PonyStats.Stat.LIFT)
+	return lerp(0.0, maximum_lift, clampf(pow(dot, 3), 0.0, 1.0))
+	
