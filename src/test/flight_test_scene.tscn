@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cq4wvbs17ypga"]
+
+[ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
+[ext_resource type="Script" uid="uid://7t8xm1jjknlr" path="res://test/flying_pony.gd" id="2_8f24g"]
+[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="2_is3fb"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="4_is3fb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is3fb"]
+size = Vector2(80, 35)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8f24g"]
+
+[sub_resource type="Gradient" id="Gradient_8f24g"]
+colors = PackedColorArray(0, 0.988235, 0, 1, 5.41471e-08, 0.247531, 0.0882826, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_is3fb"]
+frequency = 0.2058
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1arhw"]
+width = 128
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_8f24g")
+noise = SubResource("FastNoiseLite_is3fb")
+
+[node name="Flight Test Scene" type="Node2D"]
+script = ExtResource("1_hjpwq")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
+script = ExtResource("2_is3fb")
+follow = NodePath("../Pony")
+
+[node name="Pony" type="CharacterBody2D" parent="."]
+script = ExtResource("2_8f24g")
+gravity = 100.0
+stats = ExtResource("4_is3fb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pony"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_is3fb")
+
+[node name="Polygon2D" type="Polygon2D" parent="Pony"]
+position = Vector2(0, -8)
+color = Color(0.824597, 0.371786, 0.191486, 1)
+polygon = PackedVector2Array(-24, 24, -16, 24, -16, 8, 8, 8, 8, 24, 16, 24, 16, 8, 24, 0, 32, 8, 40, 8, 40, 0, 24, -16, 24, -8, -8, -8, -24, 0, -40, -8, -40, 0, -24, 8)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_8f24g")
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+visible = false
+texture = SubResource("NoiseTexture2D_1arhw")
+texture_scale = Vector2(0.01, 1)
+polygon = PackedVector2Array(-500, 0, 10000, 0, 10000, 1000, -500, 1000)
+
+[node name="Line2D" type="Line2D" parent="Floor"]
+points = PackedVector2Array(-1000, 500, 10000, 500)
+width = 1000.0
+texture = SubResource("NoiseTexture2D_1arhw")
+texture_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0

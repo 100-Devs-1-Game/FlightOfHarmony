@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PonyStats" load_steps=2 format=3 uid="uid://6mawpae7apr7"]
+
+[ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://test/pony_stats.gd" id="1_4baf4"]
+
+[resource]
+script = ExtResource("1_4baf4")
+base_start_speed = 100.0
+start_speed_step = 20.0
+base_drag = 0.5
+drag_step = -0.02
+base_lift = 0.0
+lift_step = 0.01
+start_speed_level = 0
+drag_level = 0
+lift_level = 0
+metadata/_custom_type_script = "uid://c730pnw5re1tk"
