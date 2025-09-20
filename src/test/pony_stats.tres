@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 script = ExtResource("1_mpqfr")
 display_name = "Speed"
 base_value = 200.0
-step_value = 50.0
+step_value = 20.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [resource]
