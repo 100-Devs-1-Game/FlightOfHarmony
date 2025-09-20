@@ -13,6 +13,7 @@ enum StatEnum { SPEED, DRAG, LIFT }
 @export var stat_levels: Array[int]= [ 0, 0, 0 ]
 
 
+
 func get_stat_value(stat: StatEnum)-> float:
 	var val: float= 0.0
 	var level: int= stat_levels[int(stat)]
@@ -41,3 +42,7 @@ func get_stat(stat: StatEnum)-> PonyStat:
 		_:
 			assert(false)
 			return null
+
+
+func get_level(stat: StatEnum)-> int:
+	return stat_levels[int(stat)]
