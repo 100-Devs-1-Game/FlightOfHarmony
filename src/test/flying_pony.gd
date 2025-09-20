@@ -12,6 +12,9 @@ enum State { PREPPING, FLYING, LANDING }
 
 @export var stats: PonyStats
 
+@onready var lift_arrow: Node2D = $"Lift Arrow"
+@onready var drag_arrow: Node2D = $"Drag Arrow"
+
 
 var state: State
 
@@ -23,6 +26,9 @@ func _ready() -> void:
 
 func reset():
 	position= Vector2.ZERO
+	rotation= 0.0
+	lift_arrow.scale= Vector2.ZERO
+	drag_arrow.scale= Vector2.ZERO
 	velocity= stats.get_stat_value(PonyStats.StatEnum.SPEED) * Vector2.RIGHT
 	state= State.PREPPING
 	
@@ -44,8 +50,15 @@ func _physics_process(delta: float) -> void:
 
 func fly_logic(delta: float):
 	velocity.y+= gravity * delta
-	velocity.x*= 1 - get_drag() * delta
-	velocity+= -global_transform.y * velocity.dot(global_transform.x) * get_lift() * delta
+	
+	var drag: float= get_drag()
+	velocity.x*= 1 - drag * delta
+	drag_arrow.look_at(position + Vector2.LEFT)
+	drag_arrow.scale= Vector2.ONE * drag * 10
+
+	var lift: float= get_lift()
+	velocity+= -global_transform.y * velocity.dot(global_transform.x) * lift * delta
+	lift_arrow.scale= Vector2.ONE * lift * 10
 	
 	if move_and_collide(velocity * delta):
 		state= State.LANDING

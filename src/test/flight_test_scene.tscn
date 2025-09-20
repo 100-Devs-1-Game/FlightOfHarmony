@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq4wvbs17ypga"]
+[gd_scene load_steps=12 format=3 uid="uid://cq4wvbs17ypga"]
 
 [ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
 [ext_resource type="Script" uid="uid://7t8xm1jjknlr" path="res://test/flying_pony.gd" id="2_8f24g"]
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="2_is3fb"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="4_is3fb"]
 [ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/test_ui_panel.tscn" id="5_1arhw"]
+[ext_resource type="PackedScene" uid="uid://diymk3ucnx78v" path="res://test/test_arrow.tscn" id="5_3t3je"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is3fb"]
 size = Vector2(80, 35)
@@ -35,6 +36,7 @@ follow = NodePath("../Pony")
 
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("2_8f24g")
+walk_distance = 250.0
 jump_angle = 30
 gravity = 100.0
 stats = ExtResource("4_is3fb")
@@ -47,6 +49,16 @@ shape = SubResource("RectangleShape2D_is3fb")
 position = Vector2(0, -8)
 color = Color(0.824597, 0.371786, 0.191486, 1)
 polygon = PackedVector2Array(-24, 24, -16, 24, -16, 8, 8, 8, 8, 24, 16, 24, 16, 8, 24, 0, 32, 8, 40, 8, 40, 0, 24, -16, 24, -8, -8, -8, -24, 0, -40, -8, -40, 0, -24, 8)
+
+[node name="Lift Arrow" parent="Pony" instance=ExtResource("5_3t3je")]
+rotation = -1.5708
+scale = Vector2(1e-05, 1e-05)
+color = Color(0, 0.968627, 0, 1)
+
+[node name="Drag Arrow" parent="Pony" instance=ExtResource("5_3t3je")]
+rotation = 3.14159
+scale = Vector2(1e-05, 1e-05)
+color = Color(0.988235, 0, 0, 1)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 18)
@@ -68,6 +80,7 @@ texture_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Test UI Panel" parent="CanvasLayer" instance=ExtResource("5_1arhw")]
+[node name="Test UI Panel" parent="CanvasLayer" node_paths=PackedStringArray("pony") instance=ExtResource("5_1arhw")]
+pony = NodePath("../../Pony")
 
 [connection signal="reset_pony" from="CanvasLayer/Test UI Panel" to="Pony" method="reset"]

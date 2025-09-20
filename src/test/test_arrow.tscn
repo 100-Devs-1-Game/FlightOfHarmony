@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://diymk3ucnx78v"]
+
+[ext_resource type="Script" uid="uid://c06yxqliguytu" path="res://test/test_arrow.gd" id="1_iccrs"]
+
+[node name="Test Arrow" type="Node2D"]
+script = ExtResource("1_iccrs")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 8, 0, 8, -4, 12, 0, 8, 4, 8, 0)
+width = 2.0
