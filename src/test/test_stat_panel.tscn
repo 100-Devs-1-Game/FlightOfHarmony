@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnipg1876pnx7"]
+
+[ext_resource type="Script" uid="uid://dclf430mvr07p" path="res://test/test_stat_panel.gd" id="1_jcix6"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="2_715w4"]
+[ext_resource type="PackedScene" uid="uid://dykg2eagnlk7t" path="res://test/test_stat_slider.tscn" id="3_j8err"]
+[ext_resource type="LabelSettings" uid="uid://cpbqm5qstlqql" path="res://test/test_label_setting.tres" id="4_r0rl1"]
+
+[node name="Test Stat Panel" type="PanelContainer"]
+script = ExtResource("1_jcix6")
+stats = ExtResource("2_715w4")
+slider_scene = ExtResource("3_j8err")
+label_settings = ExtResource("4_r0rl1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
