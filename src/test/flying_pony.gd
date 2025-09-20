@@ -2,12 +2,11 @@ extends CharacterBody2D
 
 enum State { PREPPING, FLYING, LANDING }
 
-#@export var walk_speed: float= 100.0
-#@export var walk_duration: float= 1.0
 @export var walk_distance: float= 100.0
 @export var jump_angle: int= 45
 @export var rotation_speed: float= 2.0
 @export var gravity: float= 10.0
+@export var maximum_drag: float= 0.5
 
 @export var stats: PonyStats
 
@@ -55,4 +54,4 @@ func fly_logic(delta: float):
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat(PonyStats.Stat.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(1.0, optimal_drag, clampf(dot, 0.0, 1.0)) * 0.2
+	return lerp(maximum_drag, optimal_drag, clampf(dot, 0.0, 1.0))
