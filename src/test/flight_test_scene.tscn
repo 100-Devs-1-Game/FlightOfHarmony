@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq4wvbs17ypga"]
+[gd_scene load_steps=11 format=3 uid="uid://cq4wvbs17ypga"]
 
 [ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
 [ext_resource type="Script" uid="uid://7t8xm1jjknlr" path="res://test/flying_pony.gd" id="2_8f24g"]
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="2_is3fb"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="4_is3fb"]
+[ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/test_ui_panel.tscn" id="5_1arhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is3fb"]
 size = Vector2(80, 35)
@@ -67,6 +68,6 @@ texture_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Test UI Panel" parent="CanvasLayer" instance=ExtResource("5_1arhw")]
+
+[connection signal="reset_pony" from="CanvasLayer/Test UI Panel" to="Pony" method="reset"]

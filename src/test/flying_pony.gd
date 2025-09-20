@@ -1,3 +1,4 @@
+class_name FlyingPony
 extends CharacterBody2D
 
 enum State { PREPPING, FLYING, LANDING }

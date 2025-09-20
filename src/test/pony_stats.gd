@@ -46,3 +46,8 @@ func get_stat(stat: StatEnum)-> PonyStat:
 
 func get_level(stat: StatEnum)-> int:
 	return stat_levels[int(stat)]
+
+
+
+func set_level(stat: StatEnum, level: int):
+	stat_levels[int(stat)]= level
