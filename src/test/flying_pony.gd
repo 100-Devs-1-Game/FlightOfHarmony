@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func reset():
 	position= Vector2.ZERO
-	velocity= stats.get_stat_value(PonyStats.Stat.SPEED) * Vector2.RIGHT
+	velocity= stats.get_stat_value(PonyStats.StatEnum.SPEED) * Vector2.RIGHT
 	state= State.PREPPING
 	
 	
@@ -54,7 +54,7 @@ func fly_logic(delta: float):
 
 
 func get_drag()-> float:
-	var optimal_drag: float= stats.get_stat_value(PonyStats.Stat.DRAG)
+	var optimal_drag: float= stats.get_stat_value(PonyStats.StatEnum.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
 	return lerp(maximum_drag, optimal_drag, clampf(dot, 0.0, 1.0))
 
@@ -62,6 +62,6 @@ func get_drag()-> float:
 func get_lift()-> float:
 	var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
 	var dot: float= global_transform.x.dot(perfect_angle)
-	var maximum_lift: float= stats.get_stat_value(PonyStats.Stat.LIFT)
+	var maximum_lift: float= stats.get_stat_value(PonyStats.StatEnum.LIFT)
 	return lerp(0.0, maximum_lift, clampf(pow(dot, 3), 0.0, 1.0))
 	

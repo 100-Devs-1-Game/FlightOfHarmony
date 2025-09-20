@@ -1,7 +1,7 @@
 class_name PonyStats
 extends Resource
 
-enum Stat { SPEED, DRAG, LIFT }
+enum StatEnum { SPEED, DRAG, LIFT }
 
 # store equipped items here and add stat to value via enum 
 #  when returning
@@ -13,16 +13,16 @@ enum Stat { SPEED, DRAG, LIFT }
 @export var stat_levels: Array[int]= [ 0, 0, 0 ]
 
 
-func get_stat_value(stat: Stat)-> float:
+func get_stat_value(stat: StatEnum)-> float:
 	var val: float= 0.0
 	var level: int= stat_levels[int(stat)]
 	
 	match stat:
-		Stat.SPEED:
+		StatEnum.SPEED:
 			val= speed_stat.get_value(level)
-		Stat.DRAG:
+		StatEnum.DRAG:
 			val= drag_stat.get_value(level)
-		Stat.LIFT:
+		StatEnum.LIFT:
 			val= lift_stat.get_value(level)
 		_:
 			assert(false)
@@ -30,13 +30,13 @@ func get_stat_value(stat: Stat)-> float:
 	return val
 
 
-func get_stat_value(stat: Stat)-> PonyStat:
+func get_stat(stat: StatEnum)-> PonyStat:
 	match stat:
-		Stat.SPEED:
+		StatEnum.SPEED:
 			return speed_stat
-		Stat.DRAG:
+		StatEnum.DRAG:
 			return drag_stat
-		Stat.LIFT:
+		StatEnum.LIFT:
 			return lift_stat
 		_:
 			assert(false)
