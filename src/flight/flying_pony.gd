@@ -40,7 +40,8 @@ func jump():
 		animated_sprite.play("flight")
 	var jump_angle: float= stats.get_stat_value(PonyStats.StatEnum.JUMP_ANGLE)
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
-
+	look_at(position + velocity)
+	
 
 func _physics_process(delta: float) -> void:
 	match state:
