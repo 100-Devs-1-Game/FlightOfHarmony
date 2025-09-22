@@ -14,7 +14,7 @@ var level_label:= Label.new()
 func _ready():
 	var label:= Label.new()
 	label.text= stats.get_stat(stat).display_name
-	label.custom_minimum_size.x= 100
+	label.custom_minimum_size.x= 200
 	label.label_settings= label_settings
 	hbox.add_child(label)
 	
