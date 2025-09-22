@@ -1,6 +1,9 @@
 class_name FlyingPony
 extends CharacterBody2D
 
+signal has_reset
+signal started_flying
+
 enum State { WALKING, FLYING, LANDING }
 
 @export var walk_distance: float= 100.0
@@ -12,9 +15,6 @@ enum State { WALKING, FLYING, LANDING }
 
 @export var stats: PonyStats
 
-#@onready var lift_arrow: Node2D = $"Lift Arrow"
-#@onready var drag_arrow: Node2D = $"Drag Arrow"
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var orig_pos: Vector2= position
 
@@ -23,21 +23,20 @@ var state: State
 
 
 func _ready() -> void:
-	reset()
+	reset.call_deferred()
 
 
 func reset():
 	position= Vector2(orig_pos)
 	rotation= 0.0
-	#lift_arrow.scale= Vector2.ZERO
-	#drag_arrow.scale= Vector2.ZERO
 	velocity= stats.get_stat_value(PonyStats.StatEnum.SPEED) * Vector2.RIGHT
 	state= State.WALKING
 	
 	
 func jump():
 	state= State.FLYING
-	animated_sprite.play("flight")
+	if animated_sprite:
+		animated_sprite.play("flight")
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 
 
@@ -63,7 +62,8 @@ func fly_logic(delta: float):
 	if move_and_collide(velocity * delta):
 		state= State.LANDING
 		rotation= 0
-		animated_sprite.play("default")
+		if animated_sprite:
+			animated_sprite.play("default")
 		return
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
