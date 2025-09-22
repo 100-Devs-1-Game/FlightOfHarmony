@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cq4wvbs17ypga"]
 
 [ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
-[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="2_is3fb"]
+[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://flight/follow_camera.gd" id="2_is3fb"]
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="3_3t3je"]
-[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="4_is3fb"]
-[ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/test_ui_panel.tscn" id="5_1arhw"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="4_is3fb"]
+[ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/ui/test_ui_panel.tscn" id="5_1arhw"]
 [ext_resource type="PackedScene" uid="uid://diymk3ucnx78v" path="res://test/test_arrow.tscn" id="5_3t3je"]
 [ext_resource type="Script" uid="uid://de1d1s6371l2c" path="res://test/pony_flight_debugger.gd" id="5_6cixw"]
 

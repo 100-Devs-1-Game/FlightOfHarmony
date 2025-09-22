@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="1_22ryr"]
 [ext_resource type="Texture2D" uid="uid://bupp3m2fn6ji2" path="res://assets/art/flight/pony/idle/idle_001.png" id="2_ph0dt"]
-[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="2_t5pyb"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_t5pyb"]
 [ext_resource type="Texture2D" uid="uid://coupx78vbofb5" path="res://assets/art/flight/pony/flying/flying_001.png" id="3_t5pyb"]
 [ext_resource type="Texture2D" uid="uid://d1vmvk56ngyke" path="res://assets/art/flight/pony/flying/flying_002.png" id="4_d5je4"]
 [ext_resource type="Texture2D" uid="uid://8c3wf5hf3eei" path="res://assets/art/flight/pony/flying/flying_003.png" id="5_jna2y"]

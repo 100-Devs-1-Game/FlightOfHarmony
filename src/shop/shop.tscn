@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c4nvpv8pfo84r" path="res://flight/flight_scene.tscn" id="2_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://ywada5dc3wne" path="res://assets/art/shop/shop_desk.png" id="2_q4g17"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
-[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="3_xad5q"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="3_xad5q"]
 [ext_resource type="Texture2D" uid="uid://dhfmiougsegtg" path="res://assets/art/shop/buttons/launch_button_press.png" id="4_xad5q"]
 [ext_resource type="Texture2D" uid="uid://bc43kg7pi5py1" path="res://assets/art/shop/buttons/launch_button_hover.png" id="5_ljlg5"]
 [ext_resource type="Texture2D" uid="uid://bsks4or3h7h7d" path="res://assets/art/shop/buttons/fuel_buysign_1_normal.png" id="8_bv5vx"]

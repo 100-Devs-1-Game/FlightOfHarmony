@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt1tsag71wdpj"]
 
-[ext_resource type="Script" uid="uid://d1ai2up7bljwx" path="res://test/test_ui_panel.gd" id="1_3u8j5"]
-[ext_resource type="PackedScene" uid="uid://cnipg1876pnx7" path="res://test/test_stat_panel.tscn" id="2_gsaji"]
-[ext_resource type="LabelSettings" uid="uid://cpbqm5qstlqql" path="res://test/test_label_setting.tres" id="3_gsaji"]
+[ext_resource type="Script" uid="uid://d1ai2up7bljwx" path="res://test/ui/test_ui_panel.gd" id="1_3u8j5"]
+[ext_resource type="PackedScene" uid="uid://cnipg1876pnx7" path="res://test/ui/test_stat_panel.tscn" id="2_gsaji"]
+[ext_resource type="LabelSettings" uid="uid://cpbqm5qstlqql" path="res://test/ui/test_label_setting.tres" id="3_gsaji"]
 
 [node name="Test UI Panel" type="PanelContainer"]
 offset_right = 40.0

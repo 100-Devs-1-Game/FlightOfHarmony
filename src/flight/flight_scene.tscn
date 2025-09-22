@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="PackedScene" uid="uid://dm5bowlclh7go" path="res://flight/flying_pony.tscn" id="2_717lv"]
-[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="9_gygq8"]
+[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://flight/follow_camera.gd" id="9_gygq8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x3l2y"]
 
