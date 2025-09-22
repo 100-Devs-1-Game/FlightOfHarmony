@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cq4wvbs17ypga"]
 
 [ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
-[ext_resource type="Script" uid="uid://7t8xm1jjknlr" path="res://test/flying_pony.gd" id="2_8f24g"]
+[ext_resource type="Script" uid="uid://7t8xm1jjknlr" path="res://test/flying_test_pony.gd" id="2_8f24g"]
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="2_is3fb"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="4_is3fb"]
 [ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/test_ui_panel.tscn" id="5_1arhw"]
@@ -39,8 +39,6 @@ follow = NodePath("../Pony")
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("2_8f24g")
 walk_distance = 250.0
-jump_angle = 30
-gravity = 100.0
 stats = ExtResource("4_is3fb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pony"]
