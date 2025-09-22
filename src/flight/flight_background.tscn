@@ -1,13 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://pshtri5coy5i"]
+[gd_scene load_steps=3 format=3 uid="uid://pshtri5coy5i"]
 
 [ext_resource type="Texture2D" uid="uid://couut8rcitsvm" path="res://assets/art/flight/background/ponyville.png" id="1_0umve"]
-[ext_resource type="Script" uid="uid://csdcrxicdvgtu" path="res://flight/flight_background.gd" id="1_r2xbv"]
 [ext_resource type="Texture2D" uid="uid://dwyqf48ccve27" path="res://assets/art/flight/background/hills.png" id="1_s3le6"]
 
-[node name="FlightBackground" type="CanvasLayer" node_paths=PackedStringArray("parallax_nodes")]
+[node name="FlightBackground" type="CanvasLayer"]
 layer = -1
-script = ExtResource("1_r2xbv")
-parallax_nodes = [NodePath("Ponyville"), NodePath("Hills")]
 
 [node name="Ponyville" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.1, 1.01)
