@@ -8,6 +8,7 @@ enum State { WALKING, FLYING, LANDING }
 
 @export var walk_distance: float= 100.0
 @export var rotation_speed: float= 2.0
+@export var jump_angle: float= 30.0
 @export var gravity: float= 100.0
 @export var maximum_drag: float= 0.5
 @export var perfect_lift_angle: float= 20
@@ -38,7 +39,6 @@ func jump():
 	state= State.FLYING
 	if animated_sprite:
 		animated_sprite.play("flight")
-	var jump_angle: float= stats.get_stat_value(PonyStats.StatEnum.JUMP_ANGLE)
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
 	

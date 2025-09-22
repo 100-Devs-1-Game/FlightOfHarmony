@@ -39,10 +39,6 @@ stat = 2
 layout_mode = 2
 stat = 3
 
-[node name="Test Stat Panel5" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_gsaji")]
-layout_mode = 2
-stat = 4
-
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
