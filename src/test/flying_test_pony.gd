@@ -1,12 +1,12 @@
-class_name FlyingPony
+class_name FlyingTestPony
 extends CharacterBody2D
 
 enum State { PREPPING, FLYING, LANDING }
 
 @export var walk_distance: float= 100.0
-@export var jump_angle: int= 45
+@export var jump_angle: int= 30
 @export var rotation_speed: float= 2.0
-@export var gravity: float= 10.0
+@export var gravity: float= 100.0
 @export var maximum_drag: float= 0.5
 @export var perfect_lift_angle: float= 20
 
