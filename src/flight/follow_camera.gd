@@ -1,8 +1,10 @@
 extends Camera2D
 
-@export var follow: CharacterBody2D
+@export var follow_node: CharacterBody2D
 
 
+
+## follow the pony but not for pony.position.x < 0
 func _process(delta: float) -> void:
-	position= follow.position
+	position= follow_node.position
 	position.x= max(1920 / 2, position.x)

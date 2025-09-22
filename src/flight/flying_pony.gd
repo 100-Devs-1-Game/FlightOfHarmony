@@ -1,31 +1,44 @@
 class_name FlyingPony
 extends CharacterBody2D
+## Handles the ponys flight physics
+
 
 signal has_reset
 signal started_flying
 
 enum State { WALKING, FLYING, LANDING }
 
+## How far to walk before jumping
 @export var walk_distance: float= 100.0
+## How fast to rotate when left/right are pressed
 @export var rotation_speed: float= 2.0
+## The initial take-off angle
 @export var jump_angle: float= 30.0
 @export var gravity: float= 100.0
+## The drag ( air resistance ) when the pony is at a right angle to its traveling
+## direction or inverted
 @export var maximum_drag: float= 0.5
+## The perfect angle of attack ( counter-clockwise ) compared to the traveling
+## direction to achieve maximum lift
 @export var perfect_lift_angle: float= 20
-@export var jump_bonus_multiplier: float= 5.0
 
+## Reference to the stats file
 @export var stats: PonyStats
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var orig_pos: Vector2= position
 
-var state: State
+var state: State= State.WALKING
+## lift effects only get enabled once the ponys jump arc has reached it's maximum
 var enable_lift: bool= false
+## how many frames the gravity stays disabled initially to simulate an 
+## increased jump height
 var jump_bonus_frames: int= 0
 
 
 
 func _ready() -> void:
+	# defer to let the debug graphics catch up
 	reset.call_deferred()
 
 
@@ -33,7 +46,7 @@ func reset():
 	position= Vector2(orig_pos)
 	rotation= 0.0
 	velocity= stats.get_stat_value(PonyStats.StatType.SPEED) * Vector2.RIGHT
-	jump_bonus_frames= stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT) * jump_bonus_multiplier
+	jump_bonus_frames= stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT)
 
 	state= State.WALKING
 	enable_lift= false
@@ -45,7 +58,14 @@ func jump():
 		animated_sprite.play("flight")
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
-	
+
+
+func land():
+	state= State.LANDING
+	rotation= 0
+	if animated_sprite:
+		animated_sprite.play("default")
+
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -64,6 +84,7 @@ func fly_logic(delta: float):
 		velocity.y+= gravity * delta
 	
 	var drag: float= get_drag()
+	# simple linear drag algorithm, may need to be changed into a quadratic one
 	velocity.x*= 1 - drag * delta
 
 	if enable_lift:
@@ -72,12 +93,10 @@ func fly_logic(delta: float):
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
-		state= State.LANDING
-		rotation= 0
-		if animated_sprite:
-			animated_sprite.play("default")
+		land()
 		return
 	
+	# enable lift calculations as soon as we're dropping
 	if prev_y < position.y:
 		enable_lift= true
 	
@@ -95,6 +114,9 @@ func get_lift()-> float:
 	var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
 	var dot: float= global_transform.x.dot(perfect_angle)
 	var maximum_lift: float= stats.get_stat_value(PonyStats.StatType.LIFT)
+	# use exponential dot value to increase the impact of a perfect
+	# angle of attack
 	var lift_factor: float= max(0, pow(dot, 3) * velocity.length())
+	# this function can currently return a value above the 'maximum_lift'
 	return lerp(0.0, maximum_lift, lift_factor * 0.002)
 	
