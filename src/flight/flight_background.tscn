@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://pshtri5coy5i"]
+
+[ext_resource type="Texture2D" uid="uid://couut8rcitsvm" path="res://assets/art/flight/background/ponyville.png" id="1_0umve"]
+[ext_resource type="Script" uid="uid://csdcrxicdvgtu" path="res://flight/flight_background.gd" id="1_r2xbv"]
+[ext_resource type="Texture2D" uid="uid://dwyqf48ccve27" path="res://assets/art/flight/background/hills.png" id="1_s3le6"]
+
+[node name="FlightBackground" type="CanvasLayer" node_paths=PackedStringArray("parallax_nodes")]
+layer = -1
+script = ExtResource("1_r2xbv")
+parallax_nodes = [NodePath("Ponyville"), NodePath("Hills")]
+
+[node name="Ponyville" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 1.01)
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Ponyville"]
+position = Vector2(960, 540)
+texture = ExtResource("1_0umve")
+
+[node name="Hills" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills"]
+position = Vector2(960, 540)
+texture = ExtResource("1_s3le6")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://dm5bowlclh7go"]
+
+[ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="1_22ryr"]
+[ext_resource type="Texture2D" uid="uid://bupp3m2fn6ji2" path="res://assets/art/flight/pony/idle/idle_001.png" id="2_ph0dt"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="2_t5pyb"]
+[ext_resource type="Texture2D" uid="uid://coupx78vbofb5" path="res://assets/art/flight/pony/flying/flying_001.png" id="3_t5pyb"]
+[ext_resource type="Texture2D" uid="uid://d1vmvk56ngyke" path="res://assets/art/flight/pony/flying/flying_002.png" id="4_d5je4"]
+[ext_resource type="Texture2D" uid="uid://8c3wf5hf3eei" path="res://assets/art/flight/pony/flying/flying_003.png" id="5_jna2y"]
+[ext_resource type="Texture2D" uid="uid://vftbi1j347ju" path="res://assets/art/flight/pony/flying/flying_004.png" id="6_i84oc"]
+[ext_resource type="Texture2D" uid="uid://dnio1g8s3rjiw" path="res://assets/art/flight/pony/flying/flying_005.png" id="7_7jp0r"]
+[ext_resource type="Texture2D" uid="uid://cyj3y4iw11i4c" path="res://assets/art/flight/pony/flying/flying_006.png" id="8_o8nfd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ph0dt"]
+radius = 197.8
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4wgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ph0dt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t5pyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d5je4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jna2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i84oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7jp0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o8nfd")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 8.0
+}]
+
+[node name="Pony" type="CharacterBody2D"]
+script = ExtResource("1_22ryr")
+stats = ExtResource("2_t5pyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ph0dt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q4wgd")

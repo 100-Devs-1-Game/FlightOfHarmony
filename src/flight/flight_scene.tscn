@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4nvpv8pfo84r"]
+
+[ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
+[ext_resource type="PackedScene" uid="uid://dm5bowlclh7go" path="res://flight/flying_pony.tscn" id="2_717lv"]
+[ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://test/follow_camera.gd" id="9_gygq8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x3l2y"]
+
+[node name="FlightScene" type="Node2D"]
+
+[node name="FlightBackground" parent="." instance=ExtResource("1_fdqhy")]
+
+[node name="Pony" parent="." instance=ExtResource("2_717lv")]
+position = Vector2(-168, 672)
+walk_distance = 300.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 880)
+shape = SubResource("WorldBoundaryShape2D_x3l2y")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
+script = ExtResource("9_gygq8")
+follow = NodePath("../Pony")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 1080)
+points = PackedVector2Array(-1000, 0, 50000, 0)
+width = 400.0
+default_color = Color(0.233816, 0.509888, 0.232742, 1)
