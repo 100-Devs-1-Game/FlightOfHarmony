@@ -20,8 +20,9 @@ walk_distance = 300.0
 position = Vector2(0, 880)
 shape = SubResource("WorldBoundaryShape2D_x3l2y")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
 script = ExtResource("9_gygq8")
+follow_node = NodePath("../Pony")
 
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2(0, 1080)

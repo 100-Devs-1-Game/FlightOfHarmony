@@ -33,9 +33,9 @@ script = ExtResource("1_hjpwq")
 num_clouds = 500
 cloud_step = 20
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
 script = ExtResource("2_is3fb")
-follow = NodePath("../Pony")
+follow_node = NodePath("../Pony")
 
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("3_3t3je")
