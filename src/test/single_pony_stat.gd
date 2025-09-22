@@ -1,4 +1,4 @@
-class_name PonyStat
+class_name SinglePonyStat
 extends Resource
 
 @export var display_name: String

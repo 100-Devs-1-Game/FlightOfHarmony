@@ -6,9 +6,9 @@ enum StatEnum { SPEED, DRAG, LIFT }
 # store equipped items here and add stat to value via enum 
 #  when returning
 
-@export var speed_stat: PonyStat
-@export var drag_stat: PonyStat
-@export var lift_stat: PonyStat
+@export var speed_stat: SinglePonyStat
+@export var drag_stat: SinglePonyStat
+@export var lift_stat: SinglePonyStat
 
 @export var stat_levels: Array[int]= [ 0, 0, 0 ]
 
@@ -31,7 +31,7 @@ func get_stat_value(stat: StatEnum)-> float:
 	return val
 
 
-func get_stat(stat: StatEnum)-> PonyStat:
+func get_stat(stat: StatEnum)-> SinglePonyStat:
 	match stat:
 		StatEnum.SPEED:
 			return speed_stat
