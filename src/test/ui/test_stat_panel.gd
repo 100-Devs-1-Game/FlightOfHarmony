@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @export var stats: PonyStats
-@export var stat: PonyStats.StatEnum
+@export var stat: PonyStats.StatType
 @export var slider_scene: PackedScene
 @export var label_settings: LabelSettings
 

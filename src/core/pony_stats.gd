@@ -1,7 +1,7 @@
 class_name PonyStats
 extends Resource
 
-enum StatEnum { SPEED, DRAG, LIFT, FUEL }
+enum StatType { SPEED, DRAG, LIFT, FUEL }
 
 # store equipped items here and add stat to value via enum 
 #  when returning
@@ -15,32 +15,32 @@ enum StatEnum { SPEED, DRAG, LIFT, FUEL }
 
 
 
-func get_stat_value(stat: StatEnum)-> float:
+func get_stat_value(stat: StatType)-> float:
 	var val: float= 0.0
 	var level: int= stat_levels[int(stat)]
 
 	return get_stat(stat).get_value(level)
 
 
-func get_stat(stat: StatEnum)-> SinglePonyStat:
+func get_stat(stat: StatType)-> SinglePonyStat:
 	match stat:
-		StatEnum.SPEED:
+		StatType.SPEED:
 			return speed_stat
-		StatEnum.DRAG:
+		StatType.DRAG:
 			return drag_stat
-		StatEnum.LIFT:
+		StatType.LIFT:
 			return lift_stat
-		StatEnum.FUEL:
+		StatType.FUEL:
 			return fuel_stat
 		_:
 			assert(false)
 			return null
 
 
-func get_level(stat: StatEnum)-> int:
+func get_level(stat: StatType)-> int:
 	return stat_levels[int(stat)]
 
 
 
-func set_level(stat: StatEnum, level: int):
+func set_level(stat: StatType, level: int):
 	stat_levels[int(stat)]= level

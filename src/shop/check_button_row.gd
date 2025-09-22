@@ -3,7 +3,7 @@ extends Control
 @export var title: String
 
 @export var pony_stats: PonyStats
-@export var stat: PonyStats.StatEnum
+@export var stat: PonyStats.StatType
 
 @onready var title_label: Label = %"Title Label"
 @onready var button_container: HBoxContainer = %HBoxContainer
