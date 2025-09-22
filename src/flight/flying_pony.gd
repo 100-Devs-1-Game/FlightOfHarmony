@@ -12,6 +12,7 @@ enum State { WALKING, FLYING, LANDING }
 @export var gravity: float= 100.0
 @export var maximum_drag: float= 0.5
 @export var perfect_lift_angle: float= 20
+@export var jump_bonus_multiplier: float= 5.0
 
 @export var stats: PonyStats
 
@@ -20,6 +21,7 @@ enum State { WALKING, FLYING, LANDING }
 
 var state: State
 var enable_lift: bool= false
+var jump_bonus_frames: int= 0
 
 
 
@@ -31,10 +33,12 @@ func reset():
 	position= Vector2(orig_pos)
 	rotation= 0.0
 	velocity= stats.get_stat_value(PonyStats.StatType.SPEED) * Vector2.RIGHT
+	jump_bonus_frames= stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT) * jump_bonus_multiplier
+
 	state= State.WALKING
 	enable_lift= false
-	
-	
+
+
 func jump():
 	state= State.FLYING
 	if animated_sprite:
@@ -54,7 +58,10 @@ func _physics_process(delta: float) -> void:
 
 
 func fly_logic(delta: float):
-	velocity.y+= gravity * delta
+	if jump_bonus_frames > 0:
+		jump_bonus_frames-= 1
+	else:
+		velocity.y+= gravity * delta
 	
 	var drag: float= get_drag()
 	velocity.x*= 1 - drag * delta
@@ -62,7 +69,7 @@ func fly_logic(delta: float):
 	if enable_lift:
 		var lift: float= get_lift()
 		velocity+= -global_transform.y * velocity.dot(global_transform.x) * lift * delta
-	
+
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
 		state= State.LANDING

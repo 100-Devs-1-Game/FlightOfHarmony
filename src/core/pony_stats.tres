@@ -1,41 +1,51 @@
-[gd_resource type="Resource" script_class="PonyStats" load_steps=7 format=3 uid="uid://6mawpae7apr7"]
+[gd_resource type="Resource" script_class="PonyStats" load_steps=9 format=3 uid="uid://6mawpae7apr7"]
 
-[ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://core/pony_stats.gd" id="1_4baf4"]
-[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="1_mpqfr"]
+[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="1_v8oio"]
+[ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://core/pony_stats.gd" id="2_h2wln"]
+[ext_resource type="Script" uid="uid://fx4ldsmd0ywx" path="res://core/pony_upgrade.gd" id="3_iwpxg"]
 
 [sub_resource type="Resource" id="Resource_d5xct"]
-script = ExtResource("1_mpqfr")
+script = ExtResource("1_v8oio")
 display_name = "Drag"
 base_value = 0.1
 step_value = -0.005
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [sub_resource type="Resource" id="Resource_mpqfr"]
-script = ExtResource("1_mpqfr")
+script = ExtResource("1_v8oio")
 display_name = "Fuel"
 base_value = 0.0
 step_value = 1.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
+[sub_resource type="Resource" id="Resource_ir86y"]
+script = ExtResource("1_v8oio")
+display_name = "Jump Height"
+base_value = 0.0
+step_value = 1.0
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
+
 [sub_resource type="Resource" id="Resource_4yu6o"]
-script = ExtResource("1_mpqfr")
+script = ExtResource("1_v8oio")
 display_name = "Lift"
 base_value = 0.0
 step_value = 0.05
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [sub_resource type="Resource" id="Resource_3oimd"]
-script = ExtResource("1_mpqfr")
+script = ExtResource("1_v8oio")
 display_name = "Speed"
 base_value = 200.0
 step_value = 20.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [resource]
-script = ExtResource("1_4baf4")
+script = ExtResource("2_h2wln")
 speed_stat = SubResource("Resource_3oimd")
 drag_stat = SubResource("Resource_d5xct")
 lift_stat = SubResource("Resource_4yu6o")
 fuel_stat = SubResource("Resource_mpqfr")
-stat_levels = Array[int]([15, 15, 15, 0])
+jump_height_stat = SubResource("Resource_ir86y")
+stat_levels = Array[int]([0, 0, 0, 0, 0])
+upgrade_slots = Array[ExtResource("3_iwpxg")]([null, null, null])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"

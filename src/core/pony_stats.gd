@@ -1,15 +1,17 @@
 class_name PonyStats
 extends Resource
 
-enum StatType { SPEED, DRAG, LIFT, FUEL }
+enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 
 
 @export var speed_stat: SinglePonyStat
 @export var drag_stat: SinglePonyStat
 @export var lift_stat: SinglePonyStat
 @export var fuel_stat: SinglePonyStat
+@export var jump_height_stat: SinglePonyStat
 
-@export var stat_levels: Array[int]= [ 0, 0, 0, 0 ]
+
+@export var stat_levels: Array[int]= [ 0, 0, 0, 0, 0 ]
 
 # PonyUpgrade.Category { GLIDER, PROPULSION, BODY }
 @export var upgrade_slots: Array[PonyUpgrade]= [ null, null, null ]
@@ -38,6 +40,8 @@ func get_stat(stat: StatType)-> SinglePonyStat:
 			return lift_stat
 		StatType.FUEL:
 			return fuel_stat
+		StatType.JUMP_HEIGHT:
+			return jump_height_stat
 		_:
 			assert(false)
 			return null
