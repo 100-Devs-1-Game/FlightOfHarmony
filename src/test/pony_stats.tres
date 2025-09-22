@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyStats" load_steps=6 format=3 uid="uid://6mawpae7apr7"]
+[gd_resource type="Resource" script_class="PonyStats" load_steps=8 format=3 uid="uid://6mawpae7apr7"]
 
 [ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://test/pony_stats.gd" id="1_4baf4"]
 [ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://test/single_pony_stat.gd" id="1_mpqfr"]
@@ -8,6 +8,20 @@ script = ExtResource("1_mpqfr")
 display_name = "Drag"
 base_value = 0.1
 step_value = -0.005
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
+
+[sub_resource type="Resource" id="Resource_mpqfr"]
+script = ExtResource("1_mpqfr")
+display_name = "Fuel"
+base_value = 0.0
+step_value = 1.0
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
+
+[sub_resource type="Resource" id="Resource_jgcd4"]
+script = ExtResource("1_mpqfr")
+display_name = "Launch angle"
+base_value = 45.0
+step_value = -2.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [sub_resource type="Resource" id="Resource_4yu6o"]
@@ -29,5 +43,7 @@ script = ExtResource("1_4baf4")
 speed_stat = SubResource("Resource_3oimd")
 drag_stat = SubResource("Resource_d5xct")
 lift_stat = SubResource("Resource_4yu6o")
-stat_levels = Array[int]([15, 15, 15])
+jump_angle_stat = SubResource("Resource_jgcd4")
+fuel_stat = SubResource("Resource_mpqfr")
+stat_levels = Array[int]([15, 15, 15, 0, 0])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"
