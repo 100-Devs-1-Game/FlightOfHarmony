@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 script = ExtResource("1_v8oio")
 display_name = "Jump Height"
 base_value = 0.0
-step_value = 1.0
+step_value = 5.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [sub_resource type="Resource" id="Resource_4yu6o"]
