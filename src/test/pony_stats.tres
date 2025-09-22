@@ -29,5 +29,5 @@ script = ExtResource("1_4baf4")
 speed_stat = SubResource("Resource_3oimd")
 drag_stat = SubResource("Resource_d5xct")
 lift_stat = SubResource("Resource_4yu6o")
-stat_levels = Array[int]([5, 0, 0])
+stat_levels = Array[int]([15, 15, 15])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"
