@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://byhur504waec0"]
+
+[ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
+[ext_resource type="PackedScene" uid="uid://c4nvpv8pfo84r" path="res://flight/flight_scene.tscn" id="2_2wf2a"]
+[ext_resource type="Texture2D" uid="uid://ywada5dc3wne" path="res://assets/art/shop/shop_desk.png" id="2_q4g17"]
+[ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://test/pony_stats.tres" id="3_xad5q"]
+[ext_resource type="Texture2D" uid="uid://dhfmiougsegtg" path="res://assets/art/shop/buttons/launch_button_press.png" id="4_xad5q"]
+[ext_resource type="Texture2D" uid="uid://bc43kg7pi5py1" path="res://assets/art/shop/buttons/launch_button_hover.png" id="5_ljlg5"]
+[ext_resource type="Texture2D" uid="uid://bsks4or3h7h7d" path="res://assets/art/shop/buttons/fuel_buysign_1_normal.png" id="8_bv5vx"]
+[ext_resource type="Texture2D" uid="uid://bgoxn6pp8g48u" path="res://assets/art/shop/buttons/fuel_buysign_1_pressed.png" id="9_mmyc1"]
+[ext_resource type="Texture2D" uid="uid://b4vuvxkwo2eyi" path="res://assets/art/shop/buttons/fuel_buysign_1_hover.png" id="10_orod7"]
+[ext_resource type="PackedScene" uid="uid://2nwncnt6pa1y" path="res://shop/check_button_row.tscn" id="11_mmyc1"]
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource("1_gy7ao")
+launch_scene = ExtResource("2_2wf2a")
+pony_stats = ExtResource("3_xad5q")
+
+[node name="TextureRect Shop" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q4g17")
+
+[node name="TextureButton Launch" type="TextureButton" parent="."]
+offset_left = 1368.0
+offset_top = 680.0
+offset_right = 1918.0
+offset_bottom = 1080.0
+texture_normal = ExtResource("3_2wf2a")
+texture_pressed = ExtResource("4_xad5q")
+texture_hover = ExtResource("5_ljlg5")
+
+[node name="TextureButton Fuel" type="TextureButton" parent="."]
+offset_left = 24.0
+offset_top = 856.0
+offset_right = 490.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("8_bv5vx")
+texture_pressed = ExtResource("9_mmyc1")
+texture_hover = ExtResource("10_orod7")
+
+[node name="CheckButtonRow Running Speed" parent="." instance=ExtResource("11_mmyc1")]
+offset_left = 208.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 32.0
+title = "Running Speed"
+pony_stats = ExtResource("3_xad5q")
+
+[connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
+[connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
