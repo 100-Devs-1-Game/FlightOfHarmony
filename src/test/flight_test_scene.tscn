@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://diymk3ucnx78v" path="res://test/test_arrow.tscn" id="5_3t3je"]
 [ext_resource type="Script" uid="uid://de1d1s6371l2c" path="res://test/pony_flight_debugger.gd" id="5_6cixw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_is3fb"]
-size = Vector2(80, 35)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cixw"]
+radius = 17.5
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8f24g"]
 
@@ -44,7 +44,7 @@ stats = ExtResource("4_is3fb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pony"]
 position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_is3fb")
+shape = SubResource("CircleShape2D_6cixw")
 
 [node name="Polygon2D" type="Polygon2D" parent="Pony"]
 position = Vector2(0, -8)
