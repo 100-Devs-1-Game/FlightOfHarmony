@@ -62,6 +62,7 @@ func jump():
 
 func land():
 	state= State.LANDING
+	velocity= Vector2.ZERO
 	rotation= 0
 	if animated_sprite:
 		animated_sprite.play("default")
@@ -119,4 +120,7 @@ func get_lift()-> float:
 	var lift_factor: float= max(0, pow(dot, 3) * velocity.length())
 	# this function can currently return a value above the 'maximum_lift'
 	return lerp(0.0, maximum_lift, lift_factor * 0.002)
-	
+
+
+func get_speed()-> float:
+	return velocity.length()
