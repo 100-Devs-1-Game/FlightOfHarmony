@@ -21,6 +21,10 @@ enum State { WALKING, FLYING, LANDING }
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= 20
+## Amount of fuel used while propulsion is active
+@export var fuel_used_per_second: float= 1.0
+## Acceleration force of active propulsion
+@export var propulsion_force: float= 100.0
 
 ## Reference to the stats file
 @export var stats: PonyStats
@@ -29,12 +33,16 @@ enum State { WALKING, FLYING, LANDING }
 @onready var orig_pos: Vector2= position
 
 var state: State= State.WALKING
-## lift effects only get enabled once the ponys jump arc has reached it's maximum
+## Lift effects only get enabled once the ponys jump arc has reached it's maximum
 var enable_lift: bool= false
-## how many frames the gravity stays disabled initially to simulate an 
+## How many frames the gravity stays disabled initially to simulate an 
 ## increased jump height
 var jump_bonus_frames: int= 0
-
+## Propulsion type provided by potential upgrade
+var propulsion_type: PonyUpgrade.PropulsionType
+## Current state of propulsion
+var propulsion_active: bool
+var remaining_fuel: float
 
 
 func _ready() -> void:
@@ -45,8 +53,14 @@ func _ready() -> void:
 func reset():
 	position= Vector2(orig_pos)
 	rotation= 0.0
+	
 	velocity= stats.get_stat_value(PonyStats.StatType.SPEED) * Vector2.RIGHT
 	jump_bonus_frames= int(stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT))
+	remaining_fuel= stats.get_stat_value(PonyStats.StatType.FUEL)
+	
+	var upgrade: PonyUpgrade= stats.get_upgrade(PonyUpgrade.Category.PROPULSION)
+	if upgrade:
+		propulsion_type= upgrade.provides_propulsion
 
 	state= State.WALKING
 	enable_lift= false
@@ -83,7 +97,22 @@ func fly_logic(delta: float):
 		jump_bonus_frames-= 1
 	else:
 		velocity.y+= gravity * delta
-	
+
+	if remaining_fuel > 0:
+		match propulsion_type:
+			PonyUpgrade.PropulsionType.CONTINUOUS:
+				if not propulsion_active:
+					if Input.is_action_pressed("propulsion"):
+						propulsion_active= true
+			PonyUpgrade.PropulsionType.DYNAMIC:
+				propulsion_active= Input.is_action_pressed("propulsion")
+
+		if propulsion_active:
+			remaining_fuel-= fuel_used_per_second * delta
+		
+		velocity+= global_transform.x * propulsion_force * delta
+
+
 	var drag: float= get_drag()
 	# simple linear drag algorithm, may need to be changed into a quadratic one
 	velocity.x*= 1 - drag * delta

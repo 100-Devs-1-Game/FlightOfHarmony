@@ -3,7 +3,9 @@ extends Resource
 ## Holds an upgrade ( item ) that can be bought in the shop
 
 enum Category { GLIDER, PROPULSION, BODY }
+enum PropulsionType { NONE, CONTINUOUS, DYNAMIC }
 
+ 
 @export var display_name: String
 @export var category: Category
 @export var cost: int
@@ -11,7 +13,7 @@ enum Category { GLIDER, PROPULSION, BODY }
 @export var icon: Texture2D
 ## An overlay for the flying pony animation adding this upgrades appearance
 @export var overlay_scene: PackedScene
-
+@export var provides_propulsion: PropulsionType= PropulsionType.NONE
 ## All the stats this upgrade modifies
 @export var pony_stat_modifiers: Array[PonyStatModifier]
 
