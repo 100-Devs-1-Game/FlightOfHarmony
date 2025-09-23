@@ -131,4 +131,4 @@ func get_height()-> float:
 
 
 func get_distance()-> float:
-	return max(0, position.x - orig_pos.x + walk_distance) 
+	return max(0, position.x - (orig_pos.x + walk_distance)) 
