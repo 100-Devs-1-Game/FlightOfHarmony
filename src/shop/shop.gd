@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 @export var launch_scene: PackedScene
 @export var pony_stats: PonyStats
