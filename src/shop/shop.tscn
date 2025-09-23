@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=15 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="PackedScene" uid="uid://c4nvpv8pfo84r" path="res://flight/flight_scene.tscn" id="2_2wf2a"]
@@ -11,18 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://bgoxn6pp8g48u" path="res://assets/art/shop/buttons/fuel_buysign_1_pressed.png" id="9_mmyc1"]
 [ext_resource type="Texture2D" uid="uid://b4vuvxkwo2eyi" path="res://assets/art/shop/buttons/fuel_buysign_1_hover.png" id="10_orod7"]
 [ext_resource type="PackedScene" uid="uid://2nwncnt6pa1y" path="res://shop/check_button_row.tscn" id="11_mmyc1"]
+[ext_resource type="Texture2D" uid="uid://ccmslr614nfwt" path="res://assets/art/shop/buttons/back_normal.png" id="11_yrv44"]
+[ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="12_pafut"]
+[ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="13_hv745"]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_gy7ao")
 launch_scene = ExtResource("2_2wf2a")
 pony_stats = ExtResource("3_xad5q")
 
 [node name="TextureRect Shop" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_q4g17")
 
 [node name="TextureButton Launch" type="TextureButton" parent="."]
@@ -42,6 +42,21 @@ offset_bottom = 1030.0
 texture_normal = ExtResource("8_bv5vx")
 texture_pressed = ExtResource("9_mmyc1")
 texture_hover = ExtResource("10_orod7")
+
+[node name="TextureButton Back" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -254.0
+offset_right = 275.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("11_yrv44")
+texture_pressed = ExtResource("12_pafut")
+texture_hover = ExtResource("13_hv745")
 
 [node name="ButtonRow Speed" parent="." instance=ExtResource("11_mmyc1")]
 offset_left = 208.0
