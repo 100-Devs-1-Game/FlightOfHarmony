@@ -124,3 +124,7 @@ func get_lift()-> float:
 
 func get_speed()-> float:
 	return velocity.length()
+
+
+func get_height()-> float:
+	return abs(position.y - orig_pos.y)
