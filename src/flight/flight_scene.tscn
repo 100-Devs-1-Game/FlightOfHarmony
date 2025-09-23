@@ -17,9 +17,9 @@
 position = Vector2(-168, 672)
 walk_distance = 300.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, 880)
 shape = SubResource("WorldBoundaryShape2D_x3l2y")
 
@@ -27,7 +27,7 @@ shape = SubResource("WorldBoundaryShape2D_x3l2y")
 script = ExtResource("9_gygq8")
 follow_node = NodePath("../Pony")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Grass" type="Line2D" parent="."]
 position = Vector2(0, 1080)
 points = PackedVector2Array(-1000, 0, 50000, 0)
 width = 400.0
