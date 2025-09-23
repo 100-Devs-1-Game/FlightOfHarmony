@@ -17,7 +17,7 @@ func on_started_flying():
 	set_physics_process(true)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var drag: float= pony.get_drag()
 	drag_arrow.look_at(position + Vector2.LEFT)
 	drag_arrow.scale= Vector2.ONE * drag * 10

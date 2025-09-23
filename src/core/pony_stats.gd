@@ -22,7 +22,6 @@ enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 ## Returns the stat value combining the base value,
 ## the level and potential upgrades influencing the stat
 func get_stat_value(stat: StatType)-> float:
-	var val: float= 0.0
 	var level: int= stat_levels[int(stat)]
 	
 	var bonus:= 0
@@ -51,13 +50,17 @@ func get_stat(stat: StatType)-> SinglePonyStat:
 			return null
 
 
-func get_level(stat: StatType)-> int:
-	return stat_levels[int(stat)]
-
-
 func set_level(stat: StatType, level: int):
 	stat_levels[int(stat)]= level
 
 
 func set_upgrade(upgrade: PonyUpgrade, category: PonyUpgrade.Category):
 	upgrade_slots[int(category)]= upgrade
+
+
+func get_level(stat: StatType)-> int:
+	return stat_levels[int(stat)]
+
+
+func get_upgrade(category: PonyUpgrade.Category)-> PonyUpgrade:
+	return upgrade_slots[int(category)]
