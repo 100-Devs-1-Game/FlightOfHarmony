@@ -14,4 +14,4 @@ func _on_button_reset_pressed() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	label_distance.text= "Distance: %d" % int(pony.position.x / 10)
+	label_distance.text= "Distance: %d" % int(pony.get_distance() / 10)
