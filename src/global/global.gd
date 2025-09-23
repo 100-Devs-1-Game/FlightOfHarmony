@@ -14,4 +14,4 @@ func _ready() -> void:
 
 func load_upgrades(dir: String, arr: Array[PonyUpgrade]):
 	for file in ResourceLoader.list_directory(dir):
-		glider_upgrades.append(load(dir + "/" + file))
+		arr.append(load(dir + "/" + file))
