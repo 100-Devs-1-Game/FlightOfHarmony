@@ -10,7 +10,7 @@ enum Category { GLIDER, PROPULSION, BODY }
 ## Icon for the shop
 @export var icon: Texture2D
 ## An overlay for the flying pony animation adding this upgrades appearance
-@export var sprite: Texture
+@export var overlay_scene: PackedScene
 
 ## All the stats this upgrade modifies
 @export var pony_stat_modifiers: Array[PonyStatModifier]
