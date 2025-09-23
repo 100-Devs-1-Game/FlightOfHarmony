@@ -128,3 +128,7 @@ func get_speed()-> float:
 
 func get_height()-> float:
 	return abs(position.y - orig_pos.y)
+
+
+func get_distance()-> float:
+	return max(0, position.x - orig_pos.x + walk_distance) 
