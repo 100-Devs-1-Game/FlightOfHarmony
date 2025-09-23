@@ -43,7 +43,7 @@ texture_normal = ExtResource("8_bv5vx")
 texture_pressed = ExtResource("9_mmyc1")
 texture_hover = ExtResource("10_orod7")
 
-[node name="CheckButtonRow Running Speed" parent="." instance=ExtResource("11_mmyc1")]
+[node name="ButtonRow Speed" parent="." instance=ExtResource("11_mmyc1")]
 offset_left = 208.0
 offset_top = 32.0
 offset_right = 208.0
