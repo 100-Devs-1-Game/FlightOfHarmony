@@ -36,5 +36,5 @@ func update_level_label():
 	
 
 func on_slider_changed(value: float):
-	stats.set_level(stat, value)
+	stats.set_level(stat, int(value))
 	update_level_label()

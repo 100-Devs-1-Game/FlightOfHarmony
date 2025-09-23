@@ -46,7 +46,7 @@ func reset():
 	position= Vector2(orig_pos)
 	rotation= 0.0
 	velocity= stats.get_stat_value(PonyStats.StatType.SPEED) * Vector2.RIGHT
-	jump_bonus_frames= stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT)
+	jump_bonus_frames= int(stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT))
 
 	state= State.WALKING
 	enable_lift= false

@@ -22,7 +22,6 @@ enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 ## Returns the stat value combining the base value,
 ## the level and potential upgrades influencing the stat
 func get_stat_value(stat: StatType)-> float:
-	var val: float= 0.0
 	var level: int= stat_levels[int(stat)]
 	
 	var bonus:= 0
