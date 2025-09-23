@@ -15,6 +15,10 @@ run/main_scene="uid://c4nvpv8pfo84r"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global/global.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -22,6 +26,12 @@ window/size/viewport_height=1080
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/mjpeg_quality=0.65
+movie_writer/movie_file="C:/_CODING/100devs/movie.avi"
+movie_writer/fps=30
 
 [input]
 
