@@ -1,51 +1,20 @@
-[gd_resource type="Resource" script_class="PonyStats" load_steps=9 format=3 uid="uid://6mawpae7apr7"]
+[gd_resource type="Resource" script_class="PonyStats" load_steps=8 format=3 uid="uid://6mawpae7apr7"]
 
-[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="1_v8oio"]
+[ext_resource type="Resource" uid="uid://v40ltgeqgcin" path="res://core/single_stats/pony_drag_stat.tres" id="1_pkvhy"]
 [ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://core/pony_stats.gd" id="2_h2wln"]
+[ext_resource type="Resource" uid="uid://b80qi2ps25utm" path="res://core/single_stats/pony_fuel_stat.tres" id="2_rn1c5"]
 [ext_resource type="Script" uid="uid://fx4ldsmd0ywx" path="res://core/pony_upgrade.gd" id="3_iwpxg"]
-
-[sub_resource type="Resource" id="Resource_d5xct"]
-script = ExtResource("1_v8oio")
-display_name = "Drag"
-base_value = 0.1
-step_value = -0.005
-metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
-
-[sub_resource type="Resource" id="Resource_mpqfr"]
-script = ExtResource("1_v8oio")
-display_name = "Fuel"
-base_value = 0.0
-step_value = 1.0
-metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
-
-[sub_resource type="Resource" id="Resource_ir86y"]
-script = ExtResource("1_v8oio")
-display_name = "Jump Height"
-base_value = 0.0
-step_value = 5.0
-metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
-
-[sub_resource type="Resource" id="Resource_4yu6o"]
-script = ExtResource("1_v8oio")
-display_name = "Lift"
-base_value = 0.0
-step_value = 0.05
-metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
-
-[sub_resource type="Resource" id="Resource_3oimd"]
-script = ExtResource("1_v8oio")
-display_name = "Speed"
-base_value = 200.0
-step_value = 20.0
-metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
+[ext_resource type="Resource" uid="uid://bel724thbyf2l" path="res://core/single_stats/pony_jump_height_stat.tres" id="3_wen2n"]
+[ext_resource type="Resource" uid="uid://dswlr48yloc8w" path="res://core/single_stats/pony_lift_stat.tres" id="4_n22gj"]
+[ext_resource type="Resource" uid="uid://c1qitpu5vatxf" path="res://core/single_stats/pony_speed_stat.tres" id="6_a78ga"]
 
 [resource]
 script = ExtResource("2_h2wln")
-speed_stat = SubResource("Resource_3oimd")
-drag_stat = SubResource("Resource_d5xct")
-lift_stat = SubResource("Resource_4yu6o")
-fuel_stat = SubResource("Resource_mpqfr")
-jump_height_stat = SubResource("Resource_ir86y")
+speed_stat = ExtResource("6_a78ga")
+drag_stat = ExtResource("1_pkvhy")
+lift_stat = ExtResource("4_n22gj")
+fuel_stat = ExtResource("2_rn1c5")
+jump_height_stat = ExtResource("3_wen2n")
 stat_levels = Array[int]([0, 0, 0, 0, 0])
 upgrade_slots = Array[ExtResource("3_iwpxg")]([null, null, null])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"

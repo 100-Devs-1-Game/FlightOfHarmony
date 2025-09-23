@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SinglePonyStat" load_steps=2 format=3 uid="uid://v40ltgeqgcin"]
+
+[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="1_pcq82"]
+
+[resource]
+script = ExtResource("1_pcq82")
+display_name = "Drag"
+base_value = 0.1
+step_value = -0.005
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

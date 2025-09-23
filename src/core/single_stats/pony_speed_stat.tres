@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuyablePonyStat" load_steps=2 format=3 uid="uid://c1qitpu5vatxf"]
+
+[ext_resource type="Script" uid="uid://dh2aqxek7frts" path="res://core/buyable_pony_stat.gd" id="1_vvvql"]
+
+[resource]
+script = ExtResource("1_vvvql")
+cost = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+display_name = "Speed"
+base_value = 200.0
+step_value = 20.0
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

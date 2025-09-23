@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuyablePonyStat" load_steps=2 format=3 uid="uid://bel724thbyf2l"]
+
+[ext_resource type="Script" uid="uid://dh2aqxek7frts" path="res://core/buyable_pony_stat.gd" id="1_pvk0p"]
+
+[resource]
+script = ExtResource("1_pvk0p")
+cost = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+display_name = "Jump Height"
+base_value = 0.0
+step_value = 5.0
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
