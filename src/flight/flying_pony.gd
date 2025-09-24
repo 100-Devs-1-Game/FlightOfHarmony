@@ -156,6 +156,10 @@ func add_upgrade_overlays():
 			# Add visual of the upgrade to the flying pony
 			if upgrade.overlay_scene:
 				var overlay: Node2D= upgrade.overlay_scene.instantiate()
+				# If the scene contains a custom script initialize it
+				# with the reference to our flying pony
+				if overlay is UpgradeOverlayScene:
+					overlay.init(self)
 				add_child(overlay)
 
 
