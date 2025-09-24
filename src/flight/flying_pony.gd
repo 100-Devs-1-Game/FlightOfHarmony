@@ -64,6 +64,8 @@ func reset():
 		propulsion_type= upgrade.provides_propulsion
 
 	state= State.WALKING
+	animated_sprite.play("run")
+	
 	enable_lift= false
 
 
