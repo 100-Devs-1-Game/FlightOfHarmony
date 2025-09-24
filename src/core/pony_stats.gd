@@ -11,29 +11,10 @@ enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 @export var fuel_stat: SinglePonyStat
 @export var jump_height_stat: SinglePonyStat
 
-## The initial level per stat, according to StatType order
-@export var stat_levels: Array[int]= [ 0, 0, 0, 0, 0 ]
-
 ## Holds upgrades according to PonyUpgrade.Category order
-@export var upgrade_slots: Array[PonyUpgrade]= [ null, null, null ]
+@export var upgrade_slots: Array[PonyUpgrade] = [null, null, null]
 
-
-
-## Returns the stat value combining the base value,
-## the level and potential upgrades influencing the stat
-func get_stat_value(stat: StatType)-> float:
-	var level: int= stat_levels[int(stat)]
-	
-	var bonus:= 0
-	for upgrade in upgrade_slots:
-		if not upgrade:
-			continue
-		bonus+= upgrade.get_stat_modifier(stat)
-
-	return get_stat(stat).get_value(level) + bonus
-
-
-func get_stat(stat: StatType)-> SinglePonyStat:
+func get_stat(stat: StatType) -> SinglePonyStat:
 	match stat:
 		StatType.SPEED:
 			return speed_stat
@@ -50,17 +31,47 @@ func get_stat(stat: StatType)-> SinglePonyStat:
 			return null
 
 
-func set_level(stat: StatType, level: int):
-	stat_levels[int(stat)]= level
+func get_level(stat: StatType) -> int:
+	var s = get_stat(stat)
+	if s == null: 
+		return 0
+	return SettingsManager.get_level(s.id, 0)
 
 
-func set_upgrade(upgrade: PonyUpgrade, category: PonyUpgrade.Category):
-	upgrade_slots[int(category)]= upgrade
+func set_level(stat: StatType, level: int) -> void:
+	var s = get_stat(stat)
+	if s:
+		SettingsManager.set_level(s.id, level)
+		SettingsManager.save_game()
 
 
-func get_level(stat: StatType)-> int:
-	return stat_levels[int(stat)]
+func get_stat_value(stat: StatType) -> float:
+	var s = get_stat(stat)
+	if s == null:
+		return 0.0
+	var level = get_level(stat)
+	var bonus = 0.0
+	for upgrade in upgrade_slots:
+		if upgrade:
+			bonus += upgrade.get_stat_modifier(stat)
+	return s.get_value(level) + bonus
 
 
-func get_upgrade(category: PonyUpgrade.Category)-> PonyUpgrade:
+func get_upgrade(category: PonyUpgrade.Category) -> PonyUpgrade:
 	return upgrade_slots[int(category)]
+
+
+func set_upgrade(upgrade: PonyUpgrade, category: PonyUpgrade.Category) -> void:
+	upgrade_slots[int(category)] = upgrade
+
+
+func reset_all_upgrades() -> void:
+	for stat in StatType.values():
+		var s := get_stat(stat)
+		if s:
+			SettingsManager.set_level(s.id, 0)
+
+	for i in range(upgrade_slots.size()):
+		upgrade_slots[i] = null
+
+	SettingsManager.save_game()

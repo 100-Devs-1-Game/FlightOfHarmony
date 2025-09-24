@@ -21,6 +21,9 @@ var start_player_y: float = 0.0
 var zero_angle_deg: float = 0.0
 
 func _ready() -> void:
+
+	EventChannel.run_ended.connect(_run_ended)
+
 	if height:
 		default_height_y = height.position.y
 	if is_instance_valid(player_ref):
@@ -39,7 +42,7 @@ func _update_height_meter() -> void:
 	#takes the ground height and adjusts heitgh bar based on the difference in players y pos vv
 	var altitude_units = start_player_y - player_ref.global_position.y
 	var pixel_offset = altitude_units * raise_speed_pixels_per_unit
-	height.position.y = default_height_y - pixel_offset
+	height.position.y = default_height_y - -pixel_offset
 
 
 func _update_speedometer(delta: float) -> void:
@@ -53,3 +56,6 @@ func _update_speedometer(delta: float) -> void:
 	var target_angle = zero_angle_deg + sweep
 
 	arrow.rotation_degrees = move_toward(arrow.rotation_degrees, target_angle, speed_smooth_speed * delta)
+
+func _run_ended() -> void:
+	$UIAnim.play("display_results")

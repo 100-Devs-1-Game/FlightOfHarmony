@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_pvk0p")
-cost = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+cost = Array[int]([15, 25, 29, 30, 80, 120, 160, 200, 350, 500])
 display_name = "Jump Height"
 base_value = 0.0
 step_value = 5.0
+id = &"jump"
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

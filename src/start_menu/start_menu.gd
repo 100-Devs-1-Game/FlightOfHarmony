@@ -3,7 +3,6 @@ extends Node2D
 @export var ui_buttons: Array[BaseButton] = []
 
 func _ready() -> void:
-	
 	#if we add a quit button to win/lin exports this will hide it in the future
 	#we just need to make sure its spelt "Quit"
 	if OS.has_feature("web"):
@@ -19,6 +18,6 @@ func _ready() -> void:
 func _on_button_pressed(action: StringName) -> void:
 	match action: #bases them off their names, we can change it later though!
 		"Start":
-			LevelManager._load_level(LevelManager.SHOP)
+			LevelManager.goto_shop()
 		"Settings":
 			pass

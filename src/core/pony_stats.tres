@@ -15,6 +15,5 @@ drag_stat = ExtResource("1_pkvhy")
 lift_stat = ExtResource("4_n22gj")
 fuel_stat = ExtResource("2_rn1c5")
 jump_height_stat = ExtResource("3_wen2n")
-stat_levels = Array[int]([0, 0, 0, 0, 0])
 upgrade_slots = Array[ExtResource("3_iwpxg")]([null, null, null])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"

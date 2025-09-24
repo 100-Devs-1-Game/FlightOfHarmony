@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SettingsManager="*res://global/settings_manager.gd"
 Global="*res://global/global.gd"
 LevelManager="*res://global/level_manager.gd"
+EventChannel="*res://global/event_channel.gd"
 
 [display]
 

@@ -7,4 +7,5 @@ script = ExtResource("1_tarfj")
 display_name = "Fuel"
 base_value = 0.0
 step_value = 1.0
+id = &"fuel"
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

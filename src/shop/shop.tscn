@@ -14,9 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="12_pafut"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="13_hv745"]
 
-[node name="Shop" type="CanvasLayer"]
+[node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_gy7ao")
 pony_stats = ExtResource("3_xad5q")
+money_label = NodePath("MoneyLabel")
 
 [node name="TextureRect Shop" type="TextureRect" parent="."]
 offset_right = 1920.0
@@ -57,12 +58,29 @@ texture_pressed = ExtResource("12_pafut")
 texture_hover = ExtResource("13_hv745")
 
 [node name="ButtonRow Speed" parent="." instance=ExtResource("11_mmyc1")]
-offset_left = 208.0
-offset_top = 32.0
-offset_right = 208.0
-offset_bottom = 32.0
+offset_left = 289.0
+offset_top = 4.0
+offset_right = 289.0
+offset_bottom = 4.0
 title = "Running Speed"
 pony_stats = ExtResource("3_xad5q")
+
+[node name="ButtonRow Height" parent="." instance=ExtResource("11_mmyc1")]
+offset_left = 289.0
+offset_top = 180.0
+offset_right = 289.0
+offset_bottom = 180.0
+title = "Jump Height"
+pony_stats = ExtResource("3_xad5q")
+stat = 4
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 25.0
+offset_right = 258.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 45
+text = "Money: $0"
 
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
