@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 signal has_reset
 signal started_flying
+signal landed
 
 enum State { WALKING, FLYING, LANDING }
 
@@ -80,6 +81,7 @@ func land():
 	rotation= 0
 	if animated_sprite:
 		animated_sprite.play("default")
+	landed.emit()
 
 
 func _physics_process(delta: float) -> void:

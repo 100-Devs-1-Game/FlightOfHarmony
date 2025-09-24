@@ -16,15 +16,6 @@ func _ready() -> void:
 	default_y_pos = player.global_position.y
 
 func _process(_delta: float) -> void:
-	if !_waiting and player.velocity.length() <= 0.05:
-		_waiting = true
-		await get_tree().create_timer(pause_time).timeout
-		if player.velocity.length() <= 0.05:
-			var distance_m = int(roundi(abs(travel_distance_px) / pixels_per_meter))
-			var height_m = int(roundi(max_height_px / pixels_per_meter))
-			var money_earned = int(roundi((distance_m + height_m) / 2.0))
-			run_ended(money_earned)
-
 	travel_distance_px = player.global_position.x - default_x_pos
 	var meters = int(roundi(abs(travel_distance_px) / pixels_per_meter))
 
@@ -35,6 +26,14 @@ func _process(_delta: float) -> void:
 	if meters != _last_displayed_meters:
 		_last_displayed_meters = meters
 		$UI/Distancelbl.text = "Distance - " + str(meters) + "m"
+
+
+func on_landed():
+	var distance_m = int(roundi(abs(travel_distance_px) / pixels_per_meter))
+	var height_m = int(roundi(max_height_px / pixels_per_meter))
+	var money_earned = int(roundi((distance_m + height_m) / 2.0))
+	run_ended(money_earned)
+
 
 func run_ended(money_earned: int) -> void:
 	Global.add_currency(money_earned)
