@@ -24,6 +24,6 @@ func _on_level_up(level: int):
 	for i in level:
 		(button_container.get_child(i) as TextureButton).disabled= true
 
-	var cost: int= (pony_stats.get_stat(stat) as BuyablePonyStat).cost[level]
+	var cost: int= (pony_stats.get_stat(stat) as BuyablePonyStat).cost[level - 1]
 	# TODO 
 	# money-= cost

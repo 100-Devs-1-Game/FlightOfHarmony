@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=14 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
-[ext_resource type="PackedScene" uid="uid://c4nvpv8pfo84r" path="res://flight/flight_scene.tscn" id="2_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://ywada5dc3wne" path="res://assets/art/shop/shop_desk.png" id="2_q4g17"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="3_xad5q"]
@@ -17,7 +16,6 @@
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_gy7ao")
-launch_scene = ExtResource("2_2wf2a")
 pony_stats = ExtResource("3_xad5q")
 
 [node name="TextureRect Shop" type="TextureRect" parent="."]
@@ -68,3 +66,4 @@ pony_stats = ExtResource("3_xad5q")
 
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
+[connection signal="pressed" from="TextureButton Back" to="." method="_on_texture_button_back_pressed"]
