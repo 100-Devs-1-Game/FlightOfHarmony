@@ -44,6 +44,9 @@ var propulsion_type: PonyUpgrade.PropulsionType
 ## Current state of propulsion
 var propulsion_active: bool
 var remaining_fuel: float
+## parent node for all the upgrade overlays
+var upgrade_overlays: Node2D
+
 
 
 func _ready() -> void:
@@ -71,6 +74,7 @@ func reset():
 
 func jump():
 	state= State.FLYING
+	add_upgrade_overlays()
 	if animated_sprite:
 		animated_sprite.play("flight")
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
@@ -79,6 +83,7 @@ func jump():
 
 func land():
 	state= State.LANDING
+	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
 	rotation= 0
 	if animated_sprite:
@@ -136,6 +141,22 @@ func fly_logic(delta: float):
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
 	rotate(rot_inp * rotation_speed * delta)
+
+
+func add_upgrade_overlays():
+	upgrade_overlays= Node2D.new()
+	add_child(upgrade_overlays)
+	
+	for upgrade in stats.upgrade_slots:
+		if upgrade:
+			# Add visual of the upgrade to the flying pony
+			if upgrade.overlay_scene:
+				var overlay: Node2D= upgrade.overlay_scene.instantiate()
+				add_child(overlay)
+
+
+func remove_upgrade_overlays():
+	upgrade_overlays.queue_free()
 
 
 func get_drag()-> float:
