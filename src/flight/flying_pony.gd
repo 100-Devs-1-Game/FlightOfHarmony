@@ -6,6 +6,7 @@ extends CharacterBody2D
 signal has_reset
 signal started_flying
 signal landed
+signal fuel_ran_out
 
 enum State { WALKING, FLYING, LANDING }
 
@@ -118,7 +119,9 @@ func fly_logic(delta: float):
 
 		if propulsion_active:
 			remaining_fuel-= fuel_used_per_second * delta
-		
+			if remaining_fuel <= 0:
+				fuel_ran_out.emit()
+			
 		velocity+= global_transform.x * propulsion_force * delta
 
 
@@ -143,6 +146,7 @@ func fly_logic(delta: float):
 	rotate(rot_inp * rotation_speed * delta)
 
 
+# Adds all equipped upgrade overlays 
 func add_upgrade_overlays():
 	upgrade_overlays= Node2D.new()
 	add_child(upgrade_overlays)
@@ -186,3 +190,10 @@ func get_height()-> float:
 
 func get_distance()-> float:
 	return max(0, position.x - (orig_pos.x + walk_distance)) 
+
+
+func get_fuel_ratio()-> float:
+	var max_fuel: float= stats.get_stat_value(PonyStats.StatType.FUEL)
+	if is_zero_approx(max_fuel):
+		return 0
+	return remaining_fuel / max_fuel
