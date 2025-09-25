@@ -41,7 +41,7 @@ var enable_lift: bool= false
 ## increased jump height
 var jump_bonus_frames: int= 0
 ## Propulsion type provided by potential upgrade
-var propulsion_type: PonyUpgrade.PropulsionType
+var propulsion_type: PonyUpgradePropulsion.Type
 ## Current state of propulsion
 var propulsion_active: bool
 var remaining_fuel: float
@@ -110,11 +110,11 @@ func fly_logic(delta: float):
 
 	if remaining_fuel > 0:
 		match propulsion_type:
-			PonyUpgrade.PropulsionType.CONTINUOUS:
+			PonyUpgradePropulsion.Type.CONTINUOUS:
 				if not propulsion_active:
 					if Input.is_action_pressed("propulsion"):
 						propulsion_active= true
-			PonyUpgrade.PropulsionType.DYNAMIC:
+			PonyUpgradePropulsion.Type.DYNAMIC:
 				propulsion_active= Input.is_action_pressed("propulsion")
 
 		if propulsion_active:

@@ -9,6 +9,14 @@ radius = 197.8
 
 [node name="Pony" type="CharacterBody2D"]
 script = ExtResource("1_22ryr")
+walk_distance = null
+rotation_speed = null
+jump_angle = null
+gravity = null
+maximum_drag = null
+perfect_lift_angle = null
+fuel_used_per_second = null
+propulsion_force = null
 stats = ExtResource("2_t5pyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

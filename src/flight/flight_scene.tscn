@@ -180,6 +180,13 @@ player = NodePath("Pony")
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 682.2)
 walk_distance = 489.765
+rotation_speed = null
+jump_angle = null
+gravity = null
+maximum_drag = null
+perfect_lift_angle = null
+fuel_used_per_second = null
+propulsion_force = null
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
