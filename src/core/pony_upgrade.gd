@@ -3,17 +3,14 @@ extends Resource
 ## Holds an upgrade ( item ) that can be bought in the shop
 
 enum Category { GLIDER, PROPULSION, BODY }
-enum PropulsionType { NONE, CONTINUOUS, DYNAMIC }
 
  
 @export var display_name: String
-@export var category: Category
 @export var cost: int
 ## Icon for the shop
 @export var icon: Texture2D
 ## An overlay for the flying pony animation adding this upgrades appearance
 @export var overlay_scene: PackedScene
-@export var provides_propulsion: PropulsionType= PropulsionType.NONE
 ## All the stats this upgrade modifies
 @export var pony_stat_modifiers: Array[PonyStatModifier]
 
@@ -26,3 +23,10 @@ func get_stat_modifier(stat: PonyStats.StatType)-> int:
 		if stat == modifier.stat:
 			result+= modifier.value
 	return result
+
+
+## Gets overridden in PonyUpgradeGlider/Propulsion/Body
+## So far it isn't used, may turn out to be unnecessary
+func get_category()-> Category:
+	assert(false, "Abstract function")
+	return Category.GLIDER

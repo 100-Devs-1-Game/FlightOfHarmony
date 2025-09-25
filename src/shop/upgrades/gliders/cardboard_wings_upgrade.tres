@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="PonyUpgrade" load_steps=4 format=3 uid="uid://dtf4prfgntfyg"]
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=4 format=3 uid="uid://dtf4prfgntfyg"]
 
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_nro8m"]
-[ext_resource type="Script" uid="uid://fx4ldsmd0ywx" path="res://core/pony_upgrade.gd" id="2_gpg3f"]
+[ext_resource type="Script" uid="uid://cekl3umqrww32" path="res://core/pony_upgrade_glider.gd" id="2_0gkkx"]
 
 [sub_resource type="Resource" id="Resource_nro8m"]
 script = ExtResource("1_nro8m")
@@ -10,9 +10,10 @@ value = 1
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
-script = ExtResource("2_gpg3f")
+script = ExtResource("2_0gkkx")
 display_name = "Cardboard Wings"
 category = 0
 cost = 15
+provides_propulsion = 0
 pony_stat_modifiers = Array[ExtResource("1_nro8m")]([SubResource("Resource_nro8m")])
 metadata/_custom_type_script = "uid://fx4ldsmd0ywx"
