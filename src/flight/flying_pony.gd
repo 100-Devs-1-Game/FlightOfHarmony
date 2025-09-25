@@ -6,6 +6,7 @@ extends CharacterBody2D
 signal has_reset
 signal started_flying
 signal landed
+signal fuel_ran_out
 
 enum State { WALKING, FLYING, LANDING }
 
@@ -44,6 +45,9 @@ var propulsion_type: PonyUpgrade.PropulsionType
 ## Current state of propulsion
 var propulsion_active: bool
 var remaining_fuel: float
+## parent node for all the upgrade overlays
+var upgrade_overlays: Node2D
+
 
 
 func _ready() -> void:
@@ -71,6 +75,7 @@ func reset():
 
 func jump():
 	state= State.FLYING
+	add_upgrade_overlays()
 	if animated_sprite:
 		animated_sprite.play("flight")
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
@@ -79,6 +84,7 @@ func jump():
 
 func land():
 	state= State.LANDING
+	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
 	rotation= 0
 	if animated_sprite:
@@ -113,7 +119,9 @@ func fly_logic(delta: float):
 
 		if propulsion_active:
 			remaining_fuel-= fuel_used_per_second * delta
-		
+			if remaining_fuel <= 0:
+				fuel_ran_out.emit()
+			
 		velocity+= global_transform.x * propulsion_force * delta
 
 
@@ -136,6 +144,27 @@ func fly_logic(delta: float):
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
 	rotate(rot_inp * rotation_speed * delta)
+
+
+# Adds all equipped upgrade overlays 
+func add_upgrade_overlays():
+	upgrade_overlays= Node2D.new()
+	add_child(upgrade_overlays)
+	
+	for upgrade in stats.upgrade_slots:
+		if upgrade:
+			# Add visual of the upgrade to the flying pony
+			if upgrade.overlay_scene:
+				var overlay: Node2D= upgrade.overlay_scene.instantiate()
+				# If the scene contains a custom script initialize it
+				# with the reference to our flying pony
+				if overlay is UpgradeOverlayScene:
+					overlay.init(self)
+				add_child(overlay)
+
+
+func remove_upgrade_overlays():
+	upgrade_overlays.queue_free()
 
 
 func get_drag()-> float:
@@ -165,3 +194,10 @@ func get_height()-> float:
 
 func get_distance()-> float:
 	return max(0, position.x - (orig_pos.x + walk_distance)) 
+
+
+func get_fuel_ratio()-> float:
+	var max_fuel: float= stats.get_stat_value(PonyStats.StatType.FUEL)
+	if is_zero_approx(max_fuel):
+		return 0
+	return remaining_fuel / max_fuel

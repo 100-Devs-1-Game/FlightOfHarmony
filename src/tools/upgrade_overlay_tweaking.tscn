@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://yges7t0ba82s"]
+
+[ext_resource type="Script" uid="uid://dt6pwuce824lm" path="res://tools/upgrade_overlay_tweaking.gd" id="1_pw5t7"]
+[ext_resource type="SpriteFrames" uid="uid://c5blktc3tas1p" path="res://flight/flying_pony_animations.tres" id="2_qrao5"]
+
+[node name="UpgradeOverlayTweaking" type="Node2D"]
+script = ExtResource("1_pw5t7")
+
+[node name="AnimatedSprite2D Flying Pony" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_qrao5")
+animation = &"flight"

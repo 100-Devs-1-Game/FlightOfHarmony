@@ -20,6 +20,9 @@ func _ready() -> void:
 
 func load_upgrades(dir: String, arr: Array[PonyUpgrade]):
 	for file in ResourceLoader.list_directory(dir):
+		# exclude the scenes folder
+		if file == "scenes":
+			continue
 		arr.append(load(dir + "/" + file))
 
 ## Adds currency to current amount
