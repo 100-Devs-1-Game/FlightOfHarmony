@@ -4,11 +4,7 @@ extends Resource
 
 enum Category { GLIDER, PROPULSION, BODY }
 
- 
-@export var display_name: String
-@export var cost: int
-## Icon for the shop
-@export var icon: Texture2D
+
 ## An overlay for the flying pony animation adding this upgrades appearance
 @export var overlay_scene: PackedScene
 ## All the stats this upgrade modifies
