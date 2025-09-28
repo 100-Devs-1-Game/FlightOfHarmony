@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=19 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
-[ext_resource type="Texture2D" uid="uid://ywada5dc3wne" path="res://assets/art/shop/shop_desk.png" id="2_q4g17"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="3_xad5q"]
+[ext_resource type="PackedScene" uid="uid://dewexmnyk7otn" path="res://shop/upgrade_book/upgrade_book.tscn" id="3_yrv44"]
 [ext_resource type="Texture2D" uid="uid://dhfmiougsegtg" path="res://assets/art/shop/buttons/launch_button_press.png" id="4_xad5q"]
+[ext_resource type="Texture2D" uid="uid://kdtvrbcf6th" path="res://assets/art/shop/Shop_Desk_003.png" id="4_yrv44"]
 [ext_resource type="Texture2D" uid="uid://bc43kg7pi5py1" path="res://assets/art/shop/buttons/launch_button_hover.png" id="5_ljlg5"]
 [ext_resource type="Texture2D" uid="uid://bsks4or3h7h7d" path="res://assets/art/shop/buttons/fuel_buysign_1_normal.png" id="8_bv5vx"]
 [ext_resource type="Texture2D" uid="uid://bgoxn6pp8g48u" path="res://assets/art/shop/buttons/fuel_buysign_1_pressed.png" id="9_mmyc1"]
@@ -14,24 +15,41 @@
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="12_pafut"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="13_hv745"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrv44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd0xb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pafut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrv44"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+
 [node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_gy7ao")
 pony_stats = ExtResource("3_xad5q")
 money_label = NodePath("MoneyLabel")
+upgrade_book = ExtResource("3_yrv44")
 
-[node name="TextureRect Shop" type="TextureRect" parent="."]
+[node name="TextureRect ShopBG" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_q4g17")
+texture = ExtResource("4_yrv44")
 
 [node name="TextureButton Launch" type="TextureButton" parent="."]
-offset_left = 1368.0
-offset_top = 680.0
+offset_left = 1529.0
+offset_top = 797.0
 offset_right = 1918.0
 offset_bottom = 1080.0
 texture_normal = ExtResource("3_2wf2a")
 texture_pressed = ExtResource("4_xad5q")
 texture_hover = ExtResource("5_ljlg5")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="TextureButton Fuel" type="TextureButton" parent="."]
 offset_left = 24.0
@@ -48,40 +66,84 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -275.0
-offset_top = -254.0
-offset_right = 275.0
+offset_left = 679.0
+offset_top = -612.0
+offset_right = 952.0
+offset_bottom = -486.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("11_yrv44")
 texture_pressed = ExtResource("12_pafut")
 texture_hover = ExtResource("13_hv745")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ButtonRow Speed" parent="." instance=ExtResource("11_mmyc1")]
-offset_left = 289.0
-offset_top = 4.0
-offset_right = 289.0
-offset_bottom = 4.0
+offset_left = 536.0
+offset_top = 59.0
+offset_right = 536.0
+offset_bottom = 59.0
+scale = Vector2(0.756786, 0.756786)
 title = "Running Speed"
 pony_stats = ExtResource("3_xad5q")
 
 [node name="ButtonRow Height" parent="." instance=ExtResource("11_mmyc1")]
-offset_left = 289.0
-offset_top = 180.0
-offset_right = 289.0
-offset_bottom = 180.0
+offset_left = 536.0
+offset_top = 223.0
+offset_right = 536.0
+offset_bottom = 223.0
+scale = Vector2(0.756786, 0.756786)
 title = "Jump Height"
 pony_stats = ExtResource("3_xad5q")
 stat = 4
 
 [node name="MoneyLabel" type="Label" parent="."]
-offset_left = 35.0
-offset_top = 25.0
-offset_right = 258.0
-offset_bottom = 88.0
-theme_override_font_sizes/font_size = 45
+offset_left = 92.0
+offset_top = 188.0
+offset_right = 330.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
 text = "Money: $0"
+
+[node name="Reset" type="Button" parent="."]
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 267.0
+offset_bottom = 72.0
+theme_override_colors/font_hover_color = Color(0.839216, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.486275, 0.0156863, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 22
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrv44")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrv44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrv44")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrv44")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cd0xb")
+text = "Reset Progress"
+
+[node name="OpenBook" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.0
+offset_top = -48.0
+offset_right = 468.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pafut")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pafut")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_pafut")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yrv44")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pafut")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pafut")
 
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
 [connection signal="pressed" from="TextureButton Back" to="." method="_on_texture_button_back_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="OpenBook" to="." method="_on_open_book_pressed"]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=5 format=3 uid="uid://d1xiqn4u3g8d1"]
+
+[ext_resource type="Texture2D" uid="uid://cf2o5c3pkxqyf" path="res://assets/art/upgrades/gliders/wooden_wings/Wooden_wings_0002.png" id="1_daa47"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_p7hb0"]
+[ext_resource type="Script" uid="uid://cekl3umqrww32" path="res://core/pony_upgrade_glider.gd" id="2_daa47"]
+[ext_resource type="PackedScene" uid="uid://csgt6r4mglvo0" path="res://shop/upgrades/gliders/scenes/wooden_wings_upgrade.tscn" id="2_hw0lf"]
+
+[resource]
+script = ExtResource("2_daa47")
+category = 0
+display_name = "Wooden Wings"
+item_description = "A simple set of wings made from scrap materials."
+cost = 150
+icon = ExtResource("1_daa47")
+overlay_scene = ExtResource("2_hw0lf")
+pony_stat_modifiers = Array[ExtResource("1_p7hb0")]([])
+metadata/_custom_type_script = "uid://cekl3umqrww32"

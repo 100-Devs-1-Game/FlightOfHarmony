@@ -10,6 +10,7 @@ extends Control
 
 func _ready() -> void:
 	await get_tree().process_frame
+	EventChannel.reset_progress.connect(_refresh)
 	title_label.text = title
 
 	var s = pony_stats.get_stat(stat)
@@ -63,3 +64,17 @@ func _update_next_cost() -> void:
 		balance_label.text = str(stat_res.cost[cur_level])
 	else:
 		balance_label.text = "MAX"
+
+
+func _refresh() -> void:
+	for child in button_container.get_children():
+		var btn := child as TextureButton
+		if btn == null:
+			continue
+		btn.disabled = false
+		if btn.has_method("set_pressed_no_signal"):
+			btn.set_pressed_no_signal(false)
+		else:
+			btn.button_pressed = false
+
+	_update_next_cost()

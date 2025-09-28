@@ -180,13 +180,6 @@ player = NodePath("Pony")
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 682.2)
 walk_distance = 489.765
-rotation_speed = null
-jump_angle = null
-gravity = null
-maximum_drag = null
-perfect_lift_angle = null
-fuel_used_per_second = null
-propulsion_force = null
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -214,12 +207,15 @@ sweep_max_deg = 212.045
 speed_smooth_speed = 90.0
 
 [node name="Speedometer" type="TextureRect" parent="UI"]
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -585.0
-offset_bottom = 408.0
+anchor_bottom = 1.0
+offset_left = -386.0
+offset_top = -269.0
 grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 4
 texture = ExtResource("4_w0on4")
 expand_mode = 1
@@ -231,14 +227,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -236.5
-offset_top = -77.0
-offset_right = -18.5
-offset_bottom = 68.0
+offset_left = -168.0
+offset_top = -55.5
+offset_right = -8.0
+offset_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.602848
-pivot_offset = Vector2(146, 70)
+rotation = -0.63879
+pivot_offset = Vector2(109.11, 54)
 texture = ExtResource("5_jmk2h")
 expand_mode = 1
 
@@ -248,10 +244,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 402.0
-offset_top = 43.0
-offset_right = -39.0
-offset_bottom = -43.0
+offset_left = 268.0
+offset_top = 28.0
+offset_right = -11.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -261,10 +257,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -702.0
-offset_right = 6.0
-offset_bottom = -78.0
+offset_left = -3.0
+offset_top = -605.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_kocle")

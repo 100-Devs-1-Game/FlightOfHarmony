@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flight of Harmony"
-run/main_scene="uid://c4nvpv8pfo84r"
+run/main_scene="uid://b6r4x4ndjity0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -35,6 +35,13 @@ window/stretch/mode="viewport"
 movie_writer/mjpeg_quality=0.65
 movie_writer/movie_file="C:/_CODING/100devs/movie.avi"
 movie_writer/fps=30
+
+[file_customization]
+
+folder_colors={
+"res://assets/art/upgrades/book/": "red",
+"res://shop/upgrades/": "red"
+}
 
 [input]
 

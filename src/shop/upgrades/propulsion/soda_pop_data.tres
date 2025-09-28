@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=6 format=3 uid="uid://daiqmxni4v3s8"]
+
+[ext_resource type="Texture2D" uid="uid://ckhfigdhjeh0x" path="res://assets/art/upgrades/propulsion/soda_pop/scene/soda_pop_full.png" id="1_bs07m"]
+[ext_resource type="PackedScene" uid="uid://s078o8jp4gob" path="res://shop/upgrades/propulsion/scenes/soda_pop/soda_pop_upgrade.tscn" id="1_sc6h6"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_xi8ca"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="3_sc6h6"]
+
+[sub_resource type="Resource" id="Resource_4apmp"]
+script = ExtResource("1_xi8ca")
+stat = 3
+value = 705
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("3_sc6h6")
+provides_propulsion = 1
+category = 1
+display_name = "Soda Pop"
+item_description = "A simple bottle of soda which pushes you forward."
+cost = 125
+icon = ExtResource("1_bs07m")
+overlay_scene = ExtResource("1_sc6h6")
+pony_stat_modifiers = Array[ExtResource("1_xi8ca")]([SubResource("Resource_4apmp")])
+metadata/_custom_type_script = "uid://fx4ldsmd0ywx"

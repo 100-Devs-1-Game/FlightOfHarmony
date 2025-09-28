@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://buk8y05uqosfs"]
+
+[ext_resource type="Texture2D" uid="uid://cjfd1o7ylcbnb" path="res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png" id="1_fi5ls"]
+[ext_resource type="Script" uid="uid://t6yujbofyn4e" path="res://shop/upgrade_book/upgrade_component.gd" id="1_w5nlv"]
+[ext_resource type="Texture2D" uid="uid://dgouetqunwxag" path="res://assets/art/upgrades/book/Bar_empty.png" id="5_amml7"]
+[ext_resource type="Texture2D" uid="uid://b7d51i44ysyxu" path="res://assets/art/upgrades/book/icons/BuyIcon_Sold.png" id="5_w5nlv"]
+[ext_resource type="Texture2D" uid="uid://8xeom6spjggx" path="res://assets/art/upgrades/book/Bar_Full.png" id="6_cuqt3"]
+
+[node name="UpgradeComp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 443.0
+offset_bottom = 691.0
+script = ExtResource("1_w5nlv")
+
+[node name="Selector" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 447.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_fi5ls")
+texture_pressed = ExtResource("1_fi5ls")
+texture_hover = ExtResource("1_fi5ls")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Texture" type="TextureRect" parent="Selector"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 450.0
+offset_right = 437.0
+offset_bottom = 502.0
+alignment = 1
+
+[node name="ItemName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "{ITEM_NAME}"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0156863, 0.462745, 0.101961, 1)
+theme_override_font_sizes/font_size = 33
+text = "$0.00"
+vertical_alignment = 1
+
+[node name="StatbarContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -182.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -36
+
+[node name="A" type="TextureProgressBar" parent="StatbarContainer"]
+custom_minimum_size = Vector2(0, 139.215)
+layout_mode = 2
+value = 35.0
+nine_patch_stretch = true
+texture_over = ExtResource("5_amml7")
+texture_progress = ExtResource("6_cuqt3")
+
+[node name="Label" type="Label" parent="StatbarContainer/A"]
+layout_mode = 2
+offset_top = -7.0
+offset_right = 443.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.344076, 0.344076, 0.344076, 1)
+theme_override_font_sizes/font_size = 33
+text = "FIRST_BAR"
+
+[node name="B" type="TextureProgressBar" parent="StatbarContainer"]
+custom_minimum_size = Vector2(0, 139.215)
+layout_mode = 2
+value = 35.0
+nine_patch_stretch = true
+texture_over = ExtResource("5_amml7")
+texture_progress = ExtResource("6_cuqt3")
+
+[node name="Label" type="Label" parent="StatbarContainer/B"]
+layout_mode = 2
+offset_top = -7.0
+offset_right = 443.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.344076, 0.344076, 0.344076, 1)
+theme_override_font_sizes/font_size = 33
+text = "SECOND_BAR"
+
+[node name="Sold" type="TextureRect" parent="."]
+visible = false
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w5nlv")

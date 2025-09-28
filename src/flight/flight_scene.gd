@@ -1,38 +1,41 @@
 extends Node2D
 
 @export var player: CharacterBody2D
-@export var pause_time: float = 3.0
-@export var pixels_per_meter: float = 32.0
 
-var _waiting: bool = false
-var travel_distance_px: float = 0.0
-var default_x_pos: float
-var default_y_pos: float
-var max_height_px: float = 0.0
-var _last_displayed_meters: int = -1
+var _max_height: float = 0.0
 
 func _ready() -> void:
-	default_x_pos = player.global_position.x
-	default_y_pos = player.global_position.y
+	if player != null:
+		player.connect("landed", Callable(self, "_on_player_landed"))
+
 
 func _process(_delta: float) -> void:
-	travel_distance_px = player.global_position.x - default_x_pos
-	var meters = int(roundi(abs(travel_distance_px) / pixels_per_meter))
+	if player == null:
+		return
 
-	var height_above_start_px = max(0.0, default_y_pos - player.global_position.y)
-	if height_above_start_px > max_height_px:
-		max_height_px = height_above_start_px
+	var distance_m = int(roundi(player.get_distance())) / 100
+	$UI/Distancelbl.text = "Distance - " + str(distance_m) + "m"
 
-	if meters != _last_displayed_meters:
-		_last_displayed_meters = meters
-		$UI/Distancelbl.text = "Distance - " + str(meters) + "m"
+	var h = max(0.0, player.get_height())
+	if h > _max_height:
+		_max_height = h
 
 
-func on_landed():
-	var distance_m = int(roundi(abs(travel_distance_px) / pixels_per_meter))
-	var height_m = int(roundi(max_height_px / pixels_per_meter))
+func _on_player_landed() -> void:
+	if player == null:
+		return
+
+	var distance_m = int(roundi(player.get_distance())) / 100
+	var height_m = int(roundi(_max_height)) / 100
 	var money_earned = int(roundi((distance_m + height_m) / 2.0))
+
+	$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
+	$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
+	$UI/Results/VBoxContainer/Moneylbl.text = "Money Earned: $" + str(money_earned)
+
 	run_ended(money_earned)
+
+	_max_height = 0.0
 
 
 func run_ended(money_earned: int) -> void:
@@ -41,14 +44,18 @@ func run_ended(money_earned: int) -> void:
 	EventChannel.run_ended.emit()
 	update_results()
 
+
 func update_results() -> void:
-	var distance_m = int(roundi(abs(travel_distance_px) / pixels_per_meter))
-	var height_m = int(roundi(max_height_px / pixels_per_meter))
+	if player == null:
+		return
+	var distance_m = int(roundi(player.get_distance())) / 100
+	var height_m = int(roundi(_max_height))  / 100
 	var money_earned = int(roundi((distance_m + height_m) / 2.0))
 
 	$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
 	$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
 	$UI/Results/VBoxContainer/Moneylbl.text = "Money Earned: $" + str(money_earned)
+
 
 func _on_return_pressed() -> void:
 	LevelManager.goto_shop()

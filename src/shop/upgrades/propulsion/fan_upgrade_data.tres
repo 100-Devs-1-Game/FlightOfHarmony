@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=5 format=3 uid="uid://cnatbx6weocmq"]
+
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_7a6im"]
+[ext_resource type="Texture2D" uid="uid://dlj1gy1uaxtjc" path="res://assets/art/upgrades/propulsion/fan/Fan_0001.png" id="1_yfcxu"]
+[ext_resource type="PackedScene" uid="uid://bp718ijfccfdv" path="res://shop/upgrades/propulsion/scenes/fan/fan_upgrade.tscn" id="2_8q5i3"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="2_yfcxu"]
+
+[resource]
+script = ExtResource("2_yfcxu")
+provides_propulsion = 1
+category = 0
+display_name = "Fan"
+item_description = "A fan that provides more propulsion"
+cost = 300
+icon = ExtResource("1_yfcxu")
+overlay_scene = ExtResource("2_8q5i3")
+pony_stat_modifiers = Array[ExtResource("1_7a6im")]([])
+metadata/_custom_type_script = "uid://bgwt4hvflnx2h"

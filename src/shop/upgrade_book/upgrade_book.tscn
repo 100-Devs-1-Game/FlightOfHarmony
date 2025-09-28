@@ -1,0 +1,295 @@
+[gd_scene load_steps=19 format=3 uid="uid://dewexmnyk7otn"]
+
+[ext_resource type="Script" uid="uid://dq14emo1iu048" path="res://shop/upgrade_book/upgrade_book.gd" id="1_2q2ey"]
+[ext_resource type="Texture2D" uid="uid://psomt7buxqip" path="res://assets/art/upgrades/book/Open_book_blank.png" id="1_qo7ku"]
+[ext_resource type="Texture2D" uid="uid://kmiivpgoeobo" path="res://assets/art/upgrades/book/Back_Normal.png" id="2_2q2ey"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_cxhan"]
+[ext_resource type="Texture2D" uid="uid://b6w4ptj5c3qso" path="res://assets/art/upgrades/book/Back_Press.png" id="3_ks1ea"]
+[ext_resource type="Texture2D" uid="uid://iw06ek8udrbr" path="res://assets/art/upgrades/book/Back_Hover.png" id="4_22r1i"]
+[ext_resource type="Texture2D" uid="uid://bl2nii174xj5a" path="res://assets/art/upgrades/book/icons/Page_Arrow.png" id="6_ks1ea"]
+[ext_resource type="PackedScene" uid="uid://buk8y05uqosfs" path="res://shop/upgrade_component.tscn" id="7_ayxug"]
+[ext_resource type="Resource" uid="uid://d1xiqn4u3g8d1" path="res://shop/upgrades/gliders/wooden_wings_data.tres" id="9_2x0kb"]
+[ext_resource type="Resource" uid="uid://cy3ug411rftlk" path="res://shop/upgrades/gliders/magic_wings_data.tres" id="10_wru5k"]
+[ext_resource type="Resource" uid="uid://40omvd33j7xa" path="res://shop/upgrades/gliders/mechanical_wings_data.tres" id="11_1ql2d"]
+[ext_resource type="Resource" uid="uid://cxiq86sb4r53s" path="res://shop/upgrades/body/winged_helmet_data.tres" id="11_wru5k"]
+[ext_resource type="Resource" uid="uid://cnatbx6weocmq" path="res://shop/upgrades/propulsion/fan_upgrade_data.tres" id="13_26jxd"]
+[ext_resource type="Resource" uid="uid://daiqmxni4v3s8" path="res://shop/upgrades/propulsion/soda_pop_data.tres" id="16_fe2hr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayxug"]
+bg_color = Color(0.984314, 0.980392, 0.764706, 1)
+border_width_left = 22
+border_width_top = 22
+border_width_right = 22
+border_color = Color(0.996078, 0.741176, 0.309804, 1)
+border_blend = true
+
+[sub_resource type="Animation" id="Animation_mpcpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DescPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(439, 1135.76)]
+}
+
+[sub_resource type="Animation" id="Animation_ayxug"]
+resource_name = "toggle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DescPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(439, 1135.76), Vector2(439, 958)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgxne"]
+_data = {
+&"RESET": SubResource("Animation_mpcpy"),
+&"toggle": SubResource("Animation_ayxug")
+}
+
+[node name="UpgradeBook" type="Panel" node_paths=PackedStringArray("clickables", "item_desc", "animator")]
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2q2ey")
+clickables = [NodePath("BookTexture/BookBack"), NodePath("BookTexture/BookNext"), NodePath("BookTexture/BookPrevious")]
+pony_stats = ExtResource("2_cxhan")
+item_desc = NodePath("DescPanel/Desc")
+animator = NodePath("BookAnim")
+
+[node name="BookTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -364.0
+offset_right = 640.0
+offset_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qo7ku")
+
+[node name="BookBack" type="TextureButton" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.5
+offset_top = 89.0
+offset_right = 237.5
+offset_bottom = 252.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_2q2ey")
+texture_pressed = ExtResource("3_ks1ea")
+texture_hover = ExtResource("4_22r1i")
+
+[node name="BookNext" type="TextureButton" parent="BookTexture"]
+layout_mode = 0
+offset_left = 1193.5
+offset_top = 796.0
+offset_right = 1336.5
+offset_bottom = 855.0
+texture_normal = ExtResource("6_ks1ea")
+
+[node name="BookPrevious" type="TextureButton" parent="BookTexture"]
+layout_mode = 0
+offset_left = 88.5
+offset_top = 780.0
+offset_right = 231.5
+offset_bottom = 839.0
+texture_normal = ExtResource("6_ks1ea")
+flip_h = true
+
+[node name="Wings" type="Control" parent="BookTexture"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 173.0
+offset_top = 85.0
+offset_right = -253.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Wooden Wings" parent="BookTexture/Wings" instance=ExtResource("7_ayxug")]
+offset_left = 0.5
+offset_right = 443.5
+res = ExtResource("9_2x0kb")
+purchase_id = "Wooden"
+first_label_name = "Speed"
+second_label_name = "Flight"
+first_value = 33.8
+second_value = 29.5
+
+[node name="Magic Wings" parent="BookTexture/Wings" instance=ExtResource("7_ayxug")]
+offset_left = 639.5
+offset_right = 1082.5
+res = ExtResource("10_wru5k")
+purchase_id = "Magic"
+first_label_name = "Speed"
+second_label_name = "Flight"
+first_value = 67.6
+second_value = 53.1
+
+[node name="Wings2" type="Control" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 173.0
+offset_top = 85.0
+offset_right = -253.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Mechanical Wings" parent="BookTexture/Wings2" instance=ExtResource("7_ayxug")]
+res = ExtResource("11_1ql2d")
+purchase_id = "Mechanical"
+first_label_name = "Speed"
+second_label_name = "Flight"
+first_value = 89.8
+second_value = 90.9
+
+[node name="Helmets" type="Control" parent="BookTexture"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 113.0
+offset_right = -113.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Winged Helmet" parent="BookTexture/Helmets" instance=ExtResource("7_ayxug")]
+offset_left = 51.5
+offset_top = -31.0
+offset_right = 494.5
+offset_bottom = 660.0
+res = ExtResource("11_wru5k")
+purchase_id = "Winged"
+first_label_name = "Fall Speed"
+first_value = 20.0
+
+[node name="Boosters" type="Control" parent="BookTexture"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 113.0
+offset_right = -113.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Soda" parent="BookTexture/Boosters" instance=ExtResource("7_ayxug")]
+offset_left = 62.5
+offset_top = -25.0
+offset_right = 505.5
+offset_bottom = 666.0
+res = ExtResource("16_fe2hr")
+purchase_id = "Soda"
+first_label_name = "Propulsion"
+second_label_name = "Duration"
+first_value = 42.8
+second_value = 27.6
+
+[node name="Fan" parent="BookTexture/Boosters" instance=ExtResource("7_ayxug")]
+offset_left = 709.5
+offset_top = -25.0
+offset_right = 1152.5
+offset_bottom = 666.0
+res = ExtResource("13_26jxd")
+purchase_id = "Fan"
+first_label_name = "Propulsion"
+second_label_name = "Duration"
+first_value = 25.3
+second_value = 65.1
+
+[node name="Moneys" type="Control" parent="BookTexture"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 113.0
+offset_right = -113.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BookTexture/Moneys"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 66
+text = "this is page 4"
+
+[node name="DescPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -521.0
+offset_top = 55.76
+offset_right = 521.0
+offset_bottom = 232.76
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayxug")
+
+[node name="Desc" type="Label" parent="DescPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 31
+text = "[This is the item description, you can tell because it is describing something]"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BookAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mgxne")
+}

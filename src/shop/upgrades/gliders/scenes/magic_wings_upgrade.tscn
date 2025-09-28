@@ -30,11 +30,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 24.0
 }]
 
 [node name="MagicWingsUpgrade" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_8p4uv")
 autoplay = "default"
