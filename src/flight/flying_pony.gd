@@ -10,6 +10,8 @@ signal fuel_ran_out
 
 enum State { WALKING, FLYING, LANDING }
 
+## Manually move the pony without any flight physics
+@export var cheat_mode: bool= false
 ## How far to walk before jumping
 @export var walk_distance: float= 100.0
 ## How fast to rotate when left/right are pressed
@@ -93,6 +95,11 @@ func land():
 
 
 func _physics_process(delta: float) -> void:
+	if cheat_mode:
+		animated_sprite.stop()
+		position+= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * delta * 1000
+		return
+		
 	match state:
 		State.WALKING:
 			position.x+= velocity.x * delta

@@ -178,6 +178,7 @@ player = NodePath("Pony")
 
 [node name="StaticBackground" type="CanvasLayer" parent="."]
 layer = -10
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="StaticBackground"]
 anchors_preset = 15
@@ -191,6 +192,7 @@ texture = ExtResource("2_nkrtd")
 
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 682.2)
+cheat_mode = true
 walk_distance = 489.765
 
 [node name="Floor" type="StaticBody2D" parent="."]
