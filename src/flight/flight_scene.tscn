@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
 [ext_resource type="PackedScene" uid="uid://dm5bowlclh7go" path="res://flight/flying_pony.tscn" id="2_717lv"]
-[ext_resource type="Texture2D" uid="uid://couut8rcitsvm" path="res://assets/art/flight/background/ponyville.png" id="2_nkrtd"]
+[ext_resource type="Texture2D" uid="uid://hxfpxdg7p2tf" path="res://assets/art/flight/background/sky.png" id="2_nkrtd"]
 [ext_resource type="Script" uid="uid://bcdq0jfvsgv7s" path="res://flight/ui_controller.gd" id="4_jmk2h"]
 [ext_resource type="Texture2D" uid="uid://b6obxu2tka500" path="res://assets/art/flight/ui/speedometer.png" id="4_w0on4"]
 [ext_resource type="Texture2D" uid="uid://lc7ae1m7emfk" path="res://assets/art/flight/ui/speedometer_arrow.png" id="5_jmk2h"]

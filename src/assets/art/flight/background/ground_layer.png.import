@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://couut8rcitsvm"
-path="res://.godot/imported/ponyville.png-8a932c65a836f886660e76595cd2aabd.ctex"
+uid="uid://dptmdmccct1g5"
+path="res://.godot/imported/ground_layer.png-fe0d4b310a3fb985d93f1d20e8eec36b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/flight/background/ponyville.png"
-dest_files=["res://.godot/imported/ponyville.png-8a932c65a836f886660e76595cd2aabd.ctex"]
+source_file="res://assets/art/flight/background/ground_layer.png"
+dest_files=["res://.godot/imported/ground_layer.png-fe0d4b310a3fb985d93f1d20e8eec36b.ctex"]
 
 [params]
 

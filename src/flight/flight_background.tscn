@@ -1,27 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://pshtri5coy5i"]
+[gd_scene load_steps=6 format=3 uid="uid://pshtri5coy5i"]
 
-[ext_resource type="Texture2D" uid="uid://dwyqf48ccve27" path="res://assets/art/flight/background/hills.png" id="1_s3le6"]
-[ext_resource type="Texture2D" uid="uid://b648l71jqltg8" path="res://assets/art/flight/background/vegetation.png" id="2_0umve"]
+[ext_resource type="Texture2D" uid="uid://hxfpxdg7p2tf" path="res://assets/art/flight/background/sky.png" id="1_djf4m"]
+[ext_resource type="Texture2D" uid="uid://dfkpg85ky1vbe" path="res://assets/art/flight/background/hills_1.png" id="2_wc8pn"]
+[ext_resource type="Texture2D" uid="uid://do1njcrf83mli" path="res://assets/art/flight/background/mid_layer2.png" id="3_4eh6o"]
+[ext_resource type="Texture2D" uid="uid://ds3g5b16ppils" path="res://assets/art/flight/background/mid_layer1.png" id="4_ysgnr"]
+[ext_resource type="Texture2D" uid="uid://dptmdmccct1g5" path="res://assets/art/flight/background/ground_layer.png" id="5_ose85"]
 
 [node name="FlightBackground" type="CanvasLayer"]
 layer = -1
 
+[node name="Sky" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+position = Vector2(960, 540)
+texture = ExtResource("1_djf4m")
+
 [node name="Hills" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.5, 0.8)
-scroll_offset = Vector2(0, 100)
+scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1920, 0)
 repeat_times = 3
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Hills"]
 position = Vector2(960, 540)
-texture = ExtResource("1_s3le6")
+texture = ExtResource("2_wc8pn")
 
-[node name="Vegetation" type="Parallax2D" parent="."]
+[node name="Mid Layer 2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1920, 0)
 repeat_times = 3
 follow_viewport = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Vegetation"]
+[node name="Sprite2D" type="Sprite2D" parent="Mid Layer 2"]
 position = Vector2(960, 540)
-texture = ExtResource("2_0umve")
+texture = ExtResource("3_4eh6o")
+
+[node name="Mid Layer 1" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Mid Layer 1"]
+position = Vector2(960, 540)
+texture = ExtResource("4_ysgnr")
+
+[node name="Ground" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 540)
+texture = ExtResource("5_ose85")
