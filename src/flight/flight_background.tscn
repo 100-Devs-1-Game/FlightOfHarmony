@@ -10,8 +10,7 @@
 layer = -1
 
 [node name="Sky" type="Parallax2D" parent="."]
-visible = false
-scroll_scale = Vector2(0.1, 1)
+scroll_scale = Vector2(0.25, 0.25)
 repeat_size = Vector2(1920, 0)
 repeat_times = 3
 follow_viewport = false
