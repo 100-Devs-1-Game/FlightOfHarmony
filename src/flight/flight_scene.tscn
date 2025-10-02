@@ -206,6 +206,7 @@ script = ExtResource("9_gygq8")
 follow_node = NodePath("../Pony")
 
 [node name="Grass" type="Line2D" parent="."]
+visible = false
 position = Vector2(0, 1080)
 points = PackedVector2Array(-1000, 0, 50000, 0)
 width = 400.0
