@@ -4,7 +4,7 @@ extends CanvasLayer
 @export var raise_speed_pixels_per_unit: float = 0.5
 #activates the ui functionality incase we need to disable it at all vv
 @export var active: bool = true
-@export var player_ref: CharacterBody2D
+@export var player_ref: FlyingPony
 @export var arrow: TextureRect
 @export var height: TextureRect
 
@@ -16,9 +16,14 @@ extends CanvasLayer
 @export var sweep_max_deg: float = 180.0
 @export var speed_smooth_speed: float = 480.0
 
+@export var fuel_progress_bar: TextureProgressBar
+
+
 var default_height_y: float = 0.0
 var start_player_y: float = 0.0
 var zero_angle_deg: float = 0.0
+
+
 
 func _ready() -> void:
 
@@ -36,6 +41,7 @@ func _process(delta: float) -> void:
 	if active and is_instance_valid(player_ref):
 		_update_height_meter()
 		_update_speedometer(delta)
+		_update_fuel_display()
 
 
 func _update_height_meter() -> void:
@@ -56,6 +62,11 @@ func _update_speedometer(delta: float) -> void:
 	var target_angle = zero_angle_deg + sweep
 
 	arrow.rotation_degrees = move_toward(arrow.rotation_degrees, target_angle, speed_smooth_speed * delta)
+
+
+func _update_fuel_display():
+	var fuel: float= player_ref.remaining_fuel
+
 
 func _run_ended() -> void:
 	$UIAnim.play("display_results")
