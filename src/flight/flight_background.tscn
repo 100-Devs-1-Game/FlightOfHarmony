@@ -14,7 +14,7 @@ layer = -1
 scroll_scale = Vector2(0, 0.15)
 scroll_offset = Vector2(0, -2000)
 repeat_size = Vector2(100, 0)
-repeat_times = 19
+repeat_times = 30
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Gradient"]
