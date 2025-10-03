@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dewexmnyk7otn"]
+[gd_scene load_steps=13 format=3 uid="uid://dewexmnyk7otn"]
 
 [ext_resource type="Script" uid="uid://dq14emo1iu048" path="res://shop/upgrade_book/upgrade_book.gd" id="1_2q2ey"]
 [ext_resource type="Texture2D" uid="uid://psomt7buxqip" path="res://assets/art/upgrades/book/Open_book_blank.png" id="1_qo7ku"]
 [ext_resource type="Texture2D" uid="uid://kmiivpgoeobo" path="res://assets/art/upgrades/book/Back_Normal.png" id="2_2q2ey"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_cxhan"]
 [ext_resource type="Texture2D" uid="uid://b6w4ptj5c3qso" path="res://assets/art/upgrades/book/Back_Press.png" id="3_ks1ea"]
+[ext_resource type="PackedScene" uid="uid://buk8y05uqosfs" path="res://shop/upgrade_component.tscn" id="3_ll3wv"]
 [ext_resource type="Texture2D" uid="uid://iw06ek8udrbr" path="res://assets/art/upgrades/book/Back_Hover.png" id="4_22r1i"]
 [ext_resource type="Texture2D" uid="uid://bl2nii174xj5a" path="res://assets/art/upgrades/book/icons/Page_Arrow.png" id="6_ks1ea"]
 
@@ -65,6 +66,7 @@ clickables = [NodePath("BookTexture/BookBack"), NodePath("BookTexture/BookNext")
 pony_stats = ExtResource("2_cxhan")
 item_desc = NodePath("DescPanel/Desc")
 animator = NodePath("BookAnim")
+upgrade_component_scene = ExtResource("3_ll3wv")
 
 [node name="BookTexture" type="TextureRect" parent="."]
 layout_mode = 1

@@ -8,10 +8,12 @@ extends Panel
 @export var animator: AnimationPlayer
 
 @export var second_page_offset: float= 639
+@export var upgrade_component_scene: PackedScene
 
 @onready var pages: Control = %Pages
 
 var _current_idx := 0
+var category: PonyUpgrade.Category
 
 
 
@@ -26,6 +28,13 @@ func _ready() -> void:
 
 	EventChannel.upgrade_item_clicked.connect(_on_purchase_pressed)
 
+	for upgrade in Global.get_category_upgrades(category):
+		var component: UpgradeComponent= upgrade_component_scene.instantiate()
+		pages.add_child(component)
+		component.init(upgrade)
+		if pages.get_child_count() % 2 == 0:
+			component.position.x= second_page_offset
+	
 	_apply_page_visibility()
 
 
@@ -54,7 +63,7 @@ func next_page() -> void:
 	if pages.get_child_count() == 0:
 		return
 	_current_idx += 1
-	if _current_idx >= pages.get_child_count() / 2:
+	if _current_idx > pages.get_child_count() / 2:
 		_current_idx = 0
 	_apply_page_visibility()
 
@@ -65,7 +74,7 @@ func previous_page() -> void:
 	if _current_idx > 0:
 		_current_idx -= 1
 	else:
-		_current_idx = pages.get_child_count() / 2 - 1
+		_current_idx = pages.get_child_count() / 2
 	_apply_page_visibility()
 
 
