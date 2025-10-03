@@ -1,14 +1,11 @@
+class_name UpgradeComponent
 extends Control
 
-@export var res: PonyUpgrade : set = _set_res
-@export var purchase_id: String = "NONE"
+const CAN_BUY = preload("res://assets/art/upgrades/book/icons/BuyIcon_Selected.png")
+const CANT_AFFORD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png")
+const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png")
 
-@export var first_label_name: String = "FIRST"
-@export var second_label_name: String = "SECOND"
-
-@export_range(0.0, 100.0, 0.1) var first_value: float = 0.0 : set = _set_first_value
-@export_range(0.0, 100.0, 0.1) var second_value: float = 0.0 : set = _set_second_value
-
+@export var res: PonyUpgrade
 
 @onready var selector: BaseButton = $Selector
 @onready var display_label: Label = $HBoxContainer/ItemName
@@ -17,9 +14,7 @@ extends Control
 @onready var first_bar: TextureProgressBar = $StatbarContainer/A
 @onready var second_bar: TextureProgressBar = $StatbarContainer/B
 
-const CAN_BUY = preload("res://assets/art/upgrades/book/icons/BuyIcon_Selected.png")
-const CANT_AFFORD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png")
-const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png")
+
 
 func _ready() -> void:
 	if selector:
@@ -27,16 +22,15 @@ func _ready() -> void:
 		selector.mouse_exited.connect(_exit)
 		selector.pressed.connect(func():
 			if Global.can_afford(res.cost):
-				EventChannel.item_clicked.emit(purchase_id, res); $Sold.visible = true)
+				EventChannel.upgrade_item_clicked.emit(res); $Sold.visible = true)
 
+
+func init(_res: PonyUpgrade):
+	res= _res
 	_update_from_res()
-	_apply_values_to_bars()
-
 	check_affordable()
 	Global.money_changed.connect(check_affordable)
 
-	if second_value <= 0.0:
-		second_bar.visible = false
 
 func check_affordable() -> void:
 	if res:
@@ -49,49 +43,33 @@ func check_affordable() -> void:
 			selector.texture_hover = CANT_AFFORD
 			selector.texture_pressed = CANT_AFFORD
 
+
 func _enter() -> void:
 	if res:
 		EventChannel.item_hovered.emit(res.item_description, true)
 
+
 func _exit() -> void:
 	EventChannel.item_hovered.emit("", false)
 
-func _set_res(value: PonyUpgrade) -> void:
-	res = value
-	_update_from_res()
-
-func _set_first_value(v: float) -> void:
-	first_value = v
-	_apply_values_to_bars()
-
-func _set_second_value(v: float) -> void:
-	second_value = v
-	_apply_values_to_bars()
-
-func _apply_values_to_bars() -> void:
-	if first_bar:
-		first_bar.value = clampf(first_value, first_bar.min_value, first_bar.max_value)
-	if second_bar:
-		second_bar.value = clampf(second_value, second_bar.min_value, second_bar.max_value)
 
 func _update_from_res() -> void:
-	if res == null:
-		return
+	name = res.display_name
+	display_label.text = res.display_name
+	cost_label.text = "$%d.00" % int(res.cost)
+	texture.texture = res.icon
 
-	if name == "" or name != res.display_name:
-		name = res.display_name
+	var first_stat: PonyStatModifier= res.pony_stat_modifiers[0]
+	var second_stat: PonyStatModifier
 
-	if display_label:
-		display_label.text = res.display_name
+	if res.pony_stat_modifiers.size() > 1:
+		second_stat= res.pony_stat_modifiers[1]
 
-	if cost_label:
-		cost_label.text = "$%d.00" % int(res.cost)
+	first_bar.get_child(0).text = first_stat.get_display_name()
+	first_bar.value= first_stat.value
 
-	if texture:
-		if texture.texture != res.icon:
-			texture.texture = res.icon
-
-	if first_bar:
-		first_bar.get_child(0).text = first_label_name
-	if second_bar:
-		second_bar.get_child(0).text = second_label_name
+	if second_stat:
+		second_bar.get_child(0).text = second_stat.get_display_name()
+		second_bar.value= second_stat.value
+	else:
+		second_bar.hide()

@@ -75,7 +75,8 @@ theme_override_constants/separation = -36
 [node name="A" type="TextureProgressBar" parent="StatbarContainer"]
 custom_minimum_size = Vector2(0, 139.215)
 layout_mode = 2
-value = 35.0
+max_value = 10.0
+value = 10.0
 nine_patch_stretch = true
 texture_over = ExtResource("5_amml7")
 texture_progress = ExtResource("6_cuqt3")
@@ -92,7 +93,8 @@ text = "FIRST_BAR"
 [node name="B" type="TextureProgressBar" parent="StatbarContainer"]
 custom_minimum_size = Vector2(0, 139.215)
 layout_mode = 2
-value = 35.0
+max_value = 10.0
+value = 10.0
 nine_patch_stretch = true
 texture_over = ExtResource("5_amml7")
 texture_progress = ExtResource("6_cuqt3")

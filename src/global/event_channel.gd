@@ -10,4 +10,4 @@ signal reset_progress
 signal item_hovered(desc: String, hovered: bool)
 
 @warning_ignore("unused_signal")
-signal item_clicked(item: String, upgrade: PonyUpgrade)
+signal upgrade_item_clicked(upgrade: PonyUpgrade)
