@@ -191,14 +191,13 @@ texture = ExtResource("2_nkrtd")
 [node name="FlightBackground" parent="." instance=ExtResource("1_fdqhy")]
 
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
-position = Vector2(-168, 682.2)
-cheat_mode = true
+position = Vector2(-168, 1274)
 walk_distance = 489.765
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, 880)
+position = Vector2(0, 1436)
 shape = SubResource("WorldBoundaryShape2D_x3l2y")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
