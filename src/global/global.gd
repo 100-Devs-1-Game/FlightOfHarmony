@@ -73,3 +73,15 @@ func try_spend(cost: int) -> bool:
 	SettingsManager.set_money(money)
 	SettingsManager.save_game()
 	return true
+
+
+func get_category_upgrades(category: PonyUpgrade.Category)-> Array[PonyUpgrade]:
+	match category:
+		PonyUpgrade.Category.GLIDER:
+			return glider_upgrades
+		PonyUpgrade.Category.PROPULSION:
+			return propulsion_upgrades
+		PonyUpgrade.Category.BODY:
+			return body_upgrades
+
+	return []
