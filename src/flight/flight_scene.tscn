@@ -192,6 +192,7 @@ texture = ExtResource("2_nkrtd")
 
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 1274)
+cheat_mode = true
 walk_distance = 489.765
 
 [node name="Floor" type="StaticBody2D" parent="."]

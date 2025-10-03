@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://pshtri5coy5i"]
+[gd_scene load_steps=8 format=3 uid="uid://pshtri5coy5i"]
 
-[ext_resource type="Texture2D" uid="uid://cbyj2eulwrhed" path="res://assets/art/flight/background/sky_bg_1.png" id="1_djf4m"]
-[ext_resource type="Texture2D" uid="uid://dcd31c6oqn4xd" path="res://assets/art/flight/background/gradient_2.png" id="1_wc8pn"]
-[ext_resource type="Texture2D" uid="uid://cd5pkguay0yd5" path="res://assets/art/flight/background/city_bg_1.png" id="2_djf4m"]
+[ext_resource type="Texture2D" uid="uid://cbyj2eulwrhed" path="res://assets/art/flight/background/Sky_BG_1.png" id="1_djf4m"]
+[ext_resource type="Texture2D" uid="uid://dcd31c6oqn4xd" path="res://assets/art/flight/background/Gradient_2.png" id="1_wc8pn"]
+[ext_resource type="Texture2D" uid="uid://b4x6w3pkut244" path="res://assets/art/flight/background/clouds.png" id="2_4eh6o"]
+[ext_resource type="Texture2D" uid="uid://cd5pkguay0yd5" path="res://assets/art/flight/background/City_BG_1.png" id="2_djf4m"]
 [ext_resource type="Texture2D" uid="uid://do1njcrf83mli" path="res://assets/art/flight/background/mid_layer2.png" id="3_4eh6o"]
 [ext_resource type="Texture2D" uid="uid://ds3g5b16ppils" path="res://assets/art/flight/background/mid_layer1.png" id="4_ysgnr"]
 [ext_resource type="Texture2D" uid="uid://dptmdmccct1g5" path="res://assets/art/flight/background/ground_layer.png" id="5_ose85"]
@@ -31,6 +32,16 @@ follow_viewport = false
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
 position = Vector2(960, 540)
 texture = ExtResource("1_djf4m")
+
+[node name="Clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1920, 1080)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds"]
+position = Vector2(960, 540)
+texture = ExtResource("2_4eh6o")
 
 [node name="Village" type="Parallax2D" parent="."]
 scale = Vector2(1.5, 1.5)
