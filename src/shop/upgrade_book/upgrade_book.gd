@@ -1,3 +1,4 @@
+class_name UpgradeBook
 extends Panel
 
 @export var clickables: Array[BaseButton] = []
@@ -56,6 +57,7 @@ func next_page() -> void:
 	if _current_idx >= pages.get_child_count() / 2:
 		_current_idx = 0
 	_apply_page_visibility()
+
 
 func previous_page() -> void:
 	if pages.get_child_count() == 0:
