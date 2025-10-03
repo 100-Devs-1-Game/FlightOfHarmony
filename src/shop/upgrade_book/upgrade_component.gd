@@ -1,3 +1,4 @@
+class_name UpgradeComponent
 extends Control
 
 const CAN_BUY = preload("res://assets/art/upgrades/book/icons/BuyIcon_Selected.png")
@@ -64,10 +65,10 @@ func _update_from_res() -> void:
 	if res.pony_stat_modifiers.size() > 1:
 		second_stat= res.pony_stat_modifiers[1]
 
-	if first_bar:
-		first_bar.get_child(0).text = first_stat.get_display_name()
-		first_bar.value= first_stat.value
-	if second_bar:
+	first_bar.get_child(0).text = first_stat.get_display_name()
+	first_bar.value= first_stat.value
+
+	if second_stat:
 		second_bar.get_child(0).text = second_stat.get_display_name()
 		second_bar.value= second_stat.value
 	else:
