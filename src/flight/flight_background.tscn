@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://pshtri5coy5i"]
 
-[ext_resource type="Texture2D" uid="uid://cbyj2eulwrhed" path="res://assets/art/flight/background/Sky_BG_1.png" id="1_djf4m"]
-[ext_resource type="Texture2D" uid="uid://dcd31c6oqn4xd" path="res://assets/art/flight/background/Gradient_2.png" id="1_wc8pn"]
-[ext_resource type="Texture2D" uid="uid://cd5pkguay0yd5" path="res://assets/art/flight/background/City_BG_1.png" id="2_djf4m"]
+[ext_resource type="Texture2D" uid="uid://cbyj2eulwrhed" path="res://assets/art/flight/background/sky_bg_1.png" id="1_djf4m"]
+[ext_resource type="Texture2D" uid="uid://dcd31c6oqn4xd" path="res://assets/art/flight/background/gradient_2.png" id="1_wc8pn"]
+[ext_resource type="Texture2D" uid="uid://cd5pkguay0yd5" path="res://assets/art/flight/background/city_bg_1.png" id="2_djf4m"]
 [ext_resource type="Texture2D" uid="uid://do1njcrf83mli" path="res://assets/art/flight/background/mid_layer2.png" id="3_4eh6o"]
 [ext_resource type="Texture2D" uid="uid://ds3g5b16ppils" path="res://assets/art/flight/background/mid_layer1.png" id="4_ysgnr"]
 [ext_resource type="Texture2D" uid="uid://dptmdmccct1g5" path="res://assets/art/flight/background/ground_layer.png" id="5_ose85"]
