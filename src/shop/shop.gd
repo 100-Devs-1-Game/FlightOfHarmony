@@ -4,9 +4,12 @@ extends CanvasLayer
 @export var money_label: Label
 @export var upgrade_book: PackedScene
 
+
+
 func _ready() -> void:
 	Global.money_changed.connect(_update_currency)
 	_update_currency()
+
 
 func _on_texture_button_launch_pressed() -> void:
 	LevelManager.goto_flight()
@@ -32,4 +35,5 @@ func _on_reset_pressed() -> void:
 
 func _on_open_book_pressed() -> void:
 	var book = upgrade_book.instantiate()
+	book.category= PonyUpgrade.Category.GLIDER
 	add_child(book)
