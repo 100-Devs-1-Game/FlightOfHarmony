@@ -18,7 +18,7 @@ var money: int = 0
 func _ready() -> void:
 	load_upgrades(GLIDER_UPGRADES_DIR, glider_upgrades)
 	load_upgrades(PROPULSION_UPGRADES_DIR, propulsion_upgrades)
-	load_upgrades(BODY_UPGRADES_DIR,body_upgrades)
+	load_upgrades(BODY_UPGRADES_DIR, body_upgrades)
 
 	#loads money from settings_manager.gd, if there's none sets it to default
 	money = int(SettingsManager.get_money(starting_money))
@@ -29,7 +29,7 @@ func load_upgrades(dir: String, arr: Array[PonyUpgrade]) -> void:
 	for file in ResourceLoader.list_directory(dir):
 		if not file.ends_with("tres"):
 			continue
-		arr.append(load(dir + "/" + file))
+		arr.append(load(dir + file))
 	arr.sort_custom(func(a: PonyUpgrade, b: PonyUpgrade):
 		return a.cost < b.cost )
 
