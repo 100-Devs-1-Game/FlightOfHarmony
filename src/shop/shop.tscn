@@ -120,3 +120,4 @@ text = "Reset Progress"
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
 [connection signal="pressed" from="TextureButton Back" to="." method="_on_texture_button_back_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="open_book" from="OpenBook Gliders" to="." method="_on_open_book_pressed"]
