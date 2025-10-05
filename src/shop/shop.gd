@@ -22,6 +22,7 @@ func _on_texture_button_fuel_pressed() -> void:
 func _on_texture_button_back_pressed() -> void:
 	LevelManager.goto_start()
 
+
 func _update_currency() -> void:
 	money_label.text = "Money: $" + str(Global.money)
 
