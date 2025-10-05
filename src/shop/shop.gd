@@ -33,7 +33,7 @@ func _on_reset_pressed() -> void:
 	_update_currency()
 
 
-func _on_open_book_pressed() -> void:
+func _on_open_book_pressed(category: PonyUpgrade.Category) -> void:
 	var book = upgrade_book.instantiate()
-	book.category= PonyUpgrade.Category.GLIDER
+	book.category= category
 	add_child(book)

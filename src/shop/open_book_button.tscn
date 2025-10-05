@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://3tpoiqp6wdoo"]
+
+[ext_resource type="Script" uid="uid://d1eakswpbxpnf" path="res://shop/open_book_button.gd" id="1_1cgc7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv745"]
+bg_color = Color(0.6, 0.6, 0.6, 0.466667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8ks2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="OpenBook" type="Button"]
+custom_minimum_size = Vector2(250, 150)
+offset_left = 686.0
+offset_top = 529.0
+offset_right = 936.0
+offset_bottom = 679.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_hv745")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8ks2")
+script = ExtResource("1_1cgc7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
