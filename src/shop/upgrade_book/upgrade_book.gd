@@ -1,6 +1,8 @@
 class_name UpgradeBook
 extends Panel
 
+signal close
+
 @export var clickables: Array[BaseButton] = []
 @export var pony_stats: PonyStats
 
@@ -47,14 +49,15 @@ func _handle_hover(state: bool, button: BaseButton) -> void:
 func _on_button_pressed(action: StringName) -> void:
 	match action:
 		"BookBack":
-			call_deferred("queue_free")
+			close.emit()
+			queue_free.call_deferred()
 		"BookNext":
 			next_page()
 		"BookPrevious":
 			previous_page()
 
 
-func _on_purchase_pressed(upgrade: PonyUpgrade) -> void:
+func _on_purchase_pressed(upgrade: ShopUpgrade) -> void:
 	Global.try_spend(upgrade.cost)
 	pony_stats.set_upgrade(upgrade, upgrade.get_category())
 

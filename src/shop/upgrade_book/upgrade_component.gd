@@ -5,7 +5,7 @@ const CAN_BUY = preload("res://assets/art/upgrades/book/icons/BuyIcon_Selected.p
 const CANT_AFFORD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png")
 const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png")
 
-@export var res: PonyUpgrade
+@export var res: ShopUpgrade
 
 @onready var selector: BaseButton = $Selector
 @onready var display_label: Label = $HBoxContainer/ItemName
@@ -25,7 +25,7 @@ func _ready() -> void:
 				EventChannel.upgrade_item_clicked.emit(res); $Sold.visible = true)
 
 
-func init(_res: PonyUpgrade):
+func init(_res: ShopUpgrade):
 	res= _res
 	_update_from_res()
 	check_affordable()
@@ -58,6 +58,9 @@ func _update_from_res() -> void:
 	display_label.text = res.display_name
 	cost_label.text = "$%d.00" % int(res.cost)
 	texture.texture = res.icon
+
+	if res is MoneyUpgrade:
+		return
 
 	var first_stat: PonyStatModifier= res.pony_stat_modifiers[0]
 	var second_stat: PonyStatModifier

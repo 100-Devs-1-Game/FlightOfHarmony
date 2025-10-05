@@ -20,11 +20,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd0xb"]
 
-[node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("money_label")]
+[node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("money_label", "book_buttons")]
 script = ExtResource("1_gy7ao")
 pony_stats = ExtResource("3_xad5q")
 money_label = NodePath("MoneyLabel")
-upgrade_book = ExtResource("3_yrv44")
+upgrade_book_scene = ExtResource("3_yrv44")
+book_buttons = [NodePath("OpenBook Gliders"), NodePath("OpenBook Propulsion"), NodePath("OpenBook Body"), NodePath("OpenBook Money")]
 
 [node name="TextureRect ShopBG" type="TextureRect" parent="."]
 offset_right = 1920.0

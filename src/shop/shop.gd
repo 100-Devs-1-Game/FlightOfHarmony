@@ -1,8 +1,10 @@
+class_name Shop
 extends CanvasLayer
 
 @export var pony_stats: PonyStats
 @export var money_label: Label
-@export var upgrade_book: PackedScene
+@export var upgrade_book_scene: PackedScene
+@export var book_buttons: Array[BookCategoryButton]
 
 
 
@@ -35,6 +37,12 @@ func _on_reset_pressed() -> void:
 
 
 func _on_open_book_pressed(category: ShopUpgrade.Category) -> void:
-	var book = upgrade_book.instantiate()
+	var book: UpgradeBook = upgrade_book_scene.instantiate()
 	book.category= category
+	book.close.connect(on_upgrade_book_closed)
 	add_child(book)
+
+
+func on_upgrade_book_closed():
+	for button in book_buttons:
+		button.update()
