@@ -2,7 +2,7 @@ class_name PonyStats
 extends Resource
 ## Holds all the ponys stats and upgrades
 
-enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
+enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT, PROPULSION }
 
 
 @export var speed_stat: SinglePonyStat
@@ -10,9 +10,12 @@ enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 @export var lift_stat: SinglePonyStat
 @export var fuel_stat: SinglePonyStat
 @export var jump_height_stat: SinglePonyStat
+@export var propulsion_stat: SinglePonyStat
 
 ## Holds upgrades according to ShopUpgrade.Category order
 @export var upgrade_slots: Array[PonyUpgrade] = [null, null, null]
+
+
 
 func get_stat(stat: StatType) -> SinglePonyStat:
 	match stat:
@@ -26,6 +29,10 @@ func get_stat(stat: StatType) -> SinglePonyStat:
 			return fuel_stat
 		StatType.JUMP_HEIGHT:
 			return jump_height_stat
+		StatType.JUMP_HEIGHT:
+			return jump_height_stat
+		StatType.PROPULSION:
+			return propulsion_stat
 		_:
 			assert(false)
 			return null
