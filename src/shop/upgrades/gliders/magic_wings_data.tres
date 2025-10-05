@@ -13,11 +13,11 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_u6mri")
+overlay_scene = ExtResource("2_ckyxf")
+pony_stat_modifiers = Array[ExtResource("1_6mjmn")]([SubResource("Resource_ckyxf")])
 category = 0
 display_name = "Magic Wings"
 item_description = "A set of magic wings."
 cost = 750
 icon = ExtResource("1_u6mri")
-overlay_scene = ExtResource("2_ckyxf")
-pony_stat_modifiers = Array[ExtResource("1_6mjmn")]([SubResource("Resource_ckyxf")])
 metadata/_custom_type_script = "uid://cekl3umqrww32"

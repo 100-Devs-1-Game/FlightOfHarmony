@@ -13,11 +13,11 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_daa47")
+overlay_scene = ExtResource("2_hw0lf")
+pony_stat_modifiers = Array[ExtResource("1_p7hb0")]([SubResource("Resource_hw0lf")])
 category = 0
 display_name = "Wooden Wings"
 item_description = "A simple set of wings made from scrap materials."
 cost = 150
 icon = ExtResource("1_daa47")
-overlay_scene = ExtResource("2_hw0lf")
-pony_stat_modifiers = Array[ExtResource("1_p7hb0")]([SubResource("Resource_hw0lf")])
 metadata/_custom_type_script = "uid://cekl3umqrww32"

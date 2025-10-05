@@ -14,11 +14,11 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 [resource]
 script = ExtResource("3_sc6h6")
 provides_propulsion = 1
+overlay_scene = ExtResource("1_sc6h6")
+pony_stat_modifiers = Array[ExtResource("1_xi8ca")]([SubResource("Resource_4apmp")])
 category = 1
 display_name = "Soda Pop"
 item_description = "A simple bottle of soda which pushes you forward."
 cost = 125
 icon = ExtResource("1_bs07m")
-overlay_scene = ExtResource("1_sc6h6")
-pony_stat_modifiers = Array[ExtResource("1_xi8ca")]([SubResource("Resource_4apmp")])
 metadata/_custom_type_script = "uid://fx4ldsmd0ywx"

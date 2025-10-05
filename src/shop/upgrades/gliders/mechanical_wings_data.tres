@@ -13,11 +13,11 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_x1tu0")
+overlay_scene = ExtResource("2_o0bo1")
+pony_stat_modifiers = Array[ExtResource("1_72i12")]([SubResource("Resource_13qk7")])
 category = 0
 display_name = "Mechanical Wings"
 item_description = "Designed and Built for the perfect flight. Provides High Speed and Flight"
 cost = 10000
 icon = ExtResource("1_13qk7")
-overlay_scene = ExtResource("2_o0bo1")
-pony_stat_modifiers = Array[ExtResource("1_72i12")]([SubResource("Resource_13qk7")])
 metadata/_custom_type_script = "uid://cekl3umqrww32"
