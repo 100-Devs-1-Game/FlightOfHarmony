@@ -71,13 +71,13 @@ func try_spend(cost: int) -> bool:
 	return true
 
 
-func get_category_upgrades(category: PonyUpgrade.Category)-> Array[PonyUpgrade]:
+func get_category_upgrades(category: ShopUpgrade.Category)-> Array[PonyUpgrade]:
 	match category:
-		PonyUpgrade.Category.GLIDER:
+		ShopUpgrade.Category.GLIDER:
 			return glider_upgrades
-		PonyUpgrade.Category.PROPULSION:
+		ShopUpgrade.Category.PROPULSION:
 			return propulsion_upgrades
-		PonyUpgrade.Category.BODY:
+		ShopUpgrade.Category.BODY:
 			return body_upgrades
 
 	return []

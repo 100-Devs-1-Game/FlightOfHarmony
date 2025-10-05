@@ -1,16 +1,6 @@
 class_name PonyUpgrade
-extends Resource
-## Holds an upgrade ( item ) that can be bought in the shop
+extends ShopUpgrade
 
-enum Category { GLIDER, PROPULSION, BODY }
- 
-@export var category: Category = Category.GLIDER
-
-@export var display_name: String = "ITEM_NAME"
-@export var item_description: String = "ITEM_DESCRIPTION"
-@export var cost: int
-## Icon for the shop
-@export var icon: Texture2D
 ## An overlay for the flying pony animation adding this upgrades appearance
 @export var overlay_scene: PackedScene
 ## All the stats this upgrade modifies

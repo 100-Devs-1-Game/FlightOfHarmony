@@ -11,7 +11,7 @@ enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT }
 @export var fuel_stat: SinglePonyStat
 @export var jump_height_stat: SinglePonyStat
 
-## Holds upgrades according to PonyUpgrade.Category order
+## Holds upgrades according to ShopUpgrade.Category order
 @export var upgrade_slots: Array[PonyUpgrade] = [null, null, null]
 
 func get_stat(stat: StatType) -> SinglePonyStat:
@@ -57,11 +57,11 @@ func get_stat_value(stat: StatType) -> float:
 	return s.get_value(level) + bonus
 
 
-func get_upgrade(category: PonyUpgrade.Category) -> PonyUpgrade:
+func get_upgrade(category: ShopUpgrade.Category) -> PonyUpgrade:
 	return upgrade_slots[int(category)]
 
 
-func set_upgrade(upgrade: PonyUpgrade, category: PonyUpgrade.Category) -> void:
+func set_upgrade(upgrade: PonyUpgrade, category: ShopUpgrade.Category) -> void:
 	upgrade_slots[int(category)] = upgrade
 
 

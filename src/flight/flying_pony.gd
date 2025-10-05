@@ -65,7 +65,7 @@ func reset():
 	jump_bonus_frames= int(stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT))
 	remaining_fuel= stats.get_stat_value(PonyStats.StatType.FUEL)
 	
-	var upgrade: PonyUpgrade= stats.get_upgrade(PonyUpgrade.Category.PROPULSION)
+	var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
 	if upgrade:
 		propulsion_type= upgrade.provides_propulsion
 

@@ -1,8 +1,8 @@
 extends Button
 
-signal open_book(category: PonyUpgrade.Category)
+signal open_book(category: ShopUpgrade.Category)
 
-@export var category: PonyUpgrade.Category
+@export var category: ShopUpgrade.Category
 
 @onready var texture_rect: TextureRect = $TextureRect
 

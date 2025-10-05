@@ -13,7 +13,7 @@ extends Panel
 @onready var pages: Control = %Pages
 
 var _current_idx := 0
-var category: PonyUpgrade.Category
+var category: ShopUpgrade.Category
 
 
 
