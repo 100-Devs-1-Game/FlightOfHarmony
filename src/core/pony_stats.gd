@@ -38,18 +38,27 @@ func get_stat(stat: StatType) -> SinglePonyStat:
 			return null
 
 
+func get_stats()-> Array[SinglePonyStat]:
+	var result: Array[SinglePonyStat]
+	for stat in StatType.values():
+		result.append(get_stat(stat))
+	return result
+
+
 func get_level(stat: StatType) -> int:
 	var s = get_stat(stat)
 	if s == null: 
 		return 0
-	return SettingsManager.get_level(s.id, 0)
+	return s.level
 
 
 func set_level(stat: StatType, level: int) -> void:
 	var s = get_stat(stat)
 	if s:
-		SettingsManager.set_level(s.id, level)
-		SettingsManager.save_game()
+		s.level= level
+		SaveManager.save_game()
+	else:
+		push_error(str("Can't find stat ", stat))
 
 
 func get_stat_value(stat: StatType) -> float:
@@ -73,12 +82,10 @@ func set_upgrade(upgrade: ShopUpgrade, category: ShopUpgrade.Category) -> void:
 
 
 func reset_all_upgrades() -> void:
-	for stat in StatType.values():
-		var s := get_stat(stat)
-		if s:
-			SettingsManager.set_level(s.id, 0)
+	for stat in get_stats():
+		stat.level= 0
 
 	for i in range(upgrade_slots.size()):
 		upgrade_slots[i] = null
 
-	SettingsManager.save_game()
+	SaveManager.save_game()

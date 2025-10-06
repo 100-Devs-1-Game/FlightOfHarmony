@@ -23,10 +23,6 @@ func _ready() -> void:
 	load_upgrades(BODY_UPGRADES_DIR, body_upgrades)
 	load_upgrades(MONEY_UPGRADES_DIR, money_upgrades)
 
-	#loads money from settings_manager.gd, if there's none sets it to default
-	money = int(SettingsManager.get_money(starting_money))
-	emit_signal("money_changed")
-
 
 func load_upgrades(dir: String, arr: Array[ShopUpgrade]) -> void:
 	for file in ResourceLoader.list_directory(dir):
@@ -42,17 +38,15 @@ func add_currency(amount: int) -> void:
 	if amount == 0:
 		return
 	money = max(0, money + amount)
-	emit_signal("money_changed")
-	SettingsManager.set_money(money)
-	SettingsManager.save_game()
+	money_changed.emit()
+	SaveManager.save_game()
 
 
 ## Overwrites previous currency with new amount
 func set_currency(amount: int) -> void:
 	money = max(0, amount)
-	emit_signal("money_changed")
-	SettingsManager.set_money(money)
-	SettingsManager.save_game()
+	money_changed.emit()
+	SaveManager.save_game()
 
 
 ## Checks if theres enough money to buy it
@@ -68,9 +62,9 @@ func try_spend(cost: int) -> bool:
 		print("Insufficient money to buy upgrade")
 		return false
 	money -= cost
-	emit_signal("money_changed")
-	SettingsManager.set_money(money)
-	SettingsManager.save_game()
+	money_changed.emit()
+	SaveManager.save_game()
+
 	return true
 
 

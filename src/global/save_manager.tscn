@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c31srgro04ru5"]
+
+[ext_resource type="Script" uid="uid://pikbtygppg88" path="res://global/save_manager.gd" id="1_r2asm"]
+[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_csska"]
+
+[node name="SaveManager" type="Node"]
+script = ExtResource("1_r2asm")
+save_path = "user://savegame.json"
+pony_stats = ExtResource("2_csska")

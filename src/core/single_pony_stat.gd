@@ -6,8 +6,8 @@ extends Resource
 @export var base_value: float
 @export var step_value: float
 
-## ID for saving and getting this specific resource
-@export var id: StringName
+var level: int
+
 
 ## calculate this stats value given a level
 func get_value(level: int)-> float:

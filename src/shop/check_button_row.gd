@@ -14,9 +14,8 @@ func _ready() -> void:
 	title_label.text = title
 
 	var s = pony_stats.get_stat(stat)
-	if s:
-		var saved := SettingsManager.get_level(s.id, 0)
-		_disable_buttons(saved)
+	if s.level:
+		_disable_buttons(s.level)
 	_update_next_cost()
 
 	var level = 1
@@ -40,7 +39,7 @@ func _on_level_up(level: int) -> void:
 
 	pony_stats.set_level(stat, level)
 	_disable_buttons(level)
-	SettingsManager.save_game()
+	SaveManager.save_game()
 	_update_next_cost()
 
 
@@ -59,7 +58,7 @@ func _update_next_cost() -> void:
 		balance_label.text = "-"
 		return
 
-	var cur_level = SettingsManager.get_level(stat_res.id, 0)
+	var cur_level: int= stat_res.level
 	if cur_level >= 0 and cur_level < stat_res.cost.size():
 		balance_label.text = str(stat_res.cost[cur_level])
 	else:
