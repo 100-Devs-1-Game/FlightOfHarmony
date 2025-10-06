@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SinglePonyStat" load_steps=2 format=3 uid="uid://cj8h2v2c3pmo1"]
+
+[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="1_gfq4e"]
+
+[resource]
+script = ExtResource("1_gfq4e")
+display_name = "Propulsion"
+base_value = 1.0
+step_value = 1.0
+id = &""
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
