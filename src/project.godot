@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flight of Harmony"
-run/main_scene="uid://dewexmnyk7otn"
+run/main_scene="uid://byhur504waec0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -35,6 +35,10 @@ window/stretch/mode="viewport"
 movie_writer/mjpeg_quality=0.65
 movie_writer/movie_file="C:/_CODING/100devs/movie.avi"
 movie_writer/fps=30
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 
