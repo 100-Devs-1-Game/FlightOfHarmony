@@ -59,7 +59,7 @@ func get_stat_value(stat: StatType) -> float:
 	var level = get_level(stat)
 	var bonus = 0.0
 	for upgrade in upgrade_slots:
-		if upgrade:
+		if upgrade and upgrade is PonyUpgrade:
 			bonus += upgrade.get_stat_modifier(stat)
 	return s.get_value(level) + bonus
 
