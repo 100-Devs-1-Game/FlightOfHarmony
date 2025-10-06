@@ -159,7 +159,7 @@ func add_upgrade_overlays():
 	add_child(upgrade_overlays)
 	
 	for upgrade in stats.upgrade_slots:
-		if upgrade:
+		if upgrade and upgrade is PonyUpgrade:
 			# Add visual of the upgrade to the flying pony
 			if upgrade.overlay_scene:
 				var overlay: Node2D= upgrade.overlay_scene.instantiate()
