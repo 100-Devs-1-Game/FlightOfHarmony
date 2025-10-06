@@ -33,7 +33,7 @@ func init(_res: ShopUpgrade):
 
 
 func check_affordable() -> void:
-	if res:
+	if res and not $Sold.visible:
 		if Global.can_afford(res.cost):
 			selector.texture_normal = null
 			selector.texture_hover = CAN_BUY
