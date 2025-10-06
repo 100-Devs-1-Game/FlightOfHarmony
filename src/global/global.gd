@@ -5,10 +5,12 @@ signal money_changed(balance: int)
 const GLIDER_UPGRADES_DIR= "res://shop/upgrades/gliders/"
 const PROPULSION_UPGRADES_DIR= "res://shop/upgrades/propulsion/"
 const BODY_UPGRADES_DIR= "res://shop/upgrades/body/"
+const MONEY_UPGRADES_DIR= "res://shop/upgrades/money/"
 
-var glider_upgrades: Array[PonyUpgrade]
-var propulsion_upgrades: Array[PonyUpgrade]
-var body_upgrades: Array[PonyUpgrade]
+var glider_upgrades: Array[ShopUpgrade]
+var propulsion_upgrades: Array[ShopUpgrade]
+var body_upgrades: Array[ShopUpgrade]
+var money_upgrades: Array[ShopUpgrade]
 
 var starting_money: int = 22200
 var money: int = 0
@@ -19,18 +21,19 @@ func _ready() -> void:
 	load_upgrades(GLIDER_UPGRADES_DIR, glider_upgrades)
 	load_upgrades(PROPULSION_UPGRADES_DIR, propulsion_upgrades)
 	load_upgrades(BODY_UPGRADES_DIR, body_upgrades)
+	load_upgrades(MONEY_UPGRADES_DIR, money_upgrades)
 
 	#loads money from settings_manager.gd, if there's none sets it to default
 	money = int(SettingsManager.get_money(starting_money))
 	emit_signal("money_changed")
 
 
-func load_upgrades(dir: String, arr: Array[PonyUpgrade]) -> void:
+func load_upgrades(dir: String, arr: Array[ShopUpgrade]) -> void:
 	for file in ResourceLoader.list_directory(dir):
 		if not file.ends_with("tres"):
 			continue
 		arr.append(load(dir + file))
-	arr.sort_custom(func(a: PonyUpgrade, b: PonyUpgrade):
+	arr.sort_custom(func(a: ShopUpgrade, b: ShopUpgrade):
 		return a.cost < b.cost )
 
 
@@ -71,7 +74,7 @@ func try_spend(cost: int) -> bool:
 	return true
 
 
-func get_category_upgrades(category: ShopUpgrade.Category)-> Array[PonyUpgrade]:
+func get_category_upgrades(category: ShopUpgrade.Category)-> Array[ShopUpgrade]:
 	match category:
 		ShopUpgrade.Category.GLIDER:
 			return glider_upgrades
@@ -79,5 +82,7 @@ func get_category_upgrades(category: ShopUpgrade.Category)-> Array[PonyUpgrade]:
 			return propulsion_upgrades
 		ShopUpgrade.Category.BODY:
 			return body_upgrades
+		ShopUpgrade.Category.MONEY:
+			return money_upgrades
 
 	return []

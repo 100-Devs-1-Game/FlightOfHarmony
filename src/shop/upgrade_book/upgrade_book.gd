@@ -59,7 +59,7 @@ func _on_button_pressed(action: StringName) -> void:
 
 func _on_purchase_pressed(upgrade: ShopUpgrade) -> void:
 	Global.try_spend(upgrade.cost)
-	pony_stats.set_upgrade(upgrade, upgrade.get_category())
+	pony_stats.set_upgrade(upgrade, upgrade.category)
 
 
 func next_page() -> void:
