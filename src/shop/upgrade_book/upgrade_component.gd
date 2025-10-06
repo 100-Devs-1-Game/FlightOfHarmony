@@ -60,6 +60,7 @@ func _update_from_res() -> void:
 	texture.texture = res.icon
 
 	if res is MoneyUpgrade:
+		%StatbarContainer.hide()
 		return
 
 	var first_stat: PonyStatModifier= res.pony_stat_modifiers[0]
