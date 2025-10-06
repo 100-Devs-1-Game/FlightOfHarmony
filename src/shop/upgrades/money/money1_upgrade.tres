@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_3cbu2")
+bonus = 5
 category = 3
 display_name = "Money"
-item_description = ""
+item_description = "Earn + 5%"
 cost = 10
 icon = ExtResource("1_gnp8q")
 metadata/_custom_type_script = "uid://bdlbntowhp1k0"
