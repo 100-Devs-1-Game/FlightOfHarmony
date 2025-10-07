@@ -7,5 +7,4 @@ script = ExtResource("1_gfq4e")
 display_name = "Propulsion"
 base_value = 1.0
 step_value = 1.0
-id = &""
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

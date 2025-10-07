@@ -8,5 +8,4 @@ cost = Array[int]([10])
 display_name = "Fuel"
 base_value = 1.0
 step_value = 1.0
-id = &""
 metadata/_custom_type_script = "uid://dh2aqxek7frts"
