@@ -28,13 +28,14 @@ func _on_player_landed() -> void:
 	var distance_m = int(roundi(player.get_distance())) / 100
 	var height_m = int(roundi(_max_height)) / 100
 	var money_earned: int = int(roundi((distance_m + height_m) / 2.0))
-	var bonus: int= money_earned * get_interest_rate()
+	var interest_rate: float= get_interest_rate()
+	var bonus: int= money_earned * interest_rate
 
 	$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
 	$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
 	var money_text:= "Earned: $" + str(money_earned)
-	if bonus > 0:
-		money_text+= " (+$%d)" % str(bonus)
+	if interest_rate > 0:
+		money_text+= " (+$%d)" % bonus 
 	$UI/Results/VBoxContainer/Moneylbl.text = money_text
 	
 	run_ended(money_earned + bonus)
@@ -66,7 +67,7 @@ func get_interest_rate()-> float:
 	for upgrade in SaveManager.bought_upgrades:
 		if upgrade is MoneyUpgrade:
 			interest= max(interest, upgrade.bonus)
-	return 1 + interest / 100.0
+	return interest / 100.0
 
 
 func _on_return_pressed() -> void:
