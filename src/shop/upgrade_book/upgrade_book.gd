@@ -28,10 +28,9 @@ func _ready() -> void:
 			continue
 		btn.pressed.connect(_on_button_pressed.bind(StringName(btn.name)))
 
-	EventChannel.upgrade_item_clicked.connect(_on_upgrade_pressed)
-
 	for upgrade in Global.get_category_upgrades(category):
 		var component: UpgradeComponent= upgrade_component_scene.instantiate()
+		component.updated.connect(_on_component_updated)
 		pages.add_child(component)
 		component.init(upgrade)
 		if pages.get_child_count() % 2 == 0:
@@ -55,15 +54,6 @@ func _on_button_pressed(action: StringName) -> void:
 			next_page()
 		"BookPrevious":
 			previous_page()
-
-
-func _on_upgrade_pressed(upgrade: ShopUpgrade) -> void:
-	if not upgrade in SaveManager.bought_upgrades:
-		if Global.try_spend(upgrade.cost):
-			SaveManager.bought_upgrades.append(upgrade)
-			SaveManager.save_game()
-
-	pony_stats.set_upgrade(upgrade, upgrade.category)
 
 
 func next_page() -> void:
@@ -99,3 +89,8 @@ func update_and_display(desc: String, hovered: bool) -> void:
 			$DescPanel/Desc.text = desc
 		else:
 			animator.play_backwards("toggle")
+
+
+func _on_component_updated():
+	for component: UpgradeComponent in pages.get_children():
+		component.check_affordable()

@@ -8,6 +8,3 @@ signal reset_progress
 
 @warning_ignore("unused_signal")
 signal item_hovered(desc: String, hovered: bool)
-
-@warning_ignore("unused_signal")
-signal upgrade_item_clicked(upgrade: ShopUpgrade)

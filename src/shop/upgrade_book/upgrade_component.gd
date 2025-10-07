@@ -1,6 +1,8 @@
 class_name UpgradeComponent
 extends Control
 
+signal updated
+
 const CAN_BUY = preload("res://assets/art/upgrades/book/icons/BuyIcon_Selected.png")
 const CANT_AFFORD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png")
 const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png")
@@ -20,28 +22,33 @@ func _ready() -> void:
 	if selector:
 		selector.mouse_entered.connect(_enter)
 		selector.mouse_exited.connect(_exit)
-		selector.pressed.connect(func():
-			if Global.can_afford(res.cost):
-				EventChannel.upgrade_item_clicked.emit(res); $Sold.visible = true)
 
 
 func init(_res: ShopUpgrade):
 	res= _res
+	selector.pressed.connect(_on_upgrade_pressed.bind(res))
 	_update_from_res()
 	check_affordable()
 	Global.money_changed.connect(check_affordable)
 
 
 func check_affordable() -> void:
-	if res and not $Sold.visible:
-		if Global.can_afford(res.cost):
-			selector.texture_normal = null
-			selector.texture_hover = CAN_BUY
-			selector.texture_pressed = CAN_BUY
-		else:
-			selector.texture_normal = CANT_AFFORD
-			selector.texture_hover = CANT_AFFORD
-			selector.texture_pressed = CANT_AFFORD
+	$Sold.hide()
+	if res in SaveManager.bought_upgrades:
+		var selected:= res in SaveManager.pony_stats.upgrade_slots
+		selector.texture_normal = CAN_BUY if selected else null
+		selector.texture_hover = CAN_BUY
+		selector.texture_pressed = CAN_BUY
+		if not selected:
+			$Sold.show()
+	elif Global.can_afford(res.cost):
+		selector.texture_normal = null
+		selector.texture_hover = CAN_BUY
+		selector.texture_pressed = CAN_BUY
+	else:
+		selector.texture_normal = CANT_AFFORD
+		selector.texture_hover = CANT_AFFORD
+		selector.texture_pressed = CANT_AFFORD
 
 
 func _enter() -> void:
@@ -77,3 +84,14 @@ func _update_from_res() -> void:
 		second_bar.value= second_stat.value
 	else:
 		second_bar.hide()
+
+
+func _on_upgrade_pressed(upgrade: ShopUpgrade) -> void:
+	if not upgrade in SaveManager.bought_upgrades:
+		if Global.try_spend(upgrade.cost):
+			#$Sold.visible = true
+			SaveManager.bought_upgrades.append(upgrade)
+			SaveManager.save_game()
+
+	SaveManager.pony_stats.set_upgrade(upgrade, upgrade.category)
+	updated.emit()
