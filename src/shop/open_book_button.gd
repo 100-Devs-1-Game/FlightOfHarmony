@@ -6,7 +6,7 @@ signal open_book(category: ShopUpgrade.Category)
 @export var category: ShopUpgrade.Category
 
 @onready var shop: Shop= get_parent()
-@onready var texture_rect: TextureRect = $TextureRect
+@onready var texture_rect: TextureRect = %TextureRect
 
 
 
