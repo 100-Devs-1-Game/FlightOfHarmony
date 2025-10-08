@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="MoneyUpgrade" load_steps=3 format=3 uid="uid://dsnehw76i1rku"]
 
-[ext_resource type="Texture2D" uid="uid://vtit2dhodi0y" path="res://assets/art/upgrades/money/money_upgrades_0001.png" id="1_hw13r"]
+[ext_resource type="Texture2D" uid="uid://dw8f57ktky7nq" path="res://assets/art/upgrades/money/money_upgrades_007_b.png" id="1_hw13r"]
 [ext_resource type="Script" uid="uid://bdlbntowhp1k0" path="res://core/money_upgrade.gd" id="2_hcfmi"]
 
 [resource]
 script = ExtResource("2_hcfmi")
-bonus = 5
+bonus = 100
 category = 3
 display_name = "Money"
-item_description = "Earn + 5%"
-cost = 10
+item_description = "Earn + 100%"
+cost = 500
 icon = ExtResource("1_hw13r")
 metadata/_custom_type_script = "uid://bdlbntowhp1k0"
