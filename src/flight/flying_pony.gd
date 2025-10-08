@@ -128,8 +128,8 @@ func fly_logic(delta: float):
 			remaining_fuel-= fuel_used_per_second * delta
 			if remaining_fuel <= 0:
 				fuel_ran_out.emit()
-			
-		velocity+= global_transform.x * propulsion_force * delta
+			else:
+				velocity+= global_transform.x * propulsion_force * delta
 
 
 	var drag: float= get_drag()
