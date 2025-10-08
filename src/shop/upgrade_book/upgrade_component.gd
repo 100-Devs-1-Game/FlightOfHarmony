@@ -89,9 +89,11 @@ func _update_from_res() -> void:
 func _on_upgrade_pressed(upgrade: ShopUpgrade) -> void:
 	if not upgrade in SaveManager.bought_upgrades:
 		if Global.try_spend(upgrade.cost):
-			#$Sold.visible = true
 			SaveManager.bought_upgrades.append(upgrade)
 			SaveManager.save_game()
 
-	SaveManager.pony_stats.set_upgrade(upgrade, upgrade.category)
+	if upgrade in SaveManager.pony_stats.upgrade_slots:
+		SaveManager.pony_stats.set_upgrade(null, upgrade.category)
+	else:
+		SaveManager.pony_stats.set_upgrade(upgrade, upgrade.category)
 	updated.emit()
