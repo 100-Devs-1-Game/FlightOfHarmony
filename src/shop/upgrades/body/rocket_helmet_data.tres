@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=5 format=3 uid="uid://bmsgh1mix21gb"]
+
+[ext_resource type="Texture2D" uid="uid://bplh280q4paqs" path="res://assets/art/upgrades/helmets/Rocketeet_Helemt_3.png" id="1_3bvxj"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_f8d78"]
+[ext_resource type="PackedScene" uid="uid://ssqobnpepcfb" path="res://shop/upgrades/body/scenes/RocketHelmetUpgrade.tscn" id="1_gseij"]
+[ext_resource type="Script" uid="uid://wai2hektb4vk" path="res://core/pony_upgrade_body.gd" id="2_gseij"]
+
+[resource]
+script = ExtResource("2_gseij")
+overlay_scene = ExtResource("1_gseij")
+pony_stat_modifiers = Array[ExtResource("1_f8d78")]([])
+category = 2
+display_name = "Rocketeer Helmet"
+item_description = ""
+cost = 0
+icon = ExtResource("1_3bvxj")
+metadata/_custom_type_script = "uid://wai2hektb4vk"
