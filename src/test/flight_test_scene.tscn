@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0nij173w20gl" path="res://test/flight_test_scene.gd" id="1_hjpwq"]
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://flight/follow_camera.gd" id="2_is3fb"]
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="3_3t3je"]
-[ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="4_is3fb"]
+[ext_resource type="Resource" uid="uid://c1po3y5e2g8ar" path="res://test/pony_test_stats.tres" id="4_6cixw"]
 [ext_resource type="PackedScene" uid="uid://dt1tsag71wdpj" path="res://test/ui/test_ui_panel.tscn" id="5_1arhw"]
 [ext_resource type="PackedScene" uid="uid://diymk3ucnx78v" path="res://test/test_arrow.tscn" id="5_3t3je"]
 [ext_resource type="Script" uid="uid://de1d1s6371l2c" path="res://test/pony_flight_debugger.gd" id="5_6cixw"]
@@ -40,7 +40,7 @@ follow_node = NodePath("../Pony")
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("3_3t3je")
 walk_distance = 250.0
-stats = ExtResource("4_is3fb")
+stats = ExtResource("4_6cixw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pony"]
 position = Vector2(0, -2)
