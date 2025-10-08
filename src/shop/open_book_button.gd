@@ -18,6 +18,8 @@ func update():
 	var upgrade: ShopUpgrade= shop.pony_stats.get_upgrade(category)
 	if upgrade:
 		texture_rect.texture= upgrade.icon
+	else:
+		texture_rect.texture= null
 
 
 func _on_pressed() -> void:
