@@ -33,7 +33,7 @@ enum State { WALKING, FLYING, LANDING }
 ## Reference to the stats file
 @export var stats: PonyStats
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var animated_sprite: AnimatedSprite2D
 @onready var orig_pos: Vector2= position
 
 var state: State= State.WALKING
@@ -70,7 +70,8 @@ func reset():
 		propulsion_type= upgrade.provides_propulsion
 
 	state= State.WALKING
-	animated_sprite.play("run")
+	if animated_sprite:
+		animated_sprite.play("run")
 	
 	enable_lift= false
 
@@ -96,7 +97,8 @@ func land():
 
 func _physics_process(delta: float) -> void:
 	if cheat_mode:
-		animated_sprite.stop()
+		if animated_sprite:
+			animated_sprite.stop()
 		position+= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * delta * 1000
 		return
 		
