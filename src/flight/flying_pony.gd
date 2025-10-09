@@ -7,6 +7,8 @@ signal has_reset
 signal started_flying
 signal landed
 signal fuel_ran_out
+signal start_propulsion
+signal stop_propulsion
 
 enum State { WALKING, FLYING, LANDING }
 
@@ -45,7 +47,15 @@ var jump_bonus_frames: int= 0
 ## Propulsion type provided by potential upgrade
 var propulsion_type: PonyUpgradePropulsion.Type
 ## Current state of propulsion
-var propulsion_active: bool
+var propulsion_active: bool:
+	set(b):
+		if propulsion_active == b:
+			return
+		if propulsion_active:
+			start_propulsion.emit()
+		else:
+			stop_propulsion.emit()
+
 var remaining_fuel: float
 ## parent node for all the upgrade overlays
 var upgrade_overlays: Node2D
