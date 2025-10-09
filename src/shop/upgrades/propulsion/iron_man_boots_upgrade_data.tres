@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=6 format=3 uid="uid://46tbtuu02otp"]
+
+[ext_resource type="Texture2D" uid="uid://dedg2c00iq827" path="res://assets/art/upgrades/propulsion/iron_man_boots/Boots_Book_Icon.png" id="1_awx7v"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_bkkos"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="2_awx7v"]
+[ext_resource type="PackedScene" uid="uid://duilapbtj7eyg" path="res://shop/upgrades/propulsion/scenes/iron_man_boots/iron_man_boots_upgrade.tscn" id="2_rf33b"]
+
+[sub_resource type="Resource" id="Resource_rf33b"]
+script = ExtResource("1_bkkos")
+stat = 5
+value = 8
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("2_awx7v")
+provides_propulsion = 2
+overlay_scene = ExtResource("2_rf33b")
+pony_stat_modifiers = Array[ExtResource("1_bkkos")]([SubResource("Resource_rf33b")])
+category = 1
+display_name = "Iron Man Boots"
+item_description = "ITEM_DESCRIPTION"
+cost = 500
+icon = ExtResource("1_awx7v")
+metadata/_custom_type_script = "uid://bgwt4hvflnx2h"
