@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=6 format=3 uid="uid://d1o4hlnlv0hix"]
+
+[ext_resource type="Texture2D" uid="uid://c55ua8fcpjvtd" path="res://assets/art/upgrades/propulsion/firework/Firework_Blank.png" id="1_s08qy"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="2_lliky"]
+[ext_resource type="PackedScene" uid="uid://ciph2ciptumo1" path="res://shop/upgrades/propulsion/scenes/fireworks/fireworks_upgrade.tscn" id="2_sfu4e"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="3_sfu4e"]
+
+[sub_resource type="Resource" id="Resource_i27e7"]
+script = ExtResource("2_lliky")
+stat = 5
+value = 5
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("3_sfu4e")
+provides_propulsion = 1
+overlay_scene = ExtResource("2_sfu4e")
+pony_stat_modifiers = Array[ExtResource("2_lliky")]([SubResource("Resource_i27e7")])
+category = 1
+display_name = "Fireworks"
+item_description = "ITEM_DESCRIPTION"
+cost = 250
+icon = ExtResource("1_s08qy")
+metadata/_custom_type_script = "uid://bgwt4hvflnx2h"

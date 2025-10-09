@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciph2ciptumo1"]
+
+[ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/fireworks/fireworks_upgrade.gd" id="1_1rm8e"]
+[ext_resource type="Texture2D" uid="uid://cqstc8654byjg" path="res://assets/art/upgrades/propulsion/firework/Firework_00001.png" id="2_y6kro"]
+[ext_resource type="Texture2D" uid="uid://djh6dykrefmr4" path="res://assets/art/upgrades/propulsion/firework/Firework_00002.png" id="3_2ljub"]
+[ext_resource type="Texture2D" uid="uid://dideu66pcj6j4" path="res://assets/art/upgrades/propulsion/firework/Firework_00003.png" id="4_8v0ch"]
+[ext_resource type="Texture2D" uid="uid://cctemntc4re60" path="res://assets/art/upgrades/propulsion/firework/Firework_00004.png" id="5_2nl1t"]
+[ext_resource type="Texture2D" uid="uid://dj3usjtml2ea5" path="res://assets/art/upgrades/propulsion/firework/Firework_00005.png" id="6_xxlwh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_815k4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y6kro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ljub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8v0ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2nl1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xxlwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FireworksUpgrade" type="Node2D"]
+script = ExtResource("1_1rm8e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_815k4")
+frame_progress = 0.909027
