@@ -59,7 +59,7 @@ func try_spend(cost: int) -> bool:
 	if cost <= 0:
 		return true
 	if money < cost:
-		print("Insufficient money to buy upgrade")
+		push_error("Insufficient money to buy upgrade")
 		return false
 	money -= cost
 	money_changed.emit()
