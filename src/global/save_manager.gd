@@ -20,6 +20,7 @@ func save_game() -> void:
 	
 	var arr_levels:= []
 	for stat in pony_stats.get_stats():
+		assert(stat.level == 0 or stat is BuyablePonyStat)
 		arr_levels.append(stat.level)
 	dict["levels"]= arr_levels
 
@@ -54,6 +55,7 @@ func load_game() -> void:
 	var arr: Array= dict["levels"]
 	for stat in pony_stats.get_stats():
 		stat.level= arr.pop_front()
+		assert(stat.level == 0 or stat is BuyablePonyStat)
 	
 	arr= dict["active_upgrades"]
 	for i in pony_stats.upgrade_slots.size():

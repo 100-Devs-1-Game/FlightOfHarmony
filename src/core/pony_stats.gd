@@ -5,11 +5,11 @@ extends Resource
 enum StatType { SPEED, DRAG, LIFT, FUEL, JUMP_HEIGHT, PROPULSION }
 
 
-@export var speed_stat: SinglePonyStat
+@export var speed_stat: BuyablePonyStat
 @export var drag_stat: SinglePonyStat
 @export var lift_stat: SinglePonyStat
-@export var fuel_stat: SinglePonyStat
-@export var jump_height_stat: SinglePonyStat
+@export var fuel_stat: BuyablePonyStat
+@export var jump_height_stat: BuyablePonyStat
 @export var propulsion_stat: SinglePonyStat
 
 ## Holds upgrades according to ShopUpgrade.Category order
