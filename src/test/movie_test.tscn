@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://blg133tqvtpfp"]
+
+[ext_resource type="VideoStream" uid="uid://m8ackft7w5ax" path="res://assets/art/cutscenes/test/output.ogv" id="1_ns64a"]
+
+[node name="Movie Test" type="Node"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_ns64a")
+autoplay = true
+expand = true
