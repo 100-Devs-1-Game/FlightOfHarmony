@@ -31,7 +31,7 @@ func _on_texture_button_back_pressed() -> void:
 
 
 func _update_currency() -> void:
-	money_label.text = "Money: $" + str(Global.money)
+	money_label.text = str("$", Global.money)
 
 
 func _update_fuel() -> void:

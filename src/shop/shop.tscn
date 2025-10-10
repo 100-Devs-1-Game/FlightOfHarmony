@@ -100,13 +100,15 @@ pony_stats = ExtResource("3_xad5q")
 stat = 4
 
 [node name="MoneyLabel" type="Label" parent="."]
-offset_left = 92.0
-offset_top = 188.0
-offset_right = 330.0
-offset_bottom = 255.0
+custom_minimum_size = Vector2(150, 0)
+offset_left = 89.0
+offset_top = 192.0
+offset_right = 239.0
+offset_bottom = 228.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
-text = "Money: $0"
+text = "$0"
+horizontal_alignment = 1
 
 [node name="FuelLabel" type="Label" parent="."]
 offset_left = 138.0
