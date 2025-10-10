@@ -2,15 +2,17 @@ class_name Shop
 extends CanvasLayer
 
 @export var pony_stats: PonyStats
-@export var money_label: Label
 @export var upgrade_book_scene: PackedScene
 @export var book_buttons: Array[BookCategoryButton]
 
+@onready var money_label: Label = $MoneyLabel
+@onready var fuel_label: Label = $FuelLabel
 
 
 func _ready() -> void:
 	Global.money_changed.connect(_update_currency)
 	_update_currency()
+	_update_fuel()
 
 
 func _on_texture_button_launch_pressed() -> void:
@@ -20,7 +22,9 @@ func _on_texture_button_launch_pressed() -> void:
 func _on_texture_button_fuel_pressed() -> void:
 	var level: int= pony_stats.get_level(PonyStats.StatType.FUEL)
 	pony_stats.set_level(PonyStats.StatType.FUEL, level + 1)
-
+	Global.try_spend(pony_stats.fuel_stat.cost[0])
+	_update_fuel()
+	
 
 func _on_texture_button_back_pressed() -> void:
 	LevelManager.goto_start()
@@ -28,6 +32,10 @@ func _on_texture_button_back_pressed() -> void:
 
 func _update_currency() -> void:
 	money_label.text = "Money: $" + str(Global.money)
+
+
+func _update_fuel() -> void:
+	fuel_label.text = str(int(pony_stats.get_stat_value(PonyStats.StatType.FUEL)), " L")
 
 
 func _on_reset_pressed() -> void:

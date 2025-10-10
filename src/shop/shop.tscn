@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=20 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="13_hv745"]
 [ext_resource type="PackedScene" uid="uid://3tpoiqp6wdoo" path="res://shop/open_book_button.tscn" id="15_pafut"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_pafut"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrv44"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd0xb"]
@@ -27,10 +31,9 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 
-[node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("money_label", "book_buttons")]
+[node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("book_buttons")]
 script = ExtResource("1_gy7ao")
 pony_stats = ExtResource("3_xad5q")
-money_label = NodePath("MoneyLabel")
 upgrade_book_scene = ExtResource("3_yrv44")
 book_buttons = [NodePath("OpenBook Gliders"), NodePath("OpenBook Propulsion"), NodePath("OpenBook Body"), NodePath("OpenBook Money")]
 
@@ -104,6 +107,16 @@ offset_bottom = 255.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Money: $0"
+
+[node name="FuelLabel" type="Label" parent="."]
+offset_left = 138.0
+offset_top = 662.0
+offset_right = 248.0
+offset_bottom = 772.0
+text = "0 L"
+label_settings = SubResource("LabelSettings_pafut")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Reset" type="Button" parent="."]
 offset_left = 25.0
