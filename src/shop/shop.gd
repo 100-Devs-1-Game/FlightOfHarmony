@@ -18,7 +18,8 @@ func _on_texture_button_launch_pressed() -> void:
 
 
 func _on_texture_button_fuel_pressed() -> void:
-	pass # Replace with function body.
+	var level: int= pony_stats.get_level(PonyStats.StatType.FUEL)
+	pony_stats.set_level(PonyStats.StatType.FUEL, level + 1)
 
 
 func _on_texture_button_back_pressed() -> void:

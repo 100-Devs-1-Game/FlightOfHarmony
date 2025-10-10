@@ -6,6 +6,6 @@
 script = ExtResource("1_tarfj")
 cost = Array[int]([10])
 display_name = "Fuel"
-base_value = 1.0
+base_value = 0.0
 step_value = 1.0
 metadata/_custom_type_script = "uid://dh2aqxek7frts"

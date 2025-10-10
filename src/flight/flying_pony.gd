@@ -51,6 +51,7 @@ var propulsion_active: bool:
 	set(b):
 		if propulsion_active == b:
 			return
+		propulsion_active= b
 		if propulsion_active:
 			start_propulsion.emit()
 		else:
@@ -140,6 +141,7 @@ func fly_logic(delta: float):
 			remaining_fuel-= fuel_used_per_second * delta
 			if remaining_fuel <= 0:
 				fuel_ran_out.emit()
+				propulsion_active= false
 			else:
 				velocity+= global_transform.x * propulsion_force * delta
 

@@ -65,7 +65,7 @@ func _update_speedometer(delta: float) -> void:
 
 
 func _update_fuel_display():
-	var fuel: float= player_ref.remaining_fuel
+	fuel_progress_bar.value= player_ref.get_fuel_ratio()
 
 
 func _run_ended() -> void:
