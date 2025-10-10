@@ -6,6 +6,12 @@ extends ShopUpgrade
 ## All the stats this upgrade modifies
 @export var pony_stat_modifiers: Array[PonyStatModifier]
 
+## Overrides default walk animation ( not implemented yet )
+@export var custom_walk_animation: String
+## Overrides default flight animation ( not implemented yet )
+@export var custom_flight_animation: String
+
+
 
 ## Get the value this upgrade changes for a given stat
 func get_stat_modifier(stat: PonyStats.StatType)-> int:
