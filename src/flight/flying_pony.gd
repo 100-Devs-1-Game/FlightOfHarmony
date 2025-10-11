@@ -81,7 +81,8 @@ func reset():
 	var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
 	if upgrade:
 		propulsion_type= upgrade.provides_propulsion
-
+		propulsion_force*= stats.get_stat_value(PonyStats.StatType.PROPULSION)
+		
 	state= State.WALKING
 	if animated_sprite:
 		animated_sprite.play("run")
