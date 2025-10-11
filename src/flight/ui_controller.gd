@@ -22,6 +22,7 @@ extends CanvasLayer
 var default_height_y: float = 0.0
 var start_player_y: float = 0.0
 var zero_angle_deg: float = 0.0
+var top_speed: float
 
 
 
@@ -36,7 +37,8 @@ func _ready() -> void:
 	if arrow:
 		zero_angle_deg = arrow.rotation_degrees
 
-	%Speedlimit.value= SaveManager.pony_stats.get_stat_value(PonyStats.StatType.TOP_SPEED) / 1000.0
+	top_speed= player_ref.stats.get_stat_value(PonyStats.StatType.TOP_SPEED)
+	%Speedlimit.visible= top_speed > 0
 
 
 func _process(delta: float) -> void:
@@ -64,6 +66,9 @@ func _update_speedometer(delta: float) -> void:
 	var target_angle = zero_angle_deg + sweep
 
 	arrow.rotation_degrees = move_toward(arrow.rotation_degrees, target_angle, speed_smooth_speed * delta)
+
+	if top_speed > 0:
+		%Speedlimit.value= player_ref.get_forward_speed() / top_speed
 
 
 func _update_fuel_display():
