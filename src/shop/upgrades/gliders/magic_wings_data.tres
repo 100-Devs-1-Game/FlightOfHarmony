@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=6 format=3 uid="uid://cy3ug411rftlk"]
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=7 format=3 uid="uid://cy3ug411rftlk"]
 
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_6mjmn"]
 [ext_resource type="Texture2D" uid="uid://rlo5fjkcpfb1" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_001.png" id="1_u6mri"]
@@ -11,10 +11,18 @@ stat = 2
 value = 5
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
+[sub_resource type="Resource" id="Resource_2wdj4"]
+script = ExtResource("1_6mjmn")
+stat = 6
+value = 3
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
 [resource]
 script = ExtResource("2_u6mri")
 overlay_scene = ExtResource("2_ckyxf")
-pony_stat_modifiers = Array[ExtResource("1_6mjmn")]([SubResource("Resource_ckyxf")])
+pony_stat_modifiers = Array[ExtResource("1_6mjmn")]([SubResource("Resource_ckyxf"), SubResource("Resource_2wdj4")])
+custom_walk_animation = ""
+custom_flight_animation = ""
 category = 0
 display_name = "Magic Wings"
 item_description = "A set of magic wings."

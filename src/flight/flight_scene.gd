@@ -4,6 +4,7 @@ extends Node2D
 
 var _max_height: float = 0.0
 
+
 func _ready() -> void:
 	if player != null:
 		player.connect("landed", Callable(self, "_on_player_landed"))

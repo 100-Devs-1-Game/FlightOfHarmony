@@ -36,6 +36,8 @@ func _ready() -> void:
 	if arrow:
 		zero_angle_deg = arrow.rotation_degrees
 
+	%Speedlimit.value= SaveManager.pony_stats.get_stat_value(PonyStats.StatType.TOP_SPEED) / 1000.0
+
 
 func _process(delta: float) -> void:
 	if active and is_instance_valid(player_ref):

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=6 format=3 uid="uid://d1xiqn4u3g8d1"]
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=7 format=3 uid="uid://d1xiqn4u3g8d1"]
 
 [ext_resource type="Texture2D" uid="uid://cf2o5c3pkxqyf" path="res://assets/art/upgrades/gliders/wooden_wings/Wooden_wings_0002.png" id="1_daa47"]
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_p7hb0"]
@@ -11,10 +11,18 @@ stat = 2
 value = 2
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
+[sub_resource type="Resource" id="Resource_1tdfh"]
+script = ExtResource("1_p7hb0")
+stat = 6
+value = 5
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
 [resource]
 script = ExtResource("2_daa47")
 overlay_scene = ExtResource("2_hw0lf")
-pony_stat_modifiers = Array[ExtResource("1_p7hb0")]([SubResource("Resource_hw0lf")])
+pony_stat_modifiers = Array[ExtResource("1_p7hb0")]([SubResource("Resource_hw0lf"), SubResource("Resource_1tdfh")])
+custom_walk_animation = ""
+custom_flight_animation = ""
 category = 0
 display_name = "Wooden Wings"
 item_description = "A simple set of wings made from scrap materials."

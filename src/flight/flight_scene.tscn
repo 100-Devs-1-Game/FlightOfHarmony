@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=19 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://flight/follow_camera.gd" id="9_gygq8"]
 [ext_resource type="Texture2D" uid="uid://b63svv3ovkpoi" path="res://assets/art/flight/ui/fuel_empty.png" id="10_w4lhg"]
 [ext_resource type="Texture2D" uid="uid://baoy2yc4l0y5h" path="res://assets/art/flight/ui/fuel_full.png" id="11_3eluj"]
+[ext_resource type="Texture2D" uid="uid://smad17gp2jwq" path="res://assets/art/flight/ui/Speedo_middle_red_full.png" id="12_3eluj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x3l2y"]
 
@@ -231,6 +232,7 @@ texture = ExtResource("4_w0on4")
 expand_mode = 1
 
 [node name="Arrow" type="TextureRect" parent="UI/Speedometer"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -297,6 +299,28 @@ step = 0.01
 fill_mode = 3
 texture_under = ExtResource("10_w4lhg")
 texture_progress = ExtResource("11_3eluj")
+
+[node name="Speedlimit" type="TextureProgressBar" parent="UI/Speedometer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -68.5
+offset_right = 445.0
+offset_bottom = 508.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.245, 0.245)
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+radial_initial_angle = 236.1
+radial_fill_degrees = 216.8
+texture_progress = ExtResource("12_3eluj")
 
 [node name="Results" type="TextureRect" parent="UI"]
 visible = false
@@ -367,6 +391,7 @@ libraries = {
 
 [node name="Return" type="Button" parent="UI"]
 visible = false
+z_index = 2
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

@@ -58,6 +58,7 @@ var propulsion_active: bool:
 			stop_propulsion.emit()
 
 var remaining_fuel: float
+var top_speed: float
 ## parent node for all the upgrade overlays
 var upgrade_overlays: Node2D
 
@@ -75,6 +76,7 @@ func reset():
 	velocity= stats.get_stat_value(PonyStats.StatType.SPEED) * Vector2.RIGHT
 	jump_bonus_frames= int(stats.get_stat_value(PonyStats.StatType.JUMP_HEIGHT))
 	remaining_fuel= stats.get_stat_value(PonyStats.StatType.FUEL)
+	top_speed= stats.get_stat_value(PonyStats.StatType.TOP_SPEED)
 	
 	var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
 	if upgrade:
@@ -150,7 +152,7 @@ func fly_logic(delta: float):
 	# simple linear drag algorithm, may need to be changed into a quadratic one
 	velocity.x*= 1 - drag * delta
 
-	if enable_lift:
+	if enable_lift and ( is_zero_approx(top_speed) or get_speed() < top_speed ):
 		var lift: float= get_lift()
 		velocity+= -global_transform.y * velocity.dot(global_transform.x) * lift * delta
 
