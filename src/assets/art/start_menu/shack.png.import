@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c67r7s4crbuep"
-path.s3tc="res://.godot/imported/shack.png-71ccf4feeb7d3cab2bc05a72d72a8a6b.s3tc.ctex"
+path="res://.godot/imported/shack.png-71ccf4feeb7d3cab2bc05a72d72a8a6b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/art/start_menu/shack.png"
-dest_files=["res://.godot/imported/shack.png-71ccf4feeb7d3cab2bc05a72d72a8a6b.s3tc.ctex"]
+dest_files=["res://.godot/imported/shack.png-71ccf4feeb7d3cab2bc05a72d72a8a6b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.49
 compress/hdr_compression=1
