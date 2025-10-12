@@ -103,9 +103,9 @@ func land():
 	state= State.LANDING
 	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
-	rotation= 0
-	if animated_sprite:
-		animated_sprite.play("default")
+	#rotation= 0
+	#if animated_sprite:
+		#animated_sprite.play("default")
 	landed.emit()
 
 
