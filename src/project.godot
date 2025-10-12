@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flight of Harmony"
-run/main_scene="uid://blg133tqvtpfp"
+run/main_scene="uid://byhur504waec0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
