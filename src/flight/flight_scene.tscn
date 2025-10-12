@@ -89,7 +89,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Return:visible")
+tracks/5/path = NodePath("Results/Return:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -164,7 +164,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Return:visible")
+tracks/5/path = NodePath("Results/Return:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -200,7 +200,6 @@ texture = ExtResource("2_nkrtd")
 
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 1274)
-walk_distance = 489.765
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -225,7 +224,7 @@ fuel_progress_bar = NodePath("Speedometer/Fuel Display")
 [node name="Speedlimit" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 20)
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -2.0
@@ -349,6 +348,23 @@ theme_override_font_sizes/font_size = 47
 text = "RESULTS"
 horizontal_alignment = 1
 
+[node name="Return" type="Button" parent="UI/Results"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.5
+offset_top = -126.0
+offset_right = 156.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 59
+text = "Return"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Results"]
 layout_mode = 1
 anchors_preset = 15
@@ -388,23 +404,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_nkrtd")
 }
 
-[node name="Return" type="Button" parent="UI"]
-visible = false
-z_index = 2
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -361.0
-offset_top = -164.0
-offset_right = -48.0
-offset_bottom = -38.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 59
-text = "Return"
-
 [node name="Distancelbl" type="Label" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -420,4 +419,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="landed" from="Pony" to="." method="on_landed"]
-[connection signal="pressed" from="UI/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="UI/Results/Return" to="." method="_on_return_pressed"]
