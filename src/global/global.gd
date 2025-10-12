@@ -24,6 +24,11 @@ func _ready() -> void:
 	load_upgrades(MONEY_UPGRADES_DIR, money_upgrades)
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("money_cheat"):
+		add_currency(1000)
+		
+
 func load_upgrades(dir: String, arr: Array[ShopUpgrade]) -> void:
 	for file in ResourceLoader.list_directory(dir):
 		if not file.ends_with("tres"):
