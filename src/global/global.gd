@@ -12,7 +12,7 @@ var propulsion_upgrades: Array[ShopUpgrade]
 var body_upgrades: Array[ShopUpgrade]
 var money_upgrades: Array[ShopUpgrade]
 
-var starting_money: int = 22200
+var starting_money: int = 0
 var money: int = 0
 
 
