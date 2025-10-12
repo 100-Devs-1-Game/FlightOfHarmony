@@ -59,9 +59,8 @@ func _on_button_pressed(action: StringName) -> void:
 func next_page() -> void:
 	if pages.get_child_count() == 0:
 		return
-	_current_idx += 1
-	if _current_idx > pages.get_child_count() / 2:
-		_current_idx = 0
+	if _current_idx < pages.get_child_count() / 2:
+		_current_idx += 1
 	_apply_page_visibility()
 
 
@@ -70,8 +69,6 @@ func previous_page() -> void:
 		return
 	if _current_idx > 0:
 		_current_idx -= 1
-	else:
-		_current_idx = pages.get_child_count() / 2
 	_apply_page_visibility()
 
 
