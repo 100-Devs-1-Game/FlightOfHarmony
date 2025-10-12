@@ -6,6 +6,6 @@
 script = ExtResource("1_vvvql")
 cost = Array[int]([5, 10, 16, 50, 60, 199, 360, 520, 750, 1000])
 display_name = "Speed"
-base_value = 200.0
+base_value = 600.0
 step_value = 100.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

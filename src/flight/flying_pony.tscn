@@ -9,6 +9,8 @@ radius = 197.8
 
 [node name="Pony" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_22ryr")
+walk_distance = 2000.0
+gravity = 500.0
 propulsion_force = 200.0
 stats = ExtResource("2_t5pyb")
 animated_sprite = NodePath("AnimatedSprite2D")
