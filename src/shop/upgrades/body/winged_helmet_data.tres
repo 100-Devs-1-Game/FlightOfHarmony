@@ -8,13 +8,15 @@
 [sub_resource type="Resource" id="Resource_j4xlt"]
 script = ExtResource("1_q753r")
 stat = 1
-value = 1
+value = 4
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_wv0cv")
 overlay_scene = ExtResource("2_j4xlt")
 pony_stat_modifiers = Array[ExtResource("1_q753r")]([SubResource("Resource_j4xlt")])
+custom_walk_animation = ""
+custom_flight_animation = ""
 category = 2
 display_name = "Winged Helmet"
 item_description = "A winged helmet helpful for increasing lift."
