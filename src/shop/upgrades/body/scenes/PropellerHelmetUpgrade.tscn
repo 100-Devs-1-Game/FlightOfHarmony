@@ -28,6 +28,6 @@ animations = [{
 [node name="PropellerHelmetUpgrade" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(114, -135)
-scale = Vector2(0.4287, 0.562092)
+position = Vector2(120, -208)
+scale = Vector2(0.335, 0.335)
 sprite_frames = SubResource("SpriteFrames_3eyio")

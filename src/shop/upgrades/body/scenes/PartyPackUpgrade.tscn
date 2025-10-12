@@ -6,11 +6,12 @@
 [node name="PartyPackUpgrade" type="Node2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(114, -135)
+position = Vector2(64, -232)
+rotation = -0.41189
 scale = Vector2(0.4287, 0.562092)
 texture = ExtResource("1_37lom")
 
 [node name="Sprite2" type="Sprite2D" parent="."]
-position = Vector2(264, 88)
-scale = Vector2(0.4287, 0.562092)
+position = Vector2(232, -48)
+scale = Vector2(0.285, 0.285)
 texture = ExtResource("2_eah33")

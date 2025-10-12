@@ -5,6 +5,6 @@
 [node name="RocketHelmetUpgrade" type="Node2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(114, -135)
+position = Vector2(136, -88)
 scale = Vector2(0.4287, 0.562092)
 texture = ExtResource("1_ht5eh")

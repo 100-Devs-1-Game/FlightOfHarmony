@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cctemntc4re60" path="res://assets/art/upgrades/propulsion/firework/Firework_00004.png" id="5_2nl1t"]
 [ext_resource type="Texture2D" uid="uid://dj3usjtml2ea5" path="res://assets/art/upgrades/propulsion/firework/Firework_00005.png" id="6_xxlwh"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_815k4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rm8e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -34,5 +34,6 @@ animations = [{
 script = ExtResource("1_1rm8e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_815k4")
-frame_progress = 0.909027
+position = Vector2(-128, -56)
+scale = Vector2(0.385, 0.385)
+sprite_frames = SubResource("SpriteFrames_1rm8e")
