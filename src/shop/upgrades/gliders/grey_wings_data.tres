@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=6 format=3 uid="uid://clrnu31vwe18m"]
+
+[ext_resource type="Texture2D" uid="uid://bfw8kmm5sl0ti" path="res://assets/art/upgrades/gliders/Big Grey wing.png" id="1_ig233"]
+[ext_resource type="PackedScene" uid="uid://dqy07s3i5r1on" path="res://shop/upgrades/gliders/scenes/grey_wings_upgrade.tscn" id="2_ig233"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="3_uya8i"]
+[ext_resource type="Script" uid="uid://cekl3umqrww32" path="res://core/pony_upgrade_glider.gd" id="4_kja42"]
+
+[sub_resource type="Resource" id="Resource_4xvic"]
+script = ExtResource("3_uya8i")
+stat = 2
+value = 6
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("4_kja42")
+overlay_scene = ExtResource("2_ig233")
+pony_stat_modifiers = Array[ExtResource("3_uya8i")]([SubResource("Resource_4xvic")])
+custom_walk_animation = ""
+custom_flight_animation = ""
+category = 0
+display_name = "Big Grey Wings"
+item_description = ""
+cost = 200
+icon = ExtResource("1_ig233")
+metadata/_custom_type_script = "uid://cekl3umqrww32"

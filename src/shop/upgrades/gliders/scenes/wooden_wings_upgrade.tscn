@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://csgt6r4mglvo0"]
 
-[ext_resource type="Texture2D" uid="uid://vgie56lyccgm" path="res://assets/art/upgrades/gliders/wooden_wings/Wooden_wings_0001.png" id="1_hd43p"]
+[ext_resource type="Texture2D" uid="uid://dsi0fvaqbikn0" path="res://assets/art/upgrades/gliders/wooden_wings/Wooden_wings_0003.png" id="1_hd43p"]
 
 [node name="WoodenWingsUpgrade" type="Node2D"]
 
 [node name="WoodenWings0001" type="Sprite2D" parent="."]
-position = Vector2(-2, -2)
+position = Vector2(-80, 0)
 texture = ExtResource("1_hd43p")

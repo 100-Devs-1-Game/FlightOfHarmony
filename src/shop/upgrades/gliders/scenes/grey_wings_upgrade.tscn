@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqy07s3i5r1on"]
+
+[ext_resource type="Texture2D" uid="uid://bfw8kmm5sl0ti" path="res://assets/art/upgrades/gliders/Big Grey wing.png" id="1_hfa6a"]
+
+[node name="BlueWingsUpgrade" type="Node2D"]
+
+[node name="WoodenWings0001" type="Sprite2D" parent="."]
+position = Vector2(-80, 0)
+texture = ExtResource("1_hfa6a")

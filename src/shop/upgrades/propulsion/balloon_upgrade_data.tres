@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=6 format=3 uid="uid://ccqy1b4kkiq"]
+
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_al1gp"]
+[ext_resource type="Texture2D" uid="uid://bturwvlj82y6r" path="res://assets/art/upgrades/propulsion/Propulsion_Balloon_upgrade_1.png" id="1_vsj7x"]
+[ext_resource type="PackedScene" uid="uid://oyxd7tbul1hc" path="res://shop/upgrades/propulsion/scenes/BalloonUpgrade.tscn" id="2_t618f"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="2_vsj7x"]
+
+[sub_resource type="Resource" id="Resource_t618f"]
+script = ExtResource("1_al1gp")
+stat = 5
+value = 3
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("2_vsj7x")
+provides_propulsion = 1
+overlay_scene = ExtResource("2_t618f")
+pony_stat_modifiers = Array[ExtResource("1_al1gp")]([SubResource("Resource_t618f")])
+custom_walk_animation = ""
+custom_flight_animation = ""
+category = 1
+display_name = "Balloon"
+item_description = ""
+cost = 100
+icon = ExtResource("1_vsj7x")
+metadata/_custom_type_script = "uid://bgwt4hvflnx2h"
