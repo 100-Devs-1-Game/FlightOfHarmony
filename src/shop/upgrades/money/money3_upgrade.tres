@@ -9,6 +9,6 @@ bonus = 15
 category = 3
 display_name = "Money"
 item_description = "Earn + 15%"
-cost = 150
+cost = 100
 icon = ExtResource("1_g6kx5")
 metadata/_custom_type_script = "uid://bdlbntowhp1k0"
