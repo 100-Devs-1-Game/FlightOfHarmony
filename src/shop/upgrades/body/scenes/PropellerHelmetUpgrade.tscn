@@ -31,3 +31,4 @@ animations = [{
 position = Vector2(120, -208)
 scale = Vector2(0.335, 0.335)
 sprite_frames = SubResource("SpriteFrames_3eyio")
+autoplay = "default"
