@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_rf33b"]
 script = ExtResource("1_bkkos")
 stat = 5
-value = 8
+value = 6
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
@@ -21,6 +21,6 @@ custom_flight_animation = ""
 category = 1
 display_name = "Iron Man Boots"
 item_description = "ITEM_DESCRIPTION"
-cost = 500
+cost = 1000
 icon = ExtResource("1_awx7v")
 metadata/_custom_type_script = "uid://bgwt4hvflnx2h"

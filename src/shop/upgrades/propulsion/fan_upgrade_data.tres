@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_8q5i3"]
 script = ExtResource("1_7a6im")
 stat = 5
-value = 1
+value = 3
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
@@ -21,6 +21,6 @@ custom_flight_animation = ""
 category = 1
 display_name = "Fan"
 item_description = "A fan that provides more propulsion"
-cost = 50
+cost = 120
 icon = ExtResource("1_yfcxu")
 metadata/_custom_type_script = "uid://bgwt4hvflnx2h"

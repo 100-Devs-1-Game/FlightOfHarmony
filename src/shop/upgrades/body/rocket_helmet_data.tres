@@ -20,6 +20,6 @@ custom_flight_animation = ""
 category = 2
 display_name = "Rocketeer Helmet"
 item_description = ""
-cost = 350
+cost = 500
 icon = ExtResource("1_3bvxj")
 metadata/_custom_type_script = "uid://wai2hektb4vk"

@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_j4xlt"]
 script = ExtResource("3_pxn6o")
 stat = 1
-value = 2
+value = 3
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
@@ -20,6 +20,6 @@ custom_flight_animation = ""
 category = 2
 display_name = "Propeller Helmet"
 item_description = ""
-cost = 50
+cost = 120
 icon = ExtResource("1_vq4j1")
 metadata/_custom_type_script = "uid://wai2hektb4vk"

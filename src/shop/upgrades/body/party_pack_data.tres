@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_hx47x"]
 script = ExtResource("1_er7tj")
 stat = 1
-value = 1
+value = 2
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
@@ -20,6 +20,6 @@ custom_flight_animation = ""
 category = 2
 display_name = "Party Pack"
 item_description = ""
-cost = 25
+cost = 50
 icon = ExtResource("1_0w5wh")
 metadata/_custom_type_script = "uid://wai2hektb4vk"

@@ -21,6 +21,6 @@ custom_flight_animation = ""
 category = 1
 display_name = "Soda Pop"
 item_description = "A simple bottle of soda which pushes you forward."
-cost = 125
+cost = 50
 icon = ExtResource("1_bs07m")
 metadata/_custom_type_script = "uid://fx4ldsmd0ywx"

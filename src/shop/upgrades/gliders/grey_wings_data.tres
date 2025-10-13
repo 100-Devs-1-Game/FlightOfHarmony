@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=6 format=3 uid="uid://clrnu31vwe18m"]
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=7 format=3 uid="uid://clrnu31vwe18m"]
 
 [ext_resource type="Texture2D" uid="uid://bfw8kmm5sl0ti" path="res://assets/art/upgrades/gliders/Big Grey wing.png" id="1_ig233"]
 [ext_resource type="PackedScene" uid="uid://dqy07s3i5r1on" path="res://shop/upgrades/gliders/scenes/grey_wings_upgrade.tscn" id="2_ig233"]
@@ -8,18 +8,24 @@
 [sub_resource type="Resource" id="Resource_4xvic"]
 script = ExtResource("3_uya8i")
 stat = 2
-value = 6
+value = 4
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[sub_resource type="Resource" id="Resource_ig233"]
+script = ExtResource("3_uya8i")
+stat = 6
+value = 4
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("4_kja42")
 overlay_scene = ExtResource("2_ig233")
-pony_stat_modifiers = Array[ExtResource("3_uya8i")]([SubResource("Resource_4xvic")])
+pony_stat_modifiers = Array[ExtResource("3_uya8i")]([SubResource("Resource_4xvic"), SubResource("Resource_ig233")])
 custom_walk_animation = ""
 custom_flight_animation = ""
 category = 0
-display_name = "Big Grey Wings"
+display_name = "Steel Wings"
 item_description = ""
-cost = 200
+cost = 250
 icon = ExtResource("1_ig233")
 metadata/_custom_type_script = "uid://cekl3umqrww32"
