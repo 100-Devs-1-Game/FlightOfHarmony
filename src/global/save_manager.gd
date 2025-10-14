@@ -1,5 +1,7 @@
 extends Node
 
+const VERSION= 1
+
 @export var save_path: String
 @export var reset_game: bool= false
 @export var pony_stats: PonyStats
@@ -16,6 +18,7 @@ func _ready() -> void:
 func save_game() -> void:
 	var dict: Dictionary
 	
+	dict["version"]= VERSION
 	dict["money"]= Global.money
 	dict["day"]= Global.day
 	
@@ -50,6 +53,13 @@ func load_game() -> void:
 		return
 	
 	var dict: Dictionary= JSON.parse_string(FileAccess.get_file_as_string(save_path))
+
+	if not dict.has("version"):
+		return
+	
+	var save_version: int= dict["version"]
+	if save_version < VERSION:
+		return
 
 	Global.money= dict["money"]
 	Global.day= dict["day"]
