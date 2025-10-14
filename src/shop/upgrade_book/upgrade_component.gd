@@ -8,6 +8,7 @@ const CANT_AFFORD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Cant A
 const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png")
 
 @export var res: ShopUpgrade
+@export var stat_bar_thresholds: Array[float]
 
 @onready var selector: BaseButton = $Selector
 @onready var display_label: Label = $HBoxContainer/ItemName
@@ -80,13 +81,17 @@ func _update_from_res() -> void:
 		second_stat= res.pony_stat_modifiers[1]
 
 	first_bar.get_child(0).text = first_stat.get_display_name()
-	first_bar.value= first_stat.value
+	first_bar.value= get_adjusted_stat_bar_value(first_stat.value)
 
 	if second_stat:
 		second_bar.get_child(0).text = second_stat.get_display_name()
-		second_bar.value= second_stat.value
+		second_bar.value= get_adjusted_stat_bar_value(second_stat.value)
 	else:
 		second_bar.hide()
+
+
+func get_adjusted_stat_bar_value(value: float)-> float:
+	return stat_bar_thresholds[int(value)]
 
 
 func _on_upgrade_pressed(upgrade: ShopUpgrade) -> void:
