@@ -38,7 +38,8 @@ func _ready() -> void:
 		zero_angle_deg = arrow.rotation_degrees
 
 	top_speed= player_ref.stats.get_stat_value(PonyStats.StatType.TOP_SPEED)
-	%Speedlimit.visible= top_speed > 0
+	
+	#%Speedlimit.visible= top_speed > 0
 
 
 func _process(delta: float) -> void:
