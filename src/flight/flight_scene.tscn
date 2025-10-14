@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=21 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
 [ext_resource type="PackedScene" uid="uid://dm5bowlclh7go" path="res://flight/flying_pony.tscn" id="2_717lv"]
 [ext_resource type="Texture2D" uid="uid://hxfpxdg7p2tf" path="res://assets/art/flight/background/sky.png" id="2_nkrtd"]
+[ext_resource type="Texture2D" uid="uid://b4x6w3pkut244" path="res://assets/art/flight/background/clouds.png" id="4_3eluj"]
 [ext_resource type="Script" uid="uid://bcdq0jfvsgv7s" path="res://flight/ui_controller.gd" id="4_jmk2h"]
 [ext_resource type="Texture2D" uid="uid://b6obxu2tka500" path="res://assets/art/flight/ui/speedometer.png" id="4_w0on4"]
 [ext_resource type="Texture2D" uid="uid://lc7ae1m7emfk" path="res://assets/art/flight/ui/speedometer_arrow.png" id="5_jmk2h"]
@@ -198,6 +199,21 @@ texture = ExtResource("2_nkrtd")
 
 [node name="FlightBackground" parent="." instance=ExtResource("1_fdqhy")]
 
+[node name="FlightForeground" type="CanvasLayer" parent="."]
+
+[node name="Foreground Clouds" type="Parallax2D" parent="FlightForeground"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(3840, 2160)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="FlightForeground/Foreground Clouds"]
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("4_3eluj")
+
 [node name="Pony" parent="." instance=ExtResource("2_717lv")]
 position = Vector2(-168, 1274)
 propulsion_force = 2000.0
@@ -213,6 +229,7 @@ script = ExtResource("9_gygq8")
 follow_node = NodePath("../Pony")
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player_ref", "arrow", "height", "fuel_progress_bar")]
+layer = 2
 script = ExtResource("4_jmk2h")
 raise_speed_pixels_per_unit = 0.05
 player_ref = NodePath("../Pony")

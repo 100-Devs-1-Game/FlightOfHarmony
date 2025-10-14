@@ -1,6 +1,10 @@
 extends Node2D
 
 @export var player: CharacterBody2D
+@export var clouds_fade_min_height: float= 2000.0
+@export var clouds_fade_max_height: float= 3000.0
+
+@onready var foreground_clouds: Parallax2D = %"Foreground Clouds"
 
 var _max_height: float = 0.0
 
@@ -20,6 +24,9 @@ func _process(_delta: float) -> void:
 	var h = max(0.0, player.get_height())
 	if h > _max_height:
 		_max_height = h
+
+	var weight:= clampf((h - clouds_fade_min_height) / (clouds_fade_max_height - clouds_fade_min_height), 0.0, 1.0)
+	foreground_clouds.modulate.a= lerp(0.0, 0.75, weight)
 
 
 func _on_player_landed() -> void:
