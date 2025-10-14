@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://buk8y05uqosfs"]
+[gd_scene load_steps=10 format=3 uid="uid://buk8y05uqosfs"]
 
 [ext_resource type="Texture2D" uid="uid://cjfd1o7ylcbnb" path="res://assets/art/upgrades/book/icons/BuyIcon_Cant Afford.png" id="1_fi5ls"]
 [ext_resource type="Script" uid="uid://t6yujbofyn4e" path="res://shop/upgrade_book/upgrade_component.gd" id="1_w5nlv"]
+[ext_resource type="Texture2D" uid="uid://b4x2jw44dom6w" path="res://assets/art/upgrades/book/icons/Tick_04.png" id="3_jxpe0"]
+[ext_resource type="Texture2D" uid="uid://br7vnke7h8amd" path="res://assets/art/upgrades/book/icons/Tick_02.png" id="4_amml7"]
 [ext_resource type="Texture2D" uid="uid://dgouetqunwxag" path="res://assets/art/upgrades/book/Bar_empty.png" id="5_amml7"]
+[ext_resource type="Texture2D" uid="uid://dyooymtttfbn1" path="res://assets/art/upgrades/book/icons/Tick_03.png" id="5_cuqt3"]
 [ext_resource type="Texture2D" uid="uid://b7d51i44ysyxu" path="res://assets/art/upgrades/book/icons/BuyIcon_Sold.png" id="5_w5nlv"]
 [ext_resource type="Texture2D" uid="uid://8xeom6spjggx" path="res://assets/art/upgrades/book/Bar_Full.png" id="6_cuqt3"]
+[ext_resource type="Texture2D" uid="uid://me1emibth010" path="res://assets/art/upgrades/book/icons/Tick_01.png" id="6_lfv28"]
 
 [node name="UpgradeComp" type="Control"]
 layout_mode = 3
@@ -37,6 +41,24 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="TickButton" type="TextureButton" parent="Selector"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 1
+texture_normal = ExtResource("3_jxpe0")
+texture_pressed = ExtResource("4_amml7")
+texture_hover = ExtResource("5_cuqt3")
+texture_disabled = ExtResource("6_lfv28")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

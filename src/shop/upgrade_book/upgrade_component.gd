@@ -15,6 +15,7 @@ const ITEM_SOLD = preload("res://assets/art/upgrades/book/icons/BuyIcon_Sold.png
 @onready var texture: TextureRect = $Selector/Texture
 @onready var first_bar: TextureProgressBar = $StatbarContainer/A
 @onready var second_bar: TextureProgressBar = $StatbarContainer/B
+@onready var tick_button: TextureButton = %TickButton
 
 
 
@@ -34,13 +35,15 @@ func init(_res: ShopUpgrade):
 
 func check_affordable() -> void:
 	$Sold.hide()
+	tick_button.hide()
 	if res in SaveManager.bought_upgrades:
 		var selected:= res in SaveManager.pony_stats.upgrade_slots
 		selector.texture_normal = CAN_BUY if selected else null
 		selector.texture_hover = CAN_BUY
 		selector.texture_pressed = CAN_BUY
-		if not selected:
-			$Sold.show()
+		$Sold.show()
+		tick_button.show()
+		tick_button.disabled= selected
 	elif Global.can_afford(res.cost):
 		selector.texture_normal = null
 		selector.texture_hover = CAN_BUY
