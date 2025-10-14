@@ -139,6 +139,8 @@ text = "Reset Progress"
 
 [node name="OpenBook Gliders" parent="." instance=ExtResource("15_pafut")]
 theme_override_styles/normal = SubResource("StyleBoxFlat_pafut")
+empty_text = "Buy
+Wings"
 
 [node name="OpenBook Propulsion" parent="." instance=ExtResource("15_pafut")]
 offset_left = 609.0
@@ -146,6 +148,8 @@ offset_top = 686.0
 offset_right = 859.0
 offset_bottom = 836.0
 category = 1
+empty_text = "Buy
+Propulsion"
 
 [node name="OpenBook Body" parent="." instance=ExtResource("15_pafut")]
 offset_left = 1111.0
@@ -153,6 +157,8 @@ offset_top = 503.0
 offset_right = 1361.0
 offset_bottom = 653.0
 category = 2
+empty_text = "Buy
+Gear"
 
 [node name="OpenBook Money" parent="." instance=ExtResource("15_pafut")]
 offset_left = 1028.0
@@ -160,6 +166,7 @@ offset_top = 683.0
 offset_right = 1278.0
 offset_bottom = 833.0
 category = 3
+empty_text = "Invest"
 
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]

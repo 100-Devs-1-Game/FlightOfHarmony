@@ -4,13 +4,16 @@ extends Button
 signal open_book(category: ShopUpgrade.Category)
 
 @export var category: ShopUpgrade.Category
+@export_multiline var empty_text: String
 
 @onready var shop: Shop= get_parent()
 @onready var texture_rect: TextureRect = %TextureRect
+@onready var label: Label = %Label
 
 
 
 func _ready() -> void:
+	label.text= empty_text
 	update()
 
 
@@ -18,9 +21,10 @@ func update():
 	var upgrade: ShopUpgrade= shop.pony_stats.get_upgrade(category)
 	if upgrade:
 		texture_rect.texture= upgrade.icon
+		label.hide()
 	else:
 		texture_rect.texture= null
-
+		label.show()
 
 func _on_pressed() -> void:
 	open_book.emit(category)
