@@ -23,9 +23,12 @@ func _on_texture_button_launch_pressed() -> void:
 
 
 func _on_texture_button_fuel_pressed() -> void:
+	var cost: int= pony_stats.get_fuel_cost()
+	if not Global.can_afford(cost):
+		return
 	var level: int= pony_stats.get_level(PonyStats.StatType.FUEL)
 	pony_stats.set_level(PonyStats.StatType.FUEL, level + 1)
-	Global.try_spend(pony_stats.get_fuel_cost())
+	Global.try_spend(cost)
 	_update_fuel()
 	
 
