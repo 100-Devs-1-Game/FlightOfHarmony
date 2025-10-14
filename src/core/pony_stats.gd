@@ -64,6 +64,13 @@ func set_level(stat: StatType, level: int) -> void:
 		push_error(str("Can't find stat ", stat))
 
 
+func get_fuel_cost()-> int:
+	var cost: int= 10
+	for i in get_level(PonyStats.StatType.FUEL):
+		cost*= 2
+	return cost
+
+
 func get_stat_value(stat: StatType) -> float:
 	var s = get_stat(stat)
 	if s == null:

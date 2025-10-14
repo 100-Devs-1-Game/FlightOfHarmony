@@ -7,6 +7,7 @@ extends CanvasLayer
 
 @onready var money_label: Label = $MoneyLabel
 @onready var fuel_label: Label = $FuelLabel
+@onready var buy_fuel_label: Label = $BuyFuelLabel
 
 
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _on_texture_button_launch_pressed() -> void:
 func _on_texture_button_fuel_pressed() -> void:
 	var level: int= pony_stats.get_level(PonyStats.StatType.FUEL)
 	pony_stats.set_level(PonyStats.StatType.FUEL, level + 1)
-	Global.try_spend(pony_stats.fuel_stat.cost[0])
+	Global.try_spend(pony_stats.get_fuel_cost())
 	_update_fuel()
 	
 
@@ -36,6 +37,7 @@ func _update_currency() -> void:
 
 func _update_fuel() -> void:
 	fuel_label.text = str(int(pony_stats.get_stat_value(PonyStats.StatType.FUEL)), " L")
+	buy_fuel_label.text= str("$", pony_stats.get_fuel_cost())
 
 
 func _on_reset_pressed() -> void:
