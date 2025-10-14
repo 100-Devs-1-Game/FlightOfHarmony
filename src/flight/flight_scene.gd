@@ -72,4 +72,5 @@ func get_interest_rate()-> float:
 
 
 func _on_return_pressed() -> void:
+	Global.day+= 1
 	LevelManager.goto_shop()

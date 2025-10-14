@@ -14,6 +14,7 @@ var money_upgrades: Array[ShopUpgrade]
 
 var starting_money: int = 0
 var money: int = 0
+var day: int= 1
 
 
 

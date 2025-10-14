@@ -17,6 +17,7 @@ func save_game() -> void:
 	var dict: Dictionary
 	
 	dict["money"]= Global.money
+	dict["day"]= Global.day
 	
 	var arr_levels:= []
 	for stat in pony_stats.get_stats():
@@ -51,6 +52,7 @@ func load_game() -> void:
 	var dict: Dictionary= JSON.parse_string(FileAccess.get_file_as_string(save_path))
 
 	Global.money= dict["money"]
+	Global.day= dict["day"]
 
 	var arr: Array= dict["levels"]
 	for stat in pony_stats.get_stats():

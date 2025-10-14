@@ -8,10 +8,12 @@ extends CanvasLayer
 @onready var money_label: Label = $MoneyLabel
 @onready var fuel_label: Label = $FuelLabel
 @onready var buy_fuel_label: Label = $BuyFuelLabel
+@onready var day_label: Label = $DayLabel
 
 
 func _ready() -> void:
 	Global.money_changed.connect(_update_currency)
+	day_label.text= str("Day ", Global.day)
 	_update_currency()
 	_update_fuel()
 
