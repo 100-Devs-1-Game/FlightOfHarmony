@@ -224,6 +224,7 @@ fuel_progress_bar = NodePath("Speedometer/Fuel Display")
 
 [node name="Speedlimit" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(300, 20)
 anchors_preset = 5
 anchor_left = 0.5

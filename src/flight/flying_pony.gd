@@ -153,7 +153,7 @@ func fly_logic(delta: float):
 	# simple linear drag algorithm, may need to be changed into a quadratic one
 	velocity.x*= 1 - drag * delta
 
-	if enable_lift and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
+	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
 		velocity+= -global_transform.y * velocity.dot(global_transform.x) * lift * delta
 

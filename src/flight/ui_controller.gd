@@ -67,8 +67,8 @@ func _update_speedometer(delta: float) -> void:
 
 	arrow.rotation_degrees = move_toward(arrow.rotation_degrees, target_angle, speed_smooth_speed * delta)
 
-	if top_speed > 0:
-		%Speedlimit.value= player_ref.get_forward_speed() / top_speed
+	#if top_speed > 0:
+		#%Speedlimit.value= player_ref.get_forward_speed() / top_speed
 
 
 func _update_fuel_display():
