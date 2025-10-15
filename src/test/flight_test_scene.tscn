@@ -40,6 +40,8 @@ follow_node = NodePath("../Pony")
 [node name="Pony" type="CharacterBody2D" parent="."]
 script = ExtResource("3_3t3je")
 walk_distance = 250.0
+gravity = 1000.0
+propulsion_force = 3000.0
 stats = ExtResource("4_6cixw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pony"]
