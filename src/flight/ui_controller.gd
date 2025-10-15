@@ -54,7 +54,8 @@ func _update_height_meter() -> void:
 	var altitude_units = start_player_y - player_ref.global_position.y
 	var pixel_offset = altitude_units * raise_speed_pixels_per_unit
 	height.position.y = default_height_y - -pixel_offset
-
+	height.position.y= min(height.position.y, 105)
+	
 
 func _update_speedometer(delta: float) -> void:
 	if arrow == null:
