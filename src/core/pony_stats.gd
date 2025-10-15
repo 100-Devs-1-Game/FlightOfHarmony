@@ -55,11 +55,12 @@ func get_level(stat: StatType) -> int:
 	return s.level
 
 
-func set_level(stat: StatType, level: int) -> void:
+func set_level(stat: StatType, level: int, do_save: bool= true) -> void:
 	var s = get_stat(stat)
 	if s:
 		s.level= level
-		SaveManager.save_game()
+		if do_save:
+			SaveManager.save_game()
 	else:
 		push_error(str("Can't find stat ", stat))
 
