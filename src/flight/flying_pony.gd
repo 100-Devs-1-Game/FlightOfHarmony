@@ -24,6 +24,7 @@ enum State { WALKING, FLYING, LANDING }
 ## The drag ( air resistance ) when the pony is at a right angle to its traveling
 ## direction or inverted
 @export var maximum_drag: float= 0.5
+@export var drag_coefficient: float= 0.003
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= 20
@@ -151,7 +152,7 @@ func fly_logic(delta: float):
 
 	var drag: float= get_drag()
 	# simple linear drag algorithm, may need to be changed into a quadratic one
-	velocity.x*= 1 - drag * delta
+	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * delta
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
