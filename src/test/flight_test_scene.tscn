@@ -73,7 +73,7 @@ position = Vector2(0, 18)
 shape = SubResource("WorldBoundaryShape2D_8f24g")
 
 [node name="Line2D" type="Line2D" parent="Floor"]
-points = PackedVector2Array(-1000, 500, 20000, 500)
+points = PackedVector2Array(-1000, 500, 100000, 500)
 width = 1000.0
 texture = SubResource("NoiseTexture2D_1arhw")
 texture_mode = 2
