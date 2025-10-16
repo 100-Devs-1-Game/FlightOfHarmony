@@ -156,7 +156,10 @@ func fly_logic(delta: float):
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
-		velocity+= -global_transform.y * velocity.dot(global_transform.x) * lift * delta
+		#var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()) / 2, 4) * 16
+		var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 8)
+		print(direction_impact)
+		velocity+= -global_transform.y * direction_impact * velocity.length() * lift * delta
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
@@ -195,7 +198,7 @@ func remove_upgrade_overlays():
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(maximum_drag, optimal_drag, clampf(dot, 0.0, 1.0))
+	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 12), 0.0, 1.0))
 
 
 func get_lift()-> float:
