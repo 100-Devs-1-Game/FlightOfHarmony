@@ -204,7 +204,7 @@ texture = ExtResource("2_nkrtd")
 [node name="Foreground Clouds" type="Parallax2D" parent="FlightForeground"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(3840, 2160)
 repeat_times = 3
 follow_viewport = false
