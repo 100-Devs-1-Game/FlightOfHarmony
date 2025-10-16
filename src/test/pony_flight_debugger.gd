@@ -23,5 +23,5 @@ func _physics_process(_delta: float) -> void:
 	drag_arrow.scale= Vector2.ONE * drag * 10
 
 	var lift: float= pony.get_lift()
-	lift_arrow.scale= Vector2.ONE * lift * 10
+	lift_arrow.scale= Vector2.ONE * lift * .01
 	lift_arrow.visible= pony.enable_lift

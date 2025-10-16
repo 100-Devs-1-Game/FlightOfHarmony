@@ -156,10 +156,7 @@ func fly_logic(delta: float):
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
-		#var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()) / 2, 4) * 16
-		var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 2)
-		#print(direction_impact)
-		velocity+= -global_transform.y * direction_impact * lift * delta
+		velocity+= -global_transform.y * lift * delta
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
@@ -209,7 +206,10 @@ func get_lift()-> float:
 	# angle of attack
 	var lift_factor: float= max(0, pow(dot, 3) * velocity.length())
 	# this function can currently return a value above the 'maximum_lift'
-	return lerp(0.0, maximum_lift, lift_factor * 0.002)
+	var lift: float= lerp(0.0, maximum_lift, lift_factor * 0.002)
+
+	var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 2)
+	return lift * direction_impact
 
 
 func get_speed()-> float:
