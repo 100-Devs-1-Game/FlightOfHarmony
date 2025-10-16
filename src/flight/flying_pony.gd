@@ -27,7 +27,7 @@ enum State { WALKING, FLYING, LANDING }
 @export var drag_coefficient: float= 0.003
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
-@export var perfect_lift_angle: float= 0
+@export var perfect_lift_angle: float= -30
 ## Amount of fuel used while propulsion is active
 @export var fuel_used_per_second: float= 1.0
 ## Acceleration force of active propulsion
@@ -195,7 +195,7 @@ func remove_upgrade_overlays():
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 2), 0.0, 1.0))
+	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 8), 0.0, 1.0))
 
 
 func get_lift()-> float:
