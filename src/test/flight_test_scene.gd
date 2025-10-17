@@ -5,6 +5,11 @@ extends Node2D
 @export var max_cloud_height: int= 5000
 
 
+
+func _ready() -> void:
+	SaveManager.disabled= true
+
+
 func _draw() -> void:
 	var color:= Color.WHITE
 	color.a= 0.5

@@ -7,15 +7,18 @@ const VERSION= 1
 @export var pony_stats: PonyStats
 
 var bought_upgrades: Array[ShopUpgrade]
+var disabled: bool= false
 
 
 
 func _ready() -> void:
 	load_game()
-	get_tree().root.connect("tree_exiting", Callable(self, "_on_tree_exiting"))
+	get_tree().root.tree_exiting.connect(_on_tree_exiting)
 
 
 func save_game() -> void:
+	if disabled: return
+	
 	var dict: Dictionary
 	
 	dict["version"]= VERSION
