@@ -200,20 +200,18 @@ func remove_upgrade_overlays():
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 2), 0.0, 1.0))
+	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 4 if enable_lift else 2), 0.0, 1.0))
 
 
 func get_lift()-> float:
 	var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
 	var dot: float= global_transform.x.dot(perfect_angle)
 	var maximum_lift: float= stats.get_stat_value(PonyStats.StatType.LIFT)
-	# use exponential dot value to increase the impact of a perfect
-	# angle of attack
-	var lift_factor: float= max(0, pow(dot, 3) * velocity.length())
-	# this function can currently return a value above the 'maximum_lift'
-	var lift: float= lerp(0.0, maximum_lift, lift_factor * 0.002)
 
-	var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 2)
+	var lift: float= lerp(0.0, maximum_lift, pow(dot, 3))
+	lift*= sqrt(velocity.length()) * 0.1
+	
+	var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 8)
 	return lift * direction_impact
 
 
