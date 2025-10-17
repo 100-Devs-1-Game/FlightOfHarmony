@@ -8,14 +8,15 @@ extends Control
 @onready var button_container: HBoxContainer = %HBoxContainer
 @onready var balance_label: Label = %"Balance Label"
 
+
+
 func _ready() -> void:
 	await get_tree().process_frame
 	EventChannel.reset_progress.connect(_refresh)
+	Global.money_changed.connect(_on_money_changed)
 	title_label.text = title
 
-	var s = pony_stats.get_stat(stat)
-	if s.level:
-		_disable_buttons(s.level)
+	_disable_buttons()
 	_update_next_cost()
 
 	var level = 1
@@ -38,19 +39,23 @@ func _on_level_up(level: int) -> void:
 		return
 
 	pony_stats.set_level(stat, level)
-	_disable_buttons(level)
+	_disable_buttons()
 	SaveManager.save_game()
 	_update_next_cost()
 
 
-func _disable_buttons(level: int) -> void:
-	var count = button_container.get_child_count()
-	for i in range(level):
-		if i < count:
-			var btn := button_container.get_child(i) as TextureButton
-			if btn:
-				btn.disabled = true
+func _disable_buttons() -> void:
+	var stat_res = pony_stats.get_stat(stat) as BuyablePonyStat
 
+	var count = button_container.get_child_count()
+	for i in range(count):
+		var btn := button_container.get_child(i) as TextureButton
+		btn.modulate.a= 1.0
+		if i < stat_res.level:
+			btn.disabled = true
+		elif not Global.can_afford(stat_res.cost[i]):
+			btn.modulate.a= 0.5
+	
 
 func _update_next_cost() -> void:
 	var stat_res = pony_stats.get_stat(stat) as BuyablePonyStat
@@ -77,3 +82,8 @@ func _refresh() -> void:
 			btn.button_pressed = false
 
 	_update_next_cost()
+
+
+func _on_money_changed():
+	_refresh()
+	_disable_buttons()
