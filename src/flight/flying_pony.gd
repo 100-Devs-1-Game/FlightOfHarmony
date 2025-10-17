@@ -159,8 +159,9 @@ func fly_logic(delta: float):
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
-		print(lift)
-		velocity+= -global_transform.y * lift * delta
+		var lift_vector:= -global_transform.y
+		#lift_vector.x= max(0, lift_vector.x)
+		velocity+= lift_vector * lift * delta
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
