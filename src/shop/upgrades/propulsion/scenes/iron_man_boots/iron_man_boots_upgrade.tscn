@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://duilapbtj7eyg"]
 
 [ext_resource type="Script" uid="uid://do7220dqlfe05" path="res://shop/upgrades/propulsion/scenes/iron_man_boots/iron_man_boots_upgrade.gd" id="1_pqgiu"]
-[ext_resource type="Texture2D" uid="uid://d2y35apdp1bb4" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00027.png" id="2_fgc4a"]
-[ext_resource type="Texture2D" uid="uid://bul7ba55mqvle" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00028.png" id="3_e3qj6"]
-[ext_resource type="Texture2D" uid="uid://mpamrqt5irt6" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00029.png" id="4_m84mf"]
-[ext_resource type="Texture2D" uid="uid://ki3fksc5ow05" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00030.png" id="5_m41st"]
-[ext_resource type="Texture2D" uid="uid://cfycpj8rmoldd" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00031.png" id="6_jqjhh"]
-[ext_resource type="Texture2D" uid="uid://dvomctb547pvi" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Normal/SL_Ironman_Boots_animation_00032.png" id="7_ba7se"]
+[ext_resource type="Texture2D" uid="uid://ddyplbtx7tar8" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0001.png" id="2_fgc4a"]
+[ext_resource type="Texture2D" uid="uid://b8774dai8b6cy" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0002.png" id="3_e3qj6"]
+[ext_resource type="Texture2D" uid="uid://dehtddml2rioc" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0003.png" id="4_m84mf"]
+[ext_resource type="Texture2D" uid="uid://bt2upwb7gev6e" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0004.png" id="5_m41st"]
+[ext_resource type="Texture2D" uid="uid://dns6esd0xfy03" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0005.png" id="6_jqjhh"]
+[ext_resource type="Texture2D" uid="uid://dvalsh7f4e060" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0006.png" id="7_ba7se"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fgc4a"]
 animations = [{
@@ -41,3 +41,4 @@ script = ExtResource("1_pqgiu")
 position = Vector2(-288, 64)
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_fgc4a")
+autoplay = "default"
