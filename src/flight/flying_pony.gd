@@ -14,6 +14,7 @@ enum State { WALKING, FLYING, LANDING }
 
 ## Manually move the pony without any flight physics
 @export var cheat_mode: bool= false
+@export var test_flight: bool= false
 ## How far to walk before jumping
 @export var walk_distance: float= 100.0
 ## How fast to rotate when left/right are pressed
@@ -67,6 +68,8 @@ var upgrade_overlays: Node2D
 
 func _ready() -> void:
 	# defer to let the debug graphics catch up
+	if test_flight:
+		stats.reset_all_upgrades(false)
 	reset.call_deferred()
 
 
@@ -156,6 +159,7 @@ func fly_logic(delta: float):
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
+		print(lift)
 		velocity+= -global_transform.y * lift * delta
 
 	var prev_y: float= position.y

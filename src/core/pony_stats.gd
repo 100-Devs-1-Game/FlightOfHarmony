@@ -92,11 +92,12 @@ func set_upgrade(upgrade: ShopUpgrade, category: ShopUpgrade.Category) -> void:
 	upgrade_slots[int(category)] = upgrade
 
 
-func reset_all_upgrades() -> void:
+func reset_all_upgrades(do_save: bool= true) -> void:
 	for stat in get_stats():
 		stat.level= 0
 
 	for i in range(upgrade_slots.size()):
 		upgrade_slots[i] = null
 
-	SaveManager.save_game()
+	if do_save:
+		SaveManager.save_game()
