@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyStats" load_steps=9 format=3 uid="uid://c1po3y5e2g8ar"]
+[gd_resource type="Resource" script_class="PonyStats" load_steps=11 format=3 uid="uid://c1po3y5e2g8ar"]
 
 [ext_resource type="Resource" uid="uid://v40ltgeqgcin" path="res://core/single_stats/pony_drag_stat.tres" id="1_ss4f1"]
 [ext_resource type="Resource" uid="uid://b80qi2ps25utm" path="res://core/single_stats/pony_fuel_stat.tres" id="2_ydpio"]
@@ -7,7 +7,15 @@
 [ext_resource type="Resource" uid="uid://cj8h2v2c3pmo1" path="res://core/single_stats/pony_propulsion_stat.tres" id="5_tva00"]
 [ext_resource type="Script" uid="uid://c730pnw5re1tk" path="res://core/pony_stats.gd" id="6_r40jg"]
 [ext_resource type="Resource" uid="uid://c1qitpu5vatxf" path="res://core/single_stats/pony_speed_stat.tres" id="7_7g0ab"]
+[ext_resource type="Script" uid="uid://c8aj1cc0t2afq" path="res://core/single_pony_stat.gd" id="7_ydpio"]
 [ext_resource type="Script" uid="uid://puq2qpe811pn" path="res://core/shop_upgrade.gd" id="8_jaisx"]
+
+[sub_resource type="Resource" id="Resource_toi1m"]
+script = ExtResource("7_ydpio")
+display_name = "Top Speed"
+base_value = 0.0
+step_value = 0.0
+metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
 
 [resource]
 script = ExtResource("6_r40jg")
@@ -17,5 +25,6 @@ lift_stat = ExtResource("4_0q17t")
 fuel_stat = ExtResource("2_ydpio")
 jump_height_stat = ExtResource("3_toi1m")
 propulsion_stat = ExtResource("5_tva00")
+speed_limit_stat = SubResource("Resource_toi1m")
 upgrade_slots = Array[ExtResource("8_jaisx")]([null, null, null, null])
 metadata/_custom_type_script = "uid://c730pnw5re1tk"
