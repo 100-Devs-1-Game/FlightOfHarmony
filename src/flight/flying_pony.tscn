@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm5bowlclh7go"]
+[gd_scene load_steps=8 format=3 uid="uid://dm5bowlclh7go"]
 
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="1_22ryr"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_t5pyb"]
 [ext_resource type="SpriteFrames" uid="uid://c5blktc3tas1p" path="res://flight/flying_pony_animations.tres" id="3_d45wx"]
+[ext_resource type="Texture2D" uid="uid://cqk7x1qqp7nbm" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_idle.png" id="4_tfgq4"]
+[ext_resource type="Texture2D" uid="uid://cnt8bmvfl4d1r" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Running.png" id="5_y8g1j"]
+[ext_resource type="Texture2D" uid="uid://2l1fovioth2h" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Flying.png" id="6_22ryr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph0dt"]
 radius = 197.8
@@ -20,4 +23,17 @@ shape = SubResource("CircleShape2D_ph0dt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_d45wx")
-animation = &"run"
+
+[node name="HeadIdle" type="Sprite2D" parent="."]
+position = Vector2(-3, -25)
+texture = ExtResource("4_tfgq4")
+
+[node name="HeadRunning" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(6, -19)
+texture = ExtResource("5_y8g1j")
+
+[node name="HeadFlying" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(6, -19)
+texture = ExtResource("6_22ryr")

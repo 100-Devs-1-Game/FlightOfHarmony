@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=6 format=3 uid="uid://bvdi1a664lx8v"]
+[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=8 format=3 uid="uid://bvdi1a664lx8v"]
 
+[ext_resource type="Texture2D" uid="uid://mmhf36ay8k8u" path="res://assets/art/flight/pony/heads/Prop_Hat/Flying/PropHat_Flying_1.png" id="1_pxn6o"]
 [ext_resource type="Texture2D" uid="uid://bysgolm3tqriq" path="res://assets/art/upgrades/helmets/propeller_helmet/Propller_hat0001.png" id="1_vq4j1"]
-[ext_resource type="PackedScene" uid="uid://cddn7dcwrijvm" path="res://shop/upgrades/body/scenes/PropellerHelmetUpgrade.tscn" id="2_i0slq"]
+[ext_resource type="Texture2D" uid="uid://bm18hnstvlc3o" path="res://assets/art/flight/pony/heads/Prop_Hat/Prop Idle/PropHat_Idle_1.png" id="2_q5idv"]
+[ext_resource type="Texture2D" uid="uid://dtyapea7emeuj" path="res://assets/art/flight/pony/heads/Prop_Hat/Running/PropHat_Run_1.png" id="3_lsswd"]
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="3_pxn6o"]
 [ext_resource type="Script" uid="uid://wai2hektb4vk" path="res://core/pony_upgrade_body.gd" id="4_q5idv"]
 
@@ -13,7 +15,9 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("4_q5idv")
-overlay_scene = ExtResource("2_i0slq")
+custom_idle_head = ExtResource("2_q5idv")
+custom_flying_head = ExtResource("1_pxn6o")
+custom_running_head = ExtResource("3_lsswd")
 pony_stat_modifiers = Array[ExtResource("3_pxn6o")]([SubResource("Resource_j4xlt")])
 custom_walk_animation = ""
 custom_flight_animation = ""

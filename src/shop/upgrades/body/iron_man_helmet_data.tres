@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=6 format=3 uid="uid://dc1vt3vuja2xu"]
+[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=8 format=3 uid="uid://dc1vt3vuja2xu"]
 
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_1c6g5"]
 [ext_resource type="Texture2D" uid="uid://c337p0lx6dvn8" path="res://assets/art/upgrades/helmets/Iron_Man_Helmet_3.png" id="1_5c5qh"]
+[ext_resource type="Texture2D" uid="uid://cixjxn2xd53st" path="res://assets/art/flight/pony/heads/Ironman/Ironman_Helmet_Flying.png" id="1_y517b"]
 [ext_resource type="Script" uid="uid://wai2hektb4vk" path="res://core/pony_upgrade_body.gd" id="2_5c5qh"]
-[ext_resource type="PackedScene" uid="uid://cfeiis288bjoe" path="res://shop/upgrades/body/scenes/IronManHelmetUpgrade.tscn" id="2_glyap"]
+[ext_resource type="Texture2D" uid="uid://dre11ahrcetkw" path="res://assets/art/flight/pony/heads/Ironman/Ironman_Helmet_Idle.png" id="2_783rr"]
+[ext_resource type="Texture2D" uid="uid://c70llivgt0tti" path="res://assets/art/flight/pony/heads/Ironman/Ironman_Helmet_Running.png" id="3_4jll2"]
 
 [sub_resource type="Resource" id="Resource_glyap"]
 script = ExtResource("1_1c6g5")
@@ -13,7 +15,9 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_5c5qh")
-overlay_scene = ExtResource("2_glyap")
+custom_idle_head = ExtResource("2_783rr")
+custom_flying_head = ExtResource("1_y517b")
+custom_running_head = ExtResource("3_4jll2")
 pony_stat_modifiers = Array[ExtResource("1_1c6g5")]([SubResource("Resource_glyap")])
 custom_walk_animation = ""
 custom_flight_animation = ""
