@@ -61,7 +61,7 @@ func _update_speedometer(delta: float) -> void:
 	if arrow == null:
 		return
 
-	var speed = abs(player_ref.velocity.length())
+	var speed = abs(player_ref.velocity.length() * 0.1)
 	var clamped_speed = clamp(speed, speed_min, speed_max)
 	#converts speed from 0 to max for the speedometers angle vv
 	var sweep = remap(clamped_speed, speed_min, speed_max, sweep_min_deg, sweep_max_deg)
