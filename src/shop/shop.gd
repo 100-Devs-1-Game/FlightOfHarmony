@@ -46,10 +46,12 @@ func _update_fuel() -> void:
 
 
 func _on_reset_pressed() -> void:
-	Global.set_currency(Global.starting_money)
 	pony_stats.reset_all_upgrades()
+	SaveManager.reset()
+	Global.reset()
 	EventChannel.reset_progress.emit()
 	_update_currency()
+	LevelManager.goto_start()	
 
 
 func _on_open_book_pressed(category: ShopUpgrade.Category) -> void:

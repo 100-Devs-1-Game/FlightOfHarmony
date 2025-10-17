@@ -74,6 +74,11 @@ func try_spend(cost: int) -> bool:
 	return true
 
 
+func reset():
+	Global.set_currency(Global.starting_money)
+	day= 1
+
+
 func get_category_upgrades(category: ShopUpgrade.Category)-> Array[ShopUpgrade]:
 	match category:
 		ShopUpgrade.Category.GLIDER:

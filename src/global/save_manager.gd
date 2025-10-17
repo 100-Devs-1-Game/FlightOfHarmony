@@ -80,5 +80,9 @@ func load_game() -> void:
 		bought_upgrades.append(load(path))
 
 
+func reset():
+	bought_upgrades.clear()
+
+
 func _on_tree_exiting() -> void:
 	save_game()
