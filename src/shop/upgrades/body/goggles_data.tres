@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=6 format=3 uid="uid://ccoo21g6hughw"]
+[gd_resource type="Resource" script_class="PonyUpgradeBody" load_steps=8 format=3 uid="uid://ccoo21g6hughw"]
 
 [ext_resource type="Texture2D" uid="uid://cq54qdbupdfb" path="res://assets/art/upgrades/helmets/Goggles_upgrade_1.png" id="1_4mmbo"]
+[ext_resource type="Texture2D" uid="uid://b2mvhf44aj48t" path="res://assets/art/flight/pony/heads/Goggles/Goggle_Flying.png" id="1_531vl"]
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_i1nl0"]
 [ext_resource type="Script" uid="uid://wai2hektb4vk" path="res://core/pony_upgrade_body.gd" id="2_4mmbo"]
-[ext_resource type="PackedScene" uid="uid://cvfgrfb7d4tgx" path="res://shop/upgrades/body/scenes/GoggleUpgrade.tscn" id="2_22fgc"]
+[ext_resource type="Texture2D" uid="uid://7tog6wfr37su" path="res://assets/art/flight/pony/heads/Goggles/Goggle_Idle.png" id="2_e83t4"]
+[ext_resource type="Texture2D" uid="uid://dcjllanktfdd1" path="res://assets/art/flight/pony/heads/Goggles/Goggle_Run.png" id="3_tvsds"]
 
 [sub_resource type="Resource" id="Resource_22fgc"]
 script = ExtResource("1_i1nl0")
@@ -13,7 +15,9 @@ metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
 [resource]
 script = ExtResource("2_4mmbo")
-overlay_scene = ExtResource("2_22fgc")
+custom_idle_head = ExtResource("2_e83t4")
+custom_flying_head = ExtResource("1_531vl")
+custom_running_head = ExtResource("3_tvsds")
 pony_stat_modifiers = Array[ExtResource("1_i1nl0")]([SubResource("Resource_22fgc")])
 custom_walk_animation = ""
 custom_flight_animation = ""

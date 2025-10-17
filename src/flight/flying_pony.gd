@@ -38,6 +38,10 @@ enum State { WALKING, FLYING, LANDING }
 @export var stats: PonyStats
 
 @export var animated_sprite: AnimatedSprite2D
+@onready var head_idle: Sprite2D = $HeadIdle
+@onready var head_running: Sprite2D = $HeadRunning
+@onready var head_flying: Sprite2D = $HeadFlying
+
 @onready var orig_pos: Vector2= position
 
 var state: State= State.WALKING
@@ -86,10 +90,21 @@ func reset():
 	if upgrade:
 		propulsion_type= upgrade.provides_propulsion
 		propulsion_force*= stats.get_stat_value(PonyStats.StatType.PROPULSION)
-		
+	
+	upgrade= stats.get_upgrade(ShopUpgrade.Category.BODY)
+	if upgrade:
+		var body_upgrade: PonyUpgradeBody= upgrade
+		if body_upgrade.custom_idle_head:
+			head_idle.texture= body_upgrade.custom_idle_head
+		if body_upgrade.custom_running_head:
+			head_running.texture= body_upgrade.custom_running_head
+		if body_upgrade.custom_flying_head:
+			head_flying.texture= body_upgrade.custom_flying_head
+	
 	state= State.WALKING
 	if animated_sprite:
 		animated_sprite.play("run")
+		activate_head(head_running)
 	
 	enable_lift= false
 
@@ -99,6 +114,7 @@ func jump():
 	add_upgrade_overlays()
 	if animated_sprite:
 		animated_sprite.play("flight")
+		activate_head(head_flying)
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
 
@@ -195,6 +211,13 @@ func add_upgrade_overlays():
 
 func remove_upgrade_overlays():
 	upgrade_overlays.queue_free()
+
+
+func activate_head(head: Sprite2D):
+	head_idle.hide()
+	head_flying.hide()
+	head_running.hide()
+	head.show()
 
 
 func get_drag()-> float:
