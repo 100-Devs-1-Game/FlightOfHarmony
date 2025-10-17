@@ -25,7 +25,7 @@ enum State { WALKING, FLYING, LANDING }
 ## The drag ( air resistance ) when the pony is at a right angle to its traveling
 ## direction or inverted
 @export var maximum_drag: float= 0.5
-@export var drag_coefficient: float= 0.003
+@export var drag_coefficient: float= 0.0001
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= -30
