@@ -199,7 +199,7 @@ func remove_upgrade_overlays():
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 8), 0.0, 1.0))
+	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 2), 0.0, 1.0))
 
 
 func get_lift()-> float:
