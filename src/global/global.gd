@@ -1,6 +1,6 @@
 extends Node
 
-signal money_changed(balance: int)
+signal money_changed()
 
 const GLIDER_UPGRADES_DIR= "res://shop/upgrades/gliders/"
 const PROPULSION_UPGRADES_DIR= "res://shop/upgrades/propulsion/"
