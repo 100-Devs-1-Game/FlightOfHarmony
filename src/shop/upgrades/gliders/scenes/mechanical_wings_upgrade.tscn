@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://11shuusqlhhp"]
+[gd_scene load_steps=11 format=3 uid="uid://11shuusqlhhp"]
 
+[ext_resource type="Script" uid="uid://cu5rib3w51sqa" path="res://core/upgrade_overlay_scene.gd" id="1_o37l0"]
 [ext_resource type="Texture2D" uid="uid://bqyjox8pbye58" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0003.png" id="1_sb4bd"]
 [ext_resource type="Texture2D" uid="uid://cx3e2ujk36b8d" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0004.png" id="2_o37l0"]
 [ext_resource type="Texture2D" uid="uid://cqeanioe6wytt" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0005.png" id="3_i5ds4"]
@@ -41,9 +42,18 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MechanicalWingsUpgrade" type="Node2D"]
+[node name="MechanicalWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
+script = ExtResource("1_o37l0")
+running_node = NodePath("AnimatedSprite2D")
+flying_node = NodePath("AnimatedSprite2D Flying")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-52, 5)
+scale = Vector2(0.322222, 0.322222)
+sprite_frames = SubResource("SpriteFrames_nqwak")
+animation = &"flying"
+
+[node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
 position = Vector2(-52, 5)
 scale = Vector2(0.322222, 0.322222)
 sprite_frames = SubResource("SpriteFrames_nqwak")

@@ -106,18 +106,20 @@ func reset():
 		animated_sprite.play("run")
 		activate_head(head_running)
 	
+	add_upgrade_overlays()
+
 	enable_lift= false
 
 
 func jump():
 	state= State.FLYING
-	add_upgrade_overlays()
 	if animated_sprite:
 		animated_sprite.play("flight")
 		activate_head(head_flying)
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
-
+	started_flying.emit()
+	
 
 func land():
 	state= State.LANDING

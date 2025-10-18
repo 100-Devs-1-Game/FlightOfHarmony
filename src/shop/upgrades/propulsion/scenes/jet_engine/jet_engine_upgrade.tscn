@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://df4cjjli2yo2e"]
 
-[ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/fireworks/fireworks_upgrade.gd" id="1_uiuyk"]
+[ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/dynamic_animated_propulsion_upgrade.gd" id="1_uiuyk"]
 [ext_resource type="Texture2D" uid="uid://cu5cp24t433xn" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0001.png" id="2_ngp0q"]
 [ext_resource type="Texture2D" uid="uid://dkdmxhqf8ohvq" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0002.png" id="3_53u5i"]
 [ext_resource type="Texture2D" uid="uid://d8egtnaxebox" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0003.png" id="4_w12b5"]
@@ -22,10 +22,18 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="JetEngineUpgrade" type="Node2D"]
+[node name="JetEngineUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "running_node", "flying_node")]
 script = ExtResource("1_uiuyk")
+propulsion_animation = NodePath("AnimatedSprite2D Flying")
+running_node = NodePath("AnimatedSprite2D")
+flying_node = NodePath("AnimatedSprite2D Flying")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-128, -56)
+position = Vector2(-217.125, -108)
+scale = Vector2(0.385, 0.385)
+sprite_frames = SubResource("SpriteFrames_1rm8e")
+
+[node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
+position = Vector2(218.875, -2.00002)
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_1rm8e")

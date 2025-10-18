@@ -1,11 +1,11 @@
 extends UpgradeOverlayScene
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var propulsion_animation: AnimatedSprite2D
 
 
 
 func _ready() -> void:
 	pony.start_propulsion.connect(func():
-		animated_sprite.play("default"))
+		propulsion_animation.play("default"))
 	pony.stop_propulsion.connect(func():
-		animated_sprite.stop())
+		propulsion_animation.stop())

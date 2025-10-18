@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bp718ijfccfdv"]
 
-[ext_resource type="Script" uid="uid://bdhw0v1v6sxdi" path="res://shop/upgrades/propulsion/scenes/fan/fan_upgrade.gd" id="1_7hg4w"]
+[ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/dynamic_animated_propulsion_upgrade.gd" id="1_7hg4w"]
 [ext_resource type="Texture2D" uid="uid://dlj1gy1uaxtjc" path="res://assets/art/upgrades/propulsion/fan/Fan_0001.png" id="1_ts8pi"]
 [ext_resource type="Texture2D" uid="uid://mbcn4tiudt36" path="res://assets/art/upgrades/propulsion/fan/Fan_0002.png" id="2_7hg4w"]
 [ext_resource type="Texture2D" uid="uid://8egbb1arlid3" path="res://assets/art/upgrades/propulsion/fan/Fan_0003.png" id="3_3lpfj"]
@@ -30,10 +30,20 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="FanUpgrade" type="Node2D"]
+[node name="FanUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "running_node", "flying_node")]
 script = ExtResource("1_7hg4w")
+propulsion_animation = NodePath("AnimatedSprite2D Flying")
+running_node = NodePath("AnimatedSprite2D")
+flying_node = NodePath("AnimatedSprite2D Flying")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, -159.013)
+scale = Vector2(0.22707, 0.22707)
+sprite_frames = SubResource("SpriteFrames_mt01s")
+frame_progress = 0.128994
+flip_h = true
+
+[node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
 position = Vector2(-10, -159.013)
 scale = Vector2(0.22707, 0.22707)
 sprite_frames = SubResource("SpriteFrames_mt01s")

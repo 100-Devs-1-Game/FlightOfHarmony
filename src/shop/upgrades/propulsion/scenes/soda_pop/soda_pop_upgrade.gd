@@ -2,8 +2,8 @@ extends UpgradeOverlayScene
 ## Fades the full bottle sprite towards the empty sprite
 ## with diminishing fuel
 
-@onready var sprite_full: Sprite2D = $"Sprite2D Full"
-@onready var sprite_empty: Sprite2D = $"Sprite2D Empty"
+@export var sprite_full: Sprite2D
+@export var sprite_empty: Sprite2D
 
 
 
