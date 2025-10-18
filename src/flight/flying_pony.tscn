@@ -14,6 +14,7 @@ radius = 197.8
 script = ExtResource("1_22ryr")
 walk_distance = 2000.0
 gravity = 1000.0
+perfect_lift_angle = 0.0
 propulsion_force = 3000.0
 stats = ExtResource("2_t5pyb")
 animated_sprite = NodePath("AnimatedSprite2D")
