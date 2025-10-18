@@ -5,6 +5,7 @@ extends Node2D
 @export var clouds_fade_max_height: float= 3000.0
 
 @onready var foreground_clouds: Parallax2D = %"Foreground Clouds"
+@onready var springboard: AnimatedSprite2D = $"AnimatedSprite Springboard"
 
 var _max_height: float = 0.0
 
@@ -81,3 +82,7 @@ func get_interest_rate()-> float:
 func _on_return_pressed() -> void:
 	Global.day+= 1
 	LevelManager.goto_shop()
+
+
+func _on_springboard_body_entered(_body: Node2D) -> void:
+	springboard.play("default")
