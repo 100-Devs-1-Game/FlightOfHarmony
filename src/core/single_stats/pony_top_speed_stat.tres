@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_dhcw0")
 display_name = "Top speed"
-base_value = 0.0
-step_value = 125.0
+base_value = 2000.0
+step_value = 250.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"

@@ -225,7 +225,12 @@ func activate_head(head: Sprite2D):
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	return lerp(maximum_drag, optimal_drag, clampf(pow(dot, 4 if enable_lift else 2), 0.0, 1.0))
+	var drag_factor: float= clampf(pow(dot, 4 if enable_lift else 2), 0.0, 1.0)
+	if top_speed > 0 and get_forward_speed() > top_speed and enable_lift:
+		var prev: float= drag_factor
+		drag_factor*= top_speed / get_forward_speed()
+		prints(drag_factor, "<", prev, "|", top_speed, "/", get_forward_speed())
+	return lerp(maximum_drag, optimal_drag, drag_factor)
 
 
 func get_lift()-> float:
