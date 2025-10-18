@@ -6,6 +6,10 @@
 [node name="UpgradeOverlayTweaking" type="Node2D"]
 script = ExtResource("1_pw5t7")
 
-[node name="AnimatedSprite2D Flying Pony" type="AnimatedSprite2D" parent="."]
+[node name="Flying Pony" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_qrao5")
 animation = &"flight"
+
+[node name="Running Pony" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_qrao5")
+animation = &"run"
