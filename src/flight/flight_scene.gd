@@ -19,6 +19,10 @@ func _process(_delta: float) -> void:
 	if player == null:
 		return
 
+	if Input.is_action_just_pressed("ui_cancel"):
+		LevelManager.goto_shop()
+		return
+
 	var distance_m = int(roundi(player.get_distance())) / 100
 	$UI/Distancelbl.text = "Distance - " + str(distance_m) + "m"
 
@@ -56,18 +60,6 @@ func run_ended(money_earned: int) -> void:
 	print(str(money_earned), " money earned!")
 	EventChannel.run_ended.emit()
 	#update_results()
-
-
-#func update_results() -> void:
-	#if player == null:
-		#return
-	#var distance_m = int(roundi(player.get_distance())) / 100
-	#var height_m = int(roundi(_max_height))  / 100
-	#var money_earned = int(roundi((distance_m + height_m) / 2.0))
-#
-	#$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
-	#$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
-	#$UI/Results/VBoxContainer/Moneylbl.text = "Money Earned: $" + str(money_earned)
 
 
 func get_interest_rate()-> float:
