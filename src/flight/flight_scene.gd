@@ -42,10 +42,9 @@ func _on_player_landed() -> void:
 
 	$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
 	$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
-	var money_text:= "Earned: $" + str(money_earned)
+	$UI/Results/VBoxContainer/Moneylbl.text = "Earned: $" + str(money_earned)
 	if interest_rate > 0:
-		money_text+= " (+$%d)" % bonus 
-	$UI/Results/VBoxContainer/Moneylbl.text = money_text
+		$UI/Results/VBoxContainer/Bonuslbl.text = "Bonus: $" + str(bonus)
 	
 	run_ended(money_earned + bonus)
 
