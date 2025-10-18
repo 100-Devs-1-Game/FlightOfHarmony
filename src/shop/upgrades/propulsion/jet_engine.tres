@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PonyUpgradePropulsion" load_steps=6 format=3 uid="uid://um284f1tjo1c"]
+
+[ext_resource type="Texture2D" uid="uid://cu5cp24t433xn" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0001.png" id="1_bhf2q"]
+[ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_emtka"]
+[ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="2_bhf2q"]
+[ext_resource type="PackedScene" uid="uid://df4cjjli2yo2e" path="res://shop/upgrades/propulsion/scenes/jet_engine/jet_engine_upgrade.tscn" id="2_ntct7"]
+
+[sub_resource type="Resource" id="Resource_ntct7"]
+script = ExtResource("1_emtka")
+stat = 5
+value = 5
+metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
+
+[resource]
+script = ExtResource("2_bhf2q")
+provides_propulsion = 2
+overlay_scene = ExtResource("2_ntct7")
+pony_stat_modifiers = Array[ExtResource("1_emtka")]([SubResource("Resource_ntct7")])
+custom_walk_animation = ""
+custom_flight_animation = ""
+category = 1
+display_name = "Jet Engine"
+item_description = ""
+cost = 500
+icon = ExtResource("1_bhf2q")
+metadata/_custom_type_script = "uid://bgwt4hvflnx2h"

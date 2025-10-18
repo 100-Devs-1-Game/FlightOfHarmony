@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://df4cjjli2yo2e"]
+
+[ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/fireworks/fireworks_upgrade.gd" id="1_uiuyk"]
+[ext_resource type="Texture2D" uid="uid://cu5cp24t433xn" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0001.png" id="2_ngp0q"]
+[ext_resource type="Texture2D" uid="uid://dkdmxhqf8ohvq" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0002.png" id="3_53u5i"]
+[ext_resource type="Texture2D" uid="uid://d8egtnaxebox" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0003.png" id="4_w12b5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rm8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ngp0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_53u5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w12b5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="JetEngineUpgrade" type="Node2D"]
+script = ExtResource("1_uiuyk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-128, -56)
+scale = Vector2(0.385, 0.385)
+sprite_frames = SubResource("SpriteFrames_1rm8e")
