@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=7 format=3 uid="uid://c5bvxk7aonwih"]
+[gd_resource type="Resource" script_class="PonyUpgradeGlider" load_steps=6 format=3 uid="uid://c5bvxk7aonwih"]
 
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_atloe"]
 [ext_resource type="Texture2D" uid="uid://bdu04o71gxhr1" path="res://assets/art/upgrades/gliders/Cardboard_Wings_upgrade_1.png" id="1_fv1lf"]
@@ -11,16 +11,10 @@ stat = 2
 value = 1
 metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
 
-[sub_resource type="Resource" id="Resource_s4an6"]
-script = ExtResource("1_atloe")
-stat = 6
-value = 1
-metadata/_custom_type_script = "uid://b7p0gdarn3l0s"
-
 [resource]
 script = ExtResource("2_fv1lf")
 overlay_scene = ExtResource("2_otkvo")
-pony_stat_modifiers = Array[ExtResource("1_atloe")]([SubResource("Resource_otkvo"), SubResource("Resource_s4an6")])
+pony_stat_modifiers = Array[ExtResource("1_atloe")]([SubResource("Resource_otkvo")])
 custom_walk_animation = ""
 custom_flight_animation = ""
 category = 0
