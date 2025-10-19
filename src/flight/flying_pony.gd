@@ -245,7 +245,8 @@ func get_lift()-> float:
 	#var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
 	#var dot: float= global_transform.x.dot(perfect_angle)
 	var maximum_lift: float= stats.get_stat_value(PonyStats.StatType.LIFT)
-
+	maximum_lift= sqrt(maximum_lift) * .25
+	
 	#var lift: float= lerp(0.0, maximum_lift, pow(dot, 3))
 	#lift*= velocity.length_squared() * 0.0001
 	#

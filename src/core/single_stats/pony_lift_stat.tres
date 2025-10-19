@@ -6,5 +6,5 @@
 script = ExtResource("1_0snvj")
 display_name = "Lift"
 base_value = 0.0
-step_value = 0.1
+step_value = 1.0
 metadata/_custom_type_script = "uid://c8aj1cc0t2afq"
