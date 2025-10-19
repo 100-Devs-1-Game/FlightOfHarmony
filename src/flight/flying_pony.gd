@@ -183,8 +183,8 @@ func fly_logic(delta: float):
 		land()
 		return
 	
-	# enable lift calculations as soon as we're dropping
-	if prev_y < position.y:
+	# enable lift calculations as soon as we're dropping or flying level
+	if prev_y < position.y or rotation > 0:
 		enable_lift= true
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
