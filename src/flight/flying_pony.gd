@@ -19,6 +19,7 @@ enum State { WALKING, FLYING, LANDING }
 @export var walk_distance: float= 100.0
 ## How fast to rotate when left/right are pressed
 @export var rotation_speed: float= 2.0
+@export var rotation_acceleration: float= 1.0
 ## The initial take-off angle
 @export var jump_angle: float= 30.0
 @export var gravity: float= 100.0
@@ -65,9 +66,9 @@ var propulsion_active: bool:
 
 var remaining_fuel: float
 var top_speed: float
+var current_rotation_speed: float= 0.0
 ## parent node for all the upgrade overlays
 var upgrade_overlays: Node2D
-
 
 
 func _ready() -> void:
@@ -190,7 +191,14 @@ func fly_logic(delta: float):
 		enable_lift= true
 	
 	var rot_inp= Input.get_axis("rotate_left", "rotate_right")
-	rotate(rot_inp * rotation_speed * delta)
+	if not is_zero_approx(rot_inp):
+		if sign(current_rotation_speed) != sign(rot_inp):
+			current_rotation_speed= 0
+		current_rotation_speed= move_toward(current_rotation_speed, rot_inp * rotation_speed, rotation_acceleration * delta)
+	else:
+		current_rotation_speed= move_toward(current_rotation_speed, 0, rotation_acceleration * delta)
+	
+	rotate(current_rotation_speed * delta)
 
 
 # Adds all equipped upgrade overlays 
