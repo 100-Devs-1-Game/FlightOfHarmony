@@ -215,7 +215,7 @@ func add_upgrade_overlays():
 				# with the reference to our flying pony
 				if overlay is UpgradeOverlayScene:
 					overlay.init(self)
-				add_child(overlay)
+				upgrade_overlays.add_child(overlay)
 
 
 func remove_upgrade_overlays():
