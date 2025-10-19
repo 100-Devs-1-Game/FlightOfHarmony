@@ -38,7 +38,10 @@ enum State { WALKING, FLYING, LANDING }
 ## Reference to the stats file
 @export var stats: PonyStats
 
-@export var animated_sprite: AnimatedSprite2D
+@export var idle_sprite: Sprite2D
+@export var animated_run_sprite: AnimatedSprite2D
+@export var animated_flight_sprite: AnimatedSprite2D
+
 @onready var head_idle: Sprite2D = $HeadIdle
 @onready var head_running: Sprite2D = $HeadRunning
 @onready var head_flying: Sprite2D = $HeadFlying
@@ -103,9 +106,7 @@ func reset():
 			head_flying.texture= body_upgrade.custom_flying_head
 	
 	state= State.WALKING
-	if animated_sprite:
-		animated_sprite.play("run")
-		activate_head(head_running)
+	play_animation()
 	
 	add_upgrade_overlays()
 
@@ -114,9 +115,8 @@ func reset():
 
 func jump():
 	state= State.FLYING
-	if animated_sprite:
-		animated_sprite.play("flight")
-		activate_head(head_flying)
+	play_animation()
+	
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
 	started_flying.emit()
@@ -131,8 +131,6 @@ func land():
 
 func _physics_process(delta: float) -> void:
 	if cheat_mode:
-		if animated_sprite:
-			animated_sprite.stop()
 		position+= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * delta * 1000
 		return
 		
@@ -224,6 +222,30 @@ func activate_head(head: Sprite2D):
 	head_flying.hide()
 	head_running.hide()
 	head.show()
+
+
+func play_animation():
+	if idle_sprite:
+		idle_sprite.hide()
+	if animated_run_sprite:
+		animated_run_sprite.hide()
+	if animated_flight_sprite:
+		animated_flight_sprite.hide()
+	
+	match state:
+		State.WALKING:
+			if animated_run_sprite:
+				animated_run_sprite.show()
+				animated_run_sprite.play("run")
+			activate_head(head_running)
+
+		State.FLYING:
+			if animated_flight_sprite:
+				animated_flight_sprite.show()
+				animated_flight_sprite.play("fly")
+			activate_head(head_flying)
+		_:
+			idle_sprite.show()
 
 
 func get_drag()-> float:

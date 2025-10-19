@@ -1,12 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://c5blktc3tas1p"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c5blktc3tas1p"]
 
 [ext_resource type="Texture2D" uid="uid://bupp3m2fn6ji2" path="res://assets/art/flight/pony/idle/idle_001.png" id="1_ybnb6"]
-[ext_resource type="Texture2D" uid="uid://coupx78vbofb5" path="res://assets/art/flight/pony/flying/flying_001.png" id="2_le4j8"]
-[ext_resource type="Texture2D" uid="uid://d1vmvk56ngyke" path="res://assets/art/flight/pony/flying/flying_002.png" id="3_m6u3t"]
-[ext_resource type="Texture2D" uid="uid://8c3wf5hf3eei" path="res://assets/art/flight/pony/flying/flying_003.png" id="4_xv1th"]
-[ext_resource type="Texture2D" uid="uid://vftbi1j347ju" path="res://assets/art/flight/pony/flying/flying_004.png" id="5_ombpe"]
-[ext_resource type="Texture2D" uid="uid://dnio1g8s3rjiw" path="res://assets/art/flight/pony/flying/flying_005.png" id="6_5ucge"]
-[ext_resource type="Texture2D" uid="uid://cyj3y4iw11i4c" path="res://assets/art/flight/pony/flying/flying_006.png" id="7_6dcbt"]
 [ext_resource type="Texture2D" uid="uid://buq3i22uf08rc" path="res://assets/art/flight/pony/running/running_001.png" id="8_3f83m"]
 [ext_resource type="Texture2D" uid="uid://jtxekr2uessv" path="res://assets/art/flight/pony/running/running_002.png" id="9_1kjgr"]
 [ext_resource type="Texture2D" uid="uid://jshvb8kqoqtr" path="res://assets/art/flight/pony/running/running_003.png" id="10_7c534"]
@@ -21,29 +15,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_le4j8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_m6u3t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xv1th")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ombpe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5ucge")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_6dcbt")
-}],
-"loop": true,
-"name": &"flight",
-"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
