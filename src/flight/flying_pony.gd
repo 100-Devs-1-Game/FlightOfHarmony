@@ -126,9 +126,6 @@ func land():
 	state= State.LANDING
 	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
-	#rotation= 0
-	#if animated_sprite:
-		#animated_sprite.play("default")
 	landed.emit()
 
 
@@ -232,30 +229,17 @@ func activate_head(head: Sprite2D):
 func get_drag()-> float:
 	var optimal_drag: float= stats.get_stat_value(PonyStats.StatType.DRAG)
 	var dot: float= global_transform.x.dot(velocity.normalized())
-	#var drag_factor: float= clampf(pow(dot, 4 if enable_lift else 2), 0.0, 1.0)
+
 	var drag_factor: float= clampf(pow(dot, 8), 0.0, 1.0)
-	#if top_speed > 0 and get_forward_speed() > top_speed and enable_lift:
-		#var prev: float= drag_factor
-		#drag_factor*= top_speed / get_forward_speed()
-		#prints(drag_factor, "<", prev, "|", top_speed, "/", get_forward_speed())
 	return lerp(maximum_drag, optimal_drag, drag_factor)
 
 
 func get_lift()-> float:
-	#var perfect_angle: Vector2= velocity.normalized().rotated(-deg_to_rad(perfect_lift_angle))
-	#var dot: float= global_transform.x.dot(perfect_angle)
 	var maximum_lift: float= stats.get_stat_value(PonyStats.StatType.LIFT)
 	maximum_lift= sqrt(maximum_lift) * .25
 	
-	#var lift: float= lerp(0.0, maximum_lift, pow(dot, 3))
-	#lift*= velocity.length_squared() * 0.0001
-	#
-	#var direction_impact: float= pow(global_transform.x.dot(velocity.normalized()), 8)
-	#return lift * direction_impact
-
 	var dot: float= global_transform.x.dot(velocity.normalized())
 	var dir_lift: float=lerp(0.0, maximum_lift, max(0, pow(dot, 23)))
-	#print(dir_lift)
 	return dir_lift * velocity.length_squared() * 0.0003
 
 
