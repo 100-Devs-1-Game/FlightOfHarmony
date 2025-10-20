@@ -263,6 +263,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_3eluj")
 
 [node name="AnimatedSprite Springboard" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(2000, 1361)
 sprite_frames = SubResource("SpriteFrames_50frv")
 
@@ -288,6 +289,7 @@ z_index = -1
 texture = ExtResource("9_x3l2y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Shack"]
+z_index = 100
 texture = ExtResource("10_50frv")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
