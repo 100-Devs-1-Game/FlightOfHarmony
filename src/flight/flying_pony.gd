@@ -236,13 +236,21 @@ func play_animation():
 		State.WALKING:
 			if animated_run_sprite:
 				animated_run_sprite.show()
-				animated_run_sprite.play("run")
+				var anim_name:= "run"
+				var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
+				if upgrade.custom_walk_animation:
+					anim_name= upgrade.custom_walk_animation
+				animated_run_sprite.play(anim_name)
 			activate_head(head_running)
 
 		State.FLYING:
 			if animated_flight_sprite:
 				animated_flight_sprite.show()
-				animated_flight_sprite.play("fly")
+				var anim_name:= "run"
+				var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
+				if upgrade.custom_flight_animation:
+					anim_name= upgrade.custom_flight_animation
+				animated_flight_sprite.play(anim_name)
 			activate_head(head_flying)
 		_:
 			idle_sprite.show()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6p7nm60t4kim"
-path="res://.godot/imported/SL_Ironman_Boots_animation_00002.png-93289ad4393b1e54a835bde8a6a4c45e.ctex"
+uid="uid://c8h2qvx4hhklc"
+path="res://.godot/imported/SL_Boots_Fly_1.png-b4e3ae764212283b053885d1ef8e2510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/upgrades/propulsion/iron_man_boots/SL_Running/SL_Ironman_Boots_animation_00002.png"
-dest_files=["res://.godot/imported/SL_Ironman_Boots_animation_00002.png-93289ad4393b1e54a835bde8a6a4c45e.ctex"]
+source_file="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_1.png"
+dest_files=["res://.godot/imported/SL_Boots_Fly_1.png-b4e3ae764212283b053885d1ef8e2510.ctex"]
 
 [params]
 
