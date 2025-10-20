@@ -246,7 +246,7 @@ func play_animation():
 		State.FLYING:
 			if animated_flight_sprite:
 				animated_flight_sprite.show()
-				var anim_name:= "run"
+				var anim_name:= "fly"
 				var upgrade: PonyUpgrade= stats.get_upgrade(ShopUpgrade.Category.PROPULSION)
 				if upgrade and upgrade.custom_flight_animation:
 					anim_name= upgrade.custom_flight_animation
