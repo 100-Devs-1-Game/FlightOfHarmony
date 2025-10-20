@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=28 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dyt7juo7oejxa" path="res://assets/art/results/Clipboard_fly_results.png" id="8_id0b6"]
 [ext_resource type="Texture2D" uid="uid://cr4w34rmd1jdq" path="res://assets/art/flight/springboard/Springboard_3.png" id="8_x3l2y"]
 [ext_resource type="Script" uid="uid://cue72b4gwopwq" path="res://flight/follow_camera.gd" id="9_gygq8"]
+[ext_resource type="Texture2D" uid="uid://cpoxmgfw8umdw" path="res://assets/art/flight/shack/Shack_bottom.png" id="9_x3l2y"]
+[ext_resource type="Texture2D" uid="uid://rkgvgerqxnpg" path="res://assets/art/flight/shack/Shack_top.png" id="10_50frv"]
 [ext_resource type="Texture2D" uid="uid://b63svv3ovkpoi" path="res://assets/art/flight/ui/fuel_empty.png" id="10_w4lhg"]
 [ext_resource type="Texture2D" uid="uid://baoy2yc4l0y5h" path="res://assets/art/flight/ui/fuel_full.png" id="11_3eluj"]
 
@@ -277,6 +279,16 @@ position = Vector2(-168, 1274)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, 1484)
 shape = SubResource("WorldBoundaryShape2D_x3l2y")
+
+[node name="Shack" type="Node2D" parent="."]
+position = Vector2(150, 1108)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shack"]
+z_index = -1
+texture = ExtResource("9_x3l2y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shack"]
+texture = ExtResource("10_50frv")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
 script = ExtResource("9_gygq8")
