@@ -40,7 +40,7 @@ func _on_player_landed() -> void:
 
 	var distance_m = int(roundi(player.get_distance())) / 100
 	var height_m = int(roundi(_max_height)) / 100
-	var money_earned: int = max(0, roundi(sqrt(distance_m + height_m) * 2))
+	var money_earned: int = max(0, roundi(distance_m + height_m * 0.5))
 	var interest_rate: float= get_interest_rate()
 	var bonus: int= money_earned * interest_rate
 
