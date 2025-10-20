@@ -49,6 +49,7 @@ func _on_player_landed() -> void:
 	$UI/Results/VBoxContainer/Moneylbl.text = "Earned: $" + str(money_earned)
 	if interest_rate > 0:
 		$UI/Results/VBoxContainer/Bonuslbl.text = "Bonus: $" + str(bonus)
+	$UI/Results/VBoxContainer/Totallbl.text = "Total: $" + str(money_earned + bonus)
 	
 	run_ended(money_earned + bonus)
 
