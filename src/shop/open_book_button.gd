@@ -1,10 +1,11 @@
 class_name BookCategoryButton
-extends Button
+extends TextureButton
 
 signal open_book(category: ShopUpgrade.Category)
 
 @export var category: ShopUpgrade.Category
 @export_multiline var empty_text: String
+@export var empty_texture: Texture2D
 
 @onready var shop: Shop= get_parent()
 @onready var texture_rect: TextureRect = %TextureRect
@@ -23,8 +24,9 @@ func update():
 		texture_rect.texture= upgrade.icon
 		label.hide()
 	else:
-		texture_rect.texture= null
+		texture_rect.texture= empty_texture
 		label.show()
+
 
 func _on_pressed() -> void:
 	open_book.emit(category)

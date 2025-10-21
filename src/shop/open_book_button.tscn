@@ -1,25 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://3tpoiqp6wdoo"]
+[gd_scene load_steps=3 format=3 uid="uid://3tpoiqp6wdoo"]
 
 [ext_resource type="Script" uid="uid://d1eakswpbxpnf" path="res://shop/open_book_button.gd" id="1_1cgc7"]
+[ext_resource type="Texture2D" uid="uid://c5uq1kt7pr1mm" path="res://assets/art/shop/book/Wings_icon.png" id="2_qu5na"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv745"]
-bg_color = Color(0.6, 0.6, 0.6, 0.466667)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cgc7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-
-[node name="OpenBook" type="Button"]
+[node name="OpenBook" type="TextureButton"]
 custom_minimum_size = Vector2(250, 150)
 offset_left = 686.0
 offset_top = 529.0
 offset_right = 936.0
 offset_bottom = 679.0
-theme_override_styles/hover = SubResource("StyleBoxFlat_hv745")
-theme_override_styles/normal = SubResource("StyleBoxFlat_1cgc7")
 script = ExtResource("1_1cgc7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -29,14 +18,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("2_qu5na")
 expand_mode = 2
 stretch_mode = 5
 
@@ -44,9 +34,12 @@ stretch_mode = 5
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Buy Something"
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 80
+text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
