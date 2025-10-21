@@ -181,6 +181,10 @@ func fly_logic(delta: float):
 		land()
 		return
 	
+	if position.x < 0:
+		LevelManager.goto_shop()
+		return
+	
 	# enable lift calculations as soon as we're dropping or flying level
 	if prev_y < position.y or rotation > 0:
 		enable_lift= true
