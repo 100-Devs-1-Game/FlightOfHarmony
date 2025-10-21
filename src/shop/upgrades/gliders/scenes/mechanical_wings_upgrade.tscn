@@ -42,20 +42,11 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MechanicalWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
+[node name="MechanicalWingsUpgrade" type="Node2D"]
 script = ExtResource("1_o37l0")
-running_node = NodePath("AnimatedSprite2D")
-flying_node = NodePath("AnimatedSprite2D Flying")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-52, 5)
 scale = Vector2(0.322222, 0.322222)
 sprite_frames = SubResource("SpriteFrames_nqwak")
 animation = &"flying"
-
-[node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
-position = Vector2(-52, 5)
-scale = Vector2(0.322222, 0.322222)
-sprite_frames = SubResource("SpriteFrames_nqwak")
-animation = &"flying"
-autoplay = "flying"

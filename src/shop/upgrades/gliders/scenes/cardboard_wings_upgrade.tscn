@@ -3,15 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bdu04o71gxhr1" path="res://assets/art/upgrades/gliders/Cardboard_Wings_upgrade_1.png" id="1_l3rlb"]
 [ext_resource type="Script" uid="uid://cu5rib3w51sqa" path="res://core/upgrade_overlay_scene.gd" id="1_mjcf8"]
 
-[node name="CardboardWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
+[node name="CardboardWingsUpgrade" type="Node2D"]
 script = ExtResource("1_mjcf8")
-running_node = NodePath("Wings")
-flying_node = NodePath("Wings Flying")
 
 [node name="Wings" type="Sprite2D" parent="."]
-position = Vector2(-80, 0)
-texture = ExtResource("1_l3rlb")
-
-[node name="Wings Flying" type="Sprite2D" parent="."]
 position = Vector2(-80, 0)
 texture = ExtResource("1_l3rlb")

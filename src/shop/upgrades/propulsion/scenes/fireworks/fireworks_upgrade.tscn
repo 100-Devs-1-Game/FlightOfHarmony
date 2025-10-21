@@ -30,16 +30,10 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="FireworksUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "running_node", "flying_node")]
+[node name="FireworksUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "running_node")]
 script = ExtResource("1_1rm8e")
 propulsion_animation = NodePath("AnimatedSprite2D Flying")
-running_node = NodePath("AnimatedSprite2D")
-flying_node = NodePath("AnimatedSprite2D Flying")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-128, -56)
-scale = Vector2(0.385, 0.385)
-sprite_frames = SubResource("SpriteFrames_1rm8e")
+running_node = NodePath("")
 
 [node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
 position = Vector2(-128, -56)

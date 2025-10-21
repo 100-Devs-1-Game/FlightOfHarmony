@@ -4,17 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ckhfigdhjeh0x" path="res://assets/art/upgrades/propulsion/soda_pop/scene/soda_pop_full.png" id="2_q31wr"]
 [ext_resource type="Texture2D" uid="uid://50ynf1ylx78a" path="res://assets/art/upgrades/propulsion/soda_pop/scene/soda_pop_empty.png" id="3_dmd6p"]
 
-[node name="SodaPopUpgrade" type="Node2D" node_paths=PackedStringArray("sprite_full", "sprite_empty", "running_node", "flying_node")]
+[node name="SodaPopUpgrade" type="Node2D" node_paths=PackedStringArray("sprite_full", "sprite_empty")]
 script = ExtResource("1_rhec0")
 sprite_full = NodePath("Flying/Sprite2D Full")
 sprite_empty = NodePath("Flying/Sprite2D Empty")
-running_node = NodePath("Running")
-flying_node = NodePath("Flying")
-
-[node name="Running" type="Node2D" parent="."]
-
-[node name="Sprite2D Full" type="Sprite2D" parent="Running"]
-texture = ExtResource("2_q31wr")
 
 [node name="Flying" type="Node2D" parent="."]
 
