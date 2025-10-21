@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://oyxd7tbul1hc"]
-
-[ext_resource type="Texture2D" uid="uid://bturwvlj82y6r" path="res://assets/art/upgrades/propulsion/Propulsion_Balloon_upgrade_1.png" id="1_bccdy"]
-
-[node name="BalloonUpgrade" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bccdy")

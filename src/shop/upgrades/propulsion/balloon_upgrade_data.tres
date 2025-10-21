@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7p0gdarn3l0s" path="res://core/pony_stat_modifier.gd" id="1_al1gp"]
 [ext_resource type="Texture2D" uid="uid://bturwvlj82y6r" path="res://assets/art/upgrades/propulsion/Propulsion_Balloon_upgrade_1.png" id="1_vsj7x"]
-[ext_resource type="PackedScene" uid="uid://oyxd7tbul1hc" path="res://shop/upgrades/propulsion/scenes/BalloonUpgrade.tscn" id="2_t618f"]
+[ext_resource type="PackedScene" uid="uid://oyxd7tbul1hc" path="res://shop/upgrades/propulsion/scenes/ballon/balloon_upgrade.tscn" id="2_t618f"]
 [ext_resource type="Script" uid="uid://bgwt4hvflnx2h" path="res://core/pony_upgrade_propulsion.gd" id="2_vsj7x"]
 
 [sub_resource type="Resource" id="Resource_t618f"]
