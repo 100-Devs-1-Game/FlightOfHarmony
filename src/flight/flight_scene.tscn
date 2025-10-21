@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=31 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://rkgvgerqxnpg" path="res://assets/art/flight/shack/Shack_top.png" id="10_50frv"]
 [ext_resource type="Texture2D" uid="uid://b63svv3ovkpoi" path="res://assets/art/flight/ui/fuel_empty.png" id="10_w4lhg"]
 [ext_resource type="Texture2D" uid="uid://baoy2yc4l0y5h" path="res://assets/art/flight/ui/fuel_full.png" id="11_3eluj"]
+[ext_resource type="Texture2D" uid="uid://ccmslr614nfwt" path="res://assets/art/shop/buttons/back_normal.png" id="19_w6niu"]
+[ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="20_aovsx"]
+[ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="21_svsci"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50frv"]
 animations = [{
@@ -114,7 +117,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Results/Return:visible")
+tracks/5/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -126,7 +129,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
+tracks/6/path = NodePath("Results/VBoxContainer/Totallbl:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -138,7 +141,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Results/VBoxContainer/Totallbl:visible")
+tracks/7/path = NodePath("Results/TextureButton Back:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -214,11 +217,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Results/Return:visible")
+tracks/5/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.9, 1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -226,11 +229,11 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
+tracks/6/path = NodePath("Results/VBoxContainer/Totallbl:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.99),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -238,11 +241,11 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Results/VBoxContainer/Totallbl:visible")
+tracks/7/path = NodePath("Results/TextureButton Back:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.99),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -462,22 +465,24 @@ theme_override_font_sizes/font_size = 47
 text = "RESULTS"
 horizontal_alignment = 1
 
-[node name="Return" type="Button" parent="UI/Results"]
+[node name="TextureButton Back" type="TextureButton" parent="UI/Results"]
 visible = false
-z_index = 2
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -156.5
+offset_left = -136.5
 offset_top = -126.0
-offset_right = 156.5
+offset_right = 136.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 59
-text = "Return"
+texture_normal = ExtResource("19_w6niu")
+texture_pressed = ExtResource("20_aovsx")
+texture_hover = ExtResource("21_svsci")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Results"]
 layout_mode = 1
@@ -548,4 +553,4 @@ vertical_alignment = 1
 
 [connection signal="body_entered" from="AnimatedSprite Springboard/Area2D" to="." method="_on_springboard_body_entered"]
 [connection signal="landed" from="Pony" to="." method="on_landed"]
-[connection signal="pressed" from="UI/Results/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="UI/Results/TextureButton Back" to="." method="_on_return_pressed"]
