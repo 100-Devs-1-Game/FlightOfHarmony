@@ -51,7 +51,7 @@ movie_writer/fps=30
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
@@ -59,6 +59,10 @@ folder_colors={
 "res://assets/art/upgrades/book/": "red",
 "res://shop/upgrades/": "red"
 }
+
+[gui]
+
+theme/custom_font="uid://bh5nqvo5c7d1d"
 
 [input]
 
