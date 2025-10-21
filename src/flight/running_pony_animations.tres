@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://c5blktc3tas1p"]
+
+[ext_resource type="Texture2D" uid="uid://cnu6xhw6etdt2" path="res://assets/art/upgrades/propulsion/iron_man_boots/Running/SL_Boots_Run_1.png" id="1_n04nm"]
+[ext_resource type="Texture2D" uid="uid://bupp3m2fn6ji2" path="res://assets/art/flight/pony/idle/idle_001.png" id="1_ybnb6"]
+[ext_resource type="Texture2D" uid="uid://dcu7aalrgp1g3" path="res://assets/art/upgrades/propulsion/iron_man_boots/Running/SL_Boots_Run_2.png" id="2_nfaks"]
+[ext_resource type="Texture2D" uid="uid://dxotfkdndbuq6" path="res://assets/art/upgrades/propulsion/iron_man_boots/Running/SL_Boots_Run_3.png" id="3_ybnb6"]
+[ext_resource type="Texture2D" uid="uid://bmjug8wuloxqi" path="res://assets/art/upgrades/propulsion/iron_man_boots/Running/SL_Boots_Run_4.png" id="4_le4j8"]
+[ext_resource type="Texture2D" uid="uid://buq3i22uf08rc" path="res://assets/art/flight/pony/running/running_001.png" id="8_3f83m"]
+[ext_resource type="Texture2D" uid="uid://jtxekr2uessv" path="res://assets/art/flight/pony/running/running_002.png" id="9_1kjgr"]
+[ext_resource type="Texture2D" uid="uid://jshvb8kqoqtr" path="res://assets/art/flight/pony/running/running_003.png" id="10_7c534"]
+[ext_resource type="Texture2D" uid="uid://c8g82k7e3yqxj" path="res://assets/art/flight/pony/running/running_004.png" id="11_pgjxi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n04nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nfaks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ybnb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_le4j8")
+}],
+"loop": true,
+"name": &"boots_run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ybnb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3f83m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1kjgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7c534")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pgjxi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]

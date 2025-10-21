@@ -1,76 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://dm5bowlclh7go"]
+[gd_scene load_steps=10 format=3 uid="uid://dm5bowlclh7go"]
 
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="1_22ryr"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_t5pyb"]
-[ext_resource type="SpriteFrames" uid="uid://c5blktc3tas1p" path="res://flight/flying_pony_animations.tres" id="3_d45wx"]
+[ext_resource type="SpriteFrames" uid="uid://c5blktc3tas1p" path="res://flight/running_pony_animations.tres" id="3_d45wx"]
 [ext_resource type="Texture2D" uid="uid://bupp3m2fn6ji2" path="res://assets/art/flight/pony/idle/idle_001.png" id="3_i84oc"]
 [ext_resource type="Texture2D" uid="uid://cqk7x1qqp7nbm" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_idle.png" id="4_tfgq4"]
-[ext_resource type="Texture2D" uid="uid://c8h2qvx4hhklc" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_1.png" id="5_1pi5s"]
-[ext_resource type="Texture2D" uid="uid://coupx78vbofb5" path="res://assets/art/flight/pony/flying/flying_001.png" id="5_7jp0r"]
+[ext_resource type="SpriteFrames" uid="uid://b0840uun3i2k2" path="res://flight/flying_pony_animations.tres" id="5_22ryr"]
 [ext_resource type="Texture2D" uid="uid://cnt8bmvfl4d1r" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Running.png" id="5_y8g1j"]
 [ext_resource type="Texture2D" uid="uid://2l1fovioth2h" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Flying.png" id="6_22ryr"]
-[ext_resource type="Texture2D" uid="uid://rr4l5lb17fy8" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_2.png" id="6_iar64"]
-[ext_resource type="Texture2D" uid="uid://d1vmvk56ngyke" path="res://assets/art/flight/pony/flying/flying_002.png" id="6_o8nfd"]
-[ext_resource type="Texture2D" uid="uid://d4nelwf27r064" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_3.png" id="7_8emma"]
-[ext_resource type="Texture2D" uid="uid://8c3wf5hf3eei" path="res://assets/art/flight/pony/flying/flying_003.png" id="7_pblf7"]
-[ext_resource type="Texture2D" uid="uid://vftbi1j347ju" path="res://assets/art/flight/pony/flying/flying_004.png" id="8_8d16d"]
-[ext_resource type="Texture2D" uid="uid://q6i5t0k2o5kh" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_4.png" id="8_dmgo5"]
-[ext_resource type="Texture2D" uid="uid://dnio1g8s3rjiw" path="res://assets/art/flight/pony/flying/flying_005.png" id="9_e302x"]
-[ext_resource type="Texture2D" uid="uid://dmwulhgf1b54r" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_5.png" id="9_otrjt"]
-[ext_resource type="Texture2D" uid="uid://cyj3y4iw11i4c" path="res://assets/art/flight/pony/flying/flying_006.png" id="10_1pi5s"]
-[ext_resource type="Texture2D" uid="uid://4j1dqgt3hv4r" path="res://assets/art/upgrades/propulsion/iron_man_boots/Flying/SL_Boots_Fly_6.png" id="10_meosg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph0dt"]
 radius = 197.8
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iar64"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_1pi5s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_iar64")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_8emma")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_dmgo5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_otrjt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_meosg")
-}],
-"loop": true,
-"name": &"boots_fly",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_7jp0r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_o8nfd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pblf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_8d16d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_e302x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_1pi5s")
-}],
-"loop": true,
-"name": &"fly",
-"speed": 12.0
-}]
 
 [node name="Pony" type="CharacterBody2D" node_paths=PackedStringArray("idle_sprite", "animated_run_sprite", "animated_flight_sprite")]
 script = ExtResource("1_22ryr")
@@ -99,8 +39,8 @@ animation = &"boots_run"
 
 [node name="AnimatedSprite2D Flight" type="AnimatedSprite2D" parent="."]
 visible = false
-sprite_frames = SubResource("SpriteFrames_iar64")
-animation = &"boots_fly"
+sprite_frames = ExtResource("5_22ryr")
+animation = &"fly"
 
 [node name="HeadIdle" type="Sprite2D" parent="."]
 position = Vector2(-3, -25)
