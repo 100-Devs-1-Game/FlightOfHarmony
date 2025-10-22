@@ -34,8 +34,10 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="MagicWingsUpgrade" type="Node2D"]
+[node name="MagicWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
 script = ExtResource("1_wc8m8")
+running_node = NodePath("AnimatedSprite2D")
+flying_node = NodePath("AnimatedSprite2D2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -43,3 +45,11 @@ position = Vector2(0.55, 0.55)
 rotation = -0.335451
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_8p4uv")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0.55, 0.55)
+rotation = -0.335451
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_8p4uv")
+autoplay = "default"
