@@ -16,9 +16,12 @@ func goto_start() -> void:
 
 func goto_shop() -> void:
 	load_level_by_path(SHOP_PATH)
+	if get_tree().current_scene.scene_file_path != START_PATH:
+		MusicPlayer.switch()
 
 func goto_flight() -> void:
 	load_level_by_path(FLIGHT_PATH)
+	MusicPlayer.switch()
 
 func _change_to(packed: PackedScene) -> void:
 	var current = get_tree().current_scene
