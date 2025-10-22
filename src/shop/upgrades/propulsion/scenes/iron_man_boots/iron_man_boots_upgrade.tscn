@@ -39,6 +39,7 @@ script = ExtResource("1_pqgiu")
 flame_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(-251, 74)
 rotation = -0.23911
 scale = Vector2(0.37, 0.515)
