@@ -22,12 +22,11 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="JetEngineUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "running_node")]
+[node name="JetEngineUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation")]
 script = ExtResource("1_uiuyk")
 propulsion_animation = NodePath("AnimatedSprite2D Flying")
-running_node = NodePath("")
 
 [node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
-position = Vector2(218.875, -2.00002)
+position = Vector2(-21, -58)
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_1rm8e")

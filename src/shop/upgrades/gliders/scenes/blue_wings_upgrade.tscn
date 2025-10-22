@@ -7,5 +7,6 @@
 script = ExtResource("1_srhvb")
 
 [node name="Wings" type="Sprite2D" parent="."]
-position = Vector2(-80, 0)
+position = Vector2(-95, 30)
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("1_bwaqa")

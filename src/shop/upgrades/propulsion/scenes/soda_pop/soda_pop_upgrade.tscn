@@ -10,6 +10,7 @@ sprite_full = NodePath("Flying/Sprite2D Full")
 sprite_empty = NodePath("Flying/Sprite2D Empty")
 
 [node name="Flying" type="Node2D" parent="."]
+position = Vector2(-33, -32)
 
 [node name="Sprite2D Full" type="Sprite2D" parent="Flying"]
 texture = ExtResource("2_q31wr")

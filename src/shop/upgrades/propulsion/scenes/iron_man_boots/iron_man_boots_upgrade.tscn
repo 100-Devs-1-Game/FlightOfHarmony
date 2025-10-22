@@ -39,7 +39,8 @@ script = ExtResource("1_pqgiu")
 flame_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-288, 64)
-scale = Vector2(0.37, 0.37)
+position = Vector2(-251, 74)
+rotation = -0.23911
+scale = Vector2(0.37, 0.515)
 sprite_frames = SubResource("SpriteFrames_fgc4a")
 autoplay = "default"
