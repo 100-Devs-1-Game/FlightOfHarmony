@@ -46,7 +46,7 @@ animations = [{
 script = ExtResource("1_o37l0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-52, 5)
-scale = Vector2(0.322222, 0.322222)
+position = Vector2(-39, 19)
+scale = Vector2(0.362, 0.362)
 sprite_frames = SubResource("SpriteFrames_nqwak")
 animation = &"flying"

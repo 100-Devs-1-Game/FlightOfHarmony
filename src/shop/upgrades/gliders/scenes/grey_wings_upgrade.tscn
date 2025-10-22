@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bfw8kmm5sl0ti" path="res://assets/art/upgrades/gliders/Big Grey wing.png" id="1_hfa6a"]
 [ext_resource type="Script" uid="uid://cu5rib3w51sqa" path="res://core/upgrade_overlay_scene.gd" id="1_sv4ci"]
 
-[node name="GreyWingsUpgrade" type="Node2D" node_paths=PackedStringArray("flying_node")]
+[node name="GreyWingsUpgrade" type="Node2D"]
 script = ExtResource("1_sv4ci")
-flying_node = NodePath("")
 
 [node name="Wings" type="Sprite2D" parent="."]
-position = Vector2(-80, 0)
+position = Vector2(-91, 30)
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("1_hfa6a")

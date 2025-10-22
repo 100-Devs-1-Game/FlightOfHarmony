@@ -35,8 +35,9 @@ script = ExtResource("1_7hg4w")
 propulsion_animation = NodePath("AnimatedSprite2D Flying")
 
 [node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, -162)
-scale = Vector2(0.22707, 0.22707)
+position = Vector2(-16, -110)
+rotation = -0.120428
+scale = Vector2(-0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_mt01s")
 frame_progress = 0.128994
 flip_h = true
