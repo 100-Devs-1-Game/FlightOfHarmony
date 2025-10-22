@@ -64,3 +64,9 @@ func _on_open_book_pressed(category: ShopUpgrade.Category) -> void:
 func on_upgrade_book_closed():
 	for button in book_buttons:
 		button.update()
+
+
+func _on_open_book_propulsion_empty_texture_replaced() -> void:
+	%"TrustHint Popup".show()
+	await get_tree().create_timer(3).timeout
+	%"TrustHint Popup".hide()

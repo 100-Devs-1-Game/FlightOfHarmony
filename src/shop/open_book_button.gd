@@ -2,6 +2,7 @@ class_name BookCategoryButton
 extends TextureButton
 
 signal open_book(category: ShopUpgrade.Category)
+signal empty_texture_replaced
 
 @export var category: ShopUpgrade.Category
 @export_multiline var empty_text: String
@@ -21,6 +22,8 @@ func _ready() -> void:
 func update():
 	var upgrade: ShopUpgrade= shop.pony_stats.get_upgrade(category)
 	if upgrade:
+		if texture_rect.texture == empty_texture:
+			empty_texture_replaced.emit()
 		texture_rect.texture= upgrade.icon
 		label.hide()
 	else:

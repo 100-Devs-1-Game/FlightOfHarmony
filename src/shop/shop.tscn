@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=34 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
@@ -43,6 +43,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrv44"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd0xb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3w7u"]
+bg_color = Color(0.214703, 0.214703, 0.214702, 1)
 
 [node name="Shop" type="CanvasLayer" node_paths=PackedStringArray("book_buttons")]
 script = ExtResource("1_gy7ao")
@@ -215,11 +218,42 @@ category = 3
 empty_text = "Money"
 empty_texture = ExtResource("26_543nj")
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TrustHint Popup" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b3w7u")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/TrustHint Popup"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CenterContainer/TrustHint Popup/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Press SPACE to accelerate using the Thrusters & Fuel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
 [connection signal="pressed" from="TextureButton Back" to="." method="_on_texture_button_back_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="open_book" from="OpenBook Gliders" to="." method="_on_open_book_pressed"]
+[connection signal="empty_texture_replaced" from="OpenBook Propulsion" to="." method="_on_open_book_propulsion_empty_texture_replaced"]
 [connection signal="open_book" from="OpenBook Propulsion" to="." method="_on_open_book_pressed"]
 [connection signal="open_book" from="OpenBook Body" to="." method="_on_open_book_pressed"]
 [connection signal="open_book" from="OpenBook Money" to="." method="_on_open_book_pressed"]
