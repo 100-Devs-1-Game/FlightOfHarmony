@@ -12,6 +12,6 @@ sprite_frames = ExtResource("2_qrao5")
 animation = &"boots_fly"
 
 [node name="Running Pony" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -41)
+position = Vector2(0, -36)
 sprite_frames = ExtResource("3_qrao5")
 animation = &"run"
