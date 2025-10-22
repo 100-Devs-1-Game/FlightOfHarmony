@@ -57,9 +57,9 @@ texture = ExtResource("4_yrv44")
 
 [node name="TextureButton Launch" type="TextureButton" parent="."]
 offset_left = 1529.0
-offset_top = 797.0
+offset_top = 673.0
 offset_right = 1918.0
-offset_bottom = 1080.0
+offset_bottom = 956.0
 texture_normal = ExtResource("3_2wf2a")
 texture_pressed = ExtResource("4_xad5q")
 texture_hover = ExtResource("5_ljlg5")
