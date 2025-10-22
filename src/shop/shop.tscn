@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=32 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
@@ -39,10 +39,6 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_c8ks2"]
 font_size = 60
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrv44"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd0xb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3w7u"]
 bg_color = Color(0.214703, 0.214703, 0.214702, 1)
@@ -158,23 +154,6 @@ label_settings = SubResource("LabelSettings_c8ks2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Reset" type="Button" parent="."]
-offset_left = 25.0
-offset_top = 9.0
-offset_right = 267.0
-offset_bottom = 72.0
-theme_override_colors/font_hover_color = Color(0.839216, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 0.486275, 0.0156863, 1)
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_constants/outline_size = 22
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yrv44")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrv44")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_yrv44")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrv44")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cd0xb")
-text = "Reset Progress"
-
 [node name="OpenBook Gliders" parent="." instance=ExtResource("15_pafut")]
 offset_left = 609.0
 offset_top = 510.0
@@ -251,7 +230,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]
 [connection signal="pressed" from="TextureButton Back" to="." method="_on_texture_button_back_pressed"]
-[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="open_book" from="OpenBook Gliders" to="." method="_on_open_book_pressed"]
 [connection signal="empty_texture_replaced" from="OpenBook Propulsion" to="." method="_on_open_book_propulsion_empty_texture_replaced"]
 [connection signal="open_book" from="OpenBook Propulsion" to="." method="_on_open_book_pressed"]

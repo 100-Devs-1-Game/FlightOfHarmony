@@ -45,15 +45,6 @@ func _update_fuel() -> void:
 	buy_fuel_label.text= str("$", pony_stats.get_fuel_cost())
 
 
-func _on_reset_pressed() -> void:
-	pony_stats.reset_all_upgrades()
-	SaveManager.reset()
-	Global.reset()
-	EventChannel.reset_progress.emit()
-	_update_currency()
-	LevelManager.goto_start()	
-
-
 func _on_open_book_pressed(category: ShopUpgrade.Category) -> void:
 	var book: UpgradeBook = upgrade_book_scene.instantiate()
 	book.category= category

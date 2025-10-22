@@ -21,3 +21,10 @@ func _on_button_pressed(action: StringName) -> void:
 			LevelManager.goto_shop()
 		"Settings":
 			pass
+
+
+func _on_reset_pressed() -> void:
+	SaveManager.pony_stats.reset_all_upgrades()
+	SaveManager.reset()
+	Global.reset()
+	EventChannel.reset_progress.emit()
