@@ -33,7 +33,7 @@ texture = ExtResource("3_i84oc")
 
 [node name="AnimatedSprite2D Run" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -41)
+position = Vector2(0, -36)
 sprite_frames = ExtResource("3_d45wx")
 animation = &"boots_run"
 
