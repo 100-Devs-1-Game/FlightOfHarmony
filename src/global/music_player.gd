@@ -19,3 +19,8 @@ func switch():
 	target_player.play()
 	tween.tween_property(target_player, "volume_linear", 1.0, duration)
 	tween.tween_callback(func(): source_player.stop())
+
+
+func _on_texture_button_toggled(toggled_on: bool) -> void:
+	var bus= AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_mute(bus, toggled_on)
