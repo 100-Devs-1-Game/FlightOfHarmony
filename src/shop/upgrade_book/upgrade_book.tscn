@@ -99,18 +99,20 @@ texture_hover = ExtResource("4_22r1i")
 
 [node name="BookNext" type="TextureButton" parent="BookTexture"]
 layout_mode = 0
-offset_left = 1193.5
-offset_top = 796.0
-offset_right = 1336.5
-offset_bottom = 855.0
+offset_left = 1123.5
+offset_top = 778.0
+offset_right = 1266.5
+offset_bottom = 837.0
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("6_ks1ea")
 
 [node name="BookPrevious" type="TextureButton" parent="BookTexture"]
 layout_mode = 0
-offset_left = 88.5
-offset_top = 780.0
-offset_right = 231.5
-offset_bottom = 839.0
+offset_left = 67.5
+offset_top = 762.0
+offset_right = 210.5
+offset_bottom = 821.0
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("6_ks1ea")
 flip_h = true
 
