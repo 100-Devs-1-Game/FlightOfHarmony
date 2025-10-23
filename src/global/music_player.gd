@@ -5,6 +5,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		_on_texture_button_toggled(true)
+		
 	audio_player_shop.play()
 
 
