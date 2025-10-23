@@ -30,6 +30,7 @@ enum State { WALKING, FLYING, LANDING }
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= -30
+@export var back_lift_angle: float= 15.0
 ## Amount of fuel used while propulsion is active
 @export var fuel_used_per_second: float= 1.0
 ## Acceleration force of active propulsion
@@ -172,7 +173,7 @@ func fly_logic(delta: float):
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
-		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(10))
+		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(back_lift_angle))
 		#lift_vector.x= max(0, lift_vector.x)
 		velocity+= lift_vector * lift * delta
 
