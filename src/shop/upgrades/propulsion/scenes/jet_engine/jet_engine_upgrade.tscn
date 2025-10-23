@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://df4cjjli2yo2e"]
+[gd_scene load_steps=8 format=3 uid="uid://df4cjjli2yo2e"]
 
 [ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/dynamic_animated_propulsion_upgrade.gd" id="1_uiuyk"]
 [ext_resource type="Texture2D" uid="uid://cu5cp24t433xn" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0001.png" id="2_ngp0q"]
 [ext_resource type="Texture2D" uid="uid://dkdmxhqf8ohvq" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0002.png" id="3_53u5i"]
 [ext_resource type="Texture2D" uid="uid://d8egtnaxebox" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0003.png" id="4_w12b5"]
+[ext_resource type="PackedScene" uid="uid://d06tqq46rtdsh" path="res://shop/upgrades/propulsion/scenes/thrust_particles.tscn" id="5_w12b5"]
+[ext_resource type="Texture2D" uid="uid://bmhxswx41lpyw" path="res://assets/art/flight/particles/Particles_6_Air_for fan and jet.png" id="6_ywhl0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1rm8e"]
 animations = [{
@@ -22,11 +24,21 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="JetEngineUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation")]
+[node name="JetEngineUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "particles")]
 script = ExtResource("1_uiuyk")
 propulsion_animation = NodePath("AnimatedSprite2D Flying")
+particles = NodePath("Thrust Particles")
 
 [node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, -58)
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_1rm8e")
+
+[node name="Thrust Particles" parent="." instance=ExtResource("5_w12b5")]
+position = Vector2(-108, -55)
+
+[node name="CPUParticles2D" parent="Thrust Particles" index="0"]
+position = Vector2(0, -2)
+texture = ExtResource("6_ywhl0")
+
+[editable path="Thrust Particles"]

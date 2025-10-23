@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://s078o8jp4gob"]
+[gd_scene load_steps=6 format=3 uid="uid://s078o8jp4gob"]
 
 [ext_resource type="Script" uid="uid://bo4hifcwotqnj" path="res://shop/upgrades/propulsion/scenes/soda_pop/soda_pop_upgrade.gd" id="1_rhec0"]
 [ext_resource type="Texture2D" uid="uid://ckhfigdhjeh0x" path="res://assets/art/upgrades/propulsion/soda_pop/scene/soda_pop_full.png" id="2_q31wr"]
 [ext_resource type="Texture2D" uid="uid://50ynf1ylx78a" path="res://assets/art/upgrades/propulsion/soda_pop/scene/soda_pop_empty.png" id="3_dmd6p"]
+[ext_resource type="PackedScene" uid="uid://d06tqq46rtdsh" path="res://shop/upgrades/propulsion/scenes/thrust_particles.tscn" id="4_mxje2"]
+[ext_resource type="Texture2D" uid="uid://2au18g7whh3k" path="res://assets/art/flight/particles/Particles_6_soda.png" id="5_qnnex"]
 
-[node name="SodaPopUpgrade" type="Node2D" node_paths=PackedStringArray("sprite_full", "sprite_empty")]
+[node name="SodaPopUpgrade" type="Node2D" node_paths=PackedStringArray("sprite_full", "sprite_empty", "particles")]
 script = ExtResource("1_rhec0")
 sprite_full = NodePath("Flying/Sprite2D Full")
 sprite_empty = NodePath("Flying/Sprite2D Empty")
+particles = NodePath("Thrust Particles")
 
 [node name="Flying" type="Node2D" parent="."]
 position = Vector2(-33, -32)
@@ -17,3 +20,12 @@ texture = ExtResource("2_q31wr")
 
 [node name="Sprite2D Empty" type="Sprite2D" parent="Flying"]
 texture = ExtResource("3_dmd6p")
+
+[node name="Thrust Particles" parent="." instance=ExtResource("4_mxje2")]
+position = Vector2(-130, -35)
+scale = Vector2(0.5, 0.5)
+
+[node name="CPUParticles2D" parent="Thrust Particles" index="0"]
+texture = ExtResource("5_qnnex")
+
+[editable path="Thrust Particles"]

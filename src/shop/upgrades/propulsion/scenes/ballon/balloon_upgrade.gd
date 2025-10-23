@@ -1,7 +1,6 @@
-extends UpgradeOverlayScene
+extends DynamicAnimatedPropulsionOverlay
 
 @onready var sprite: Sprite2D = $Sprite2D
-
 
 
 

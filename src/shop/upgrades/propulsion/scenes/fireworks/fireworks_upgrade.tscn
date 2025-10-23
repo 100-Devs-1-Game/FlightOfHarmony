@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciph2ciptumo1"]
+[gd_scene load_steps=9 format=3 uid="uid://ciph2ciptumo1"]
 
 [ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/dynamic_animated_propulsion_upgrade.gd" id="1_1rm8e"]
 [ext_resource type="Texture2D" uid="uid://cqstc8654byjg" path="res://assets/art/upgrades/propulsion/firework/Firework_00001.png" id="2_y6kro"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dideu66pcj6j4" path="res://assets/art/upgrades/propulsion/firework/Firework_00003.png" id="4_8v0ch"]
 [ext_resource type="Texture2D" uid="uid://cctemntc4re60" path="res://assets/art/upgrades/propulsion/firework/Firework_00004.png" id="5_2nl1t"]
 [ext_resource type="Texture2D" uid="uid://dj3usjtml2ea5" path="res://assets/art/upgrades/propulsion/firework/Firework_00005.png" id="6_xxlwh"]
+[ext_resource type="PackedScene" uid="uid://d06tqq46rtdsh" path="res://shop/upgrades/propulsion/scenes/thrust_particles.tscn" id="7_y6kro"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1rm8e"]
 animations = [{
@@ -30,12 +31,21 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="FireworksUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation")]
+[node name="FireworksUpgrade" type="Node2D" node_paths=PackedStringArray("propulsion_animation", "particles")]
 script = ExtResource("1_1rm8e")
 propulsion_animation = NodePath("AnimatedSprite2D Flying")
+particles = NodePath("Thrust Particles")
 
 [node name="AnimatedSprite2D Flying" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -36)
 rotation = 0.118682
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_1rm8e")
+
+[node name="Thrust Particles" parent="." instance=ExtResource("7_y6kro")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-98, -28)
+rotation = -0.0662579
+scale = Vector2(0.5, 0.5)
+
+[editable path="Thrust Particles"]

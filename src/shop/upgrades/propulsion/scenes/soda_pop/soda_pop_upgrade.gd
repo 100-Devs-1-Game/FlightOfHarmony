@@ -4,11 +4,18 @@ extends UpgradeOverlayScene
 
 @export var sprite_full: Sprite2D
 @export var sprite_empty: Sprite2D
+@export var particles: ThrustParticles
 
 
 
 func _ready() -> void:
 	pony.fuel_ran_out.connect(on_fuel_empty)
+
+	pony.start_propulsion.connect(func():
+		particles.set_active(true))
+
+	pony.stop_propulsion.connect(func():
+		particles.set_active(false))
 
 
 func _physics_process(delta: float) -> void:

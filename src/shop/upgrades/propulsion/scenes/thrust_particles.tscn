@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d06tqq46rtdsh"]
+
+[ext_resource type="Script" uid="uid://cdlieennkecun" path="res://shop/upgrades/propulsion/scenes/thrust_particles.gd" id="1_wnmwv"]
+[ext_resource type="Texture2D" uid="uid://dnm57ecjqo8p0" path="res://assets/art/flight/particles/Particles_1.png" id="2_gkehj"]
+
+[sub_resource type="Curve" id="Curve_gkehj"]
+_data = [Vector2(0, 0.299611), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_goapw"]
+colors = PackedColorArray(1, 1, 1, 0.764706, 1, 1, 1, 0)
+
+[node name="Thrust Particles" type="Node2D"]
+script = ExtResource("1_wnmwv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.552941)
+amount = 20
+texture = ExtResource("2_gkehj")
+lifetime = 0.75
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+damping_min = 1.0
+damping_max = 1.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_gkehj")
+color_ramp = SubResource("Gradient_goapw")
