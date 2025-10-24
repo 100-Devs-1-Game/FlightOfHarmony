@@ -26,7 +26,7 @@ enum State { WALKING, FLYING, LANDING }
 ## The drag ( air resistance ) when the pony is at a right angle to its traveling
 ## direction or inverted
 @export var maximum_drag: float= 0.5
-@export var drag_coefficient: float= 0.0001
+@export var drag_coefficient: float= 0.001
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= -30
@@ -71,6 +71,8 @@ var propulsion_active: bool:
 var remaining_fuel: float
 var top_speed: float
 var current_rotation_speed: float= 0.0
+var arcade_ratio: float
+
 ## parent node for all the upgrade overlays
 var upgrade_overlays: Node2D
 
@@ -111,7 +113,8 @@ func reset():
 	
 	add_upgrade_overlays()
 
-	enable_lift= false
+	#enable_lift= false
+	enable_lift= true
 
 
 func jump():
@@ -145,6 +148,8 @@ func _physics_process(delta: float) -> void:
 
 
 func fly_logic(delta: float):
+	arcade_ratio= 0.0
+	
 	if jump_bonus_frames > 0:
 		jump_bonus_frames-= 1
 	else:
@@ -169,13 +174,27 @@ func fly_logic(delta: float):
 
 
 	var drag: float= get_drag()
-	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * delta
+	var lost_velocity: float= velocity.length()
+	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * 0.01 * delta
+	lost_velocity= lost_velocity - velocity.length()
+	print(lost_velocity)
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
 		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(back_lift_angle))
 		#lift_vector.x= max(0, lift_vector.x)
-		velocity+= lift_vector * lift * delta
+		#velocity+= lift_vector * lift * delta
+		arcade_ratio= lift * 0.0004
+	
+	if propulsion_active:
+		arcade_ratio= 1.0
+		
+	arcade_ratio= clampf(arcade_ratio, 0.0, 1.0)
+	arcade_ratio= pow(arcade_ratio, 2)
+
+	#print(arcade_ratio)
+
+	velocity= lerp(velocity, global_transform.x * velocity.length(), arcade_ratio)
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
@@ -203,6 +222,9 @@ func fly_logic(delta: float):
 
 # Adds all equipped upgrade overlays 
 func add_upgrade_overlays():
+	if test_flight:
+		return
+
 	upgrade_overlays= Node2D.new()
 	add_child(upgrade_overlays)
 	
@@ -219,10 +241,15 @@ func add_upgrade_overlays():
 
 
 func remove_upgrade_overlays():
+	if test_flight:
+		return
+
 	upgrade_overlays.queue_free()
 
 
 func activate_head(head: Sprite2D):
+	if test_flight:
+		return
 	head_idle.hide()
 	head_flying.hide()
 	head_running.hide()
@@ -230,6 +257,9 @@ func activate_head(head: Sprite2D):
 
 
 func play_animation():
+	if test_flight:
+		return
+
 	if idle_sprite:
 		idle_sprite.hide()
 	if animated_run_sprite:
