@@ -183,8 +183,8 @@ func fly_logic(delta: float):
 		var lift: float= get_lift()
 		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(back_lift_angle))
 		#lift_vector.x= max(0, lift_vector.x)
-		velocity+= lift_vector * lift * delta
-		arcade_ratio= lift * 0.0001
+		#velocity+= lift_vector * lift * delta
+		arcade_ratio= lift * 0.0004
 	
 	if propulsion_active:
 		arcade_ratio= 1.0
