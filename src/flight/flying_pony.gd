@@ -71,6 +71,8 @@ var propulsion_active: bool:
 var remaining_fuel: float
 var top_speed: float
 var current_rotation_speed: float= 0.0
+var arcade_ratio: float
+
 ## parent node for all the upgrade overlays
 var upgrade_overlays: Node2D
 
@@ -111,7 +113,8 @@ func reset():
 	
 	add_upgrade_overlays()
 
-	enable_lift= false
+	#enable_lift= false
+	enable_lift= true
 
 
 func jump():
@@ -145,6 +148,8 @@ func _physics_process(delta: float) -> void:
 
 
 func fly_logic(delta: float):
+	arcade_ratio= 0.0
+	
 	if jump_bonus_frames > 0:
 		jump_bonus_frames-= 1
 	else:
@@ -176,6 +181,13 @@ func fly_logic(delta: float):
 		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(back_lift_angle))
 		#lift_vector.x= max(0, lift_vector.x)
 		velocity+= lift_vector * lift * delta
+		arcade_ratio= lift * 0.001
+	
+	print(arcade_ratio)
+	if propulsion_active:
+		arcade_ratio= 1.0
+		
+	velocity= lerp(velocity, global_transform.x * velocity.length(), clampf(arcade_ratio, 0.0, 1.0))
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
@@ -203,6 +215,9 @@ func fly_logic(delta: float):
 
 # Adds all equipped upgrade overlays 
 func add_upgrade_overlays():
+	if test_flight:
+		return
+
 	upgrade_overlays= Node2D.new()
 	add_child(upgrade_overlays)
 	
@@ -219,10 +234,15 @@ func add_upgrade_overlays():
 
 
 func remove_upgrade_overlays():
+	if test_flight:
+		return
+
 	upgrade_overlays.queue_free()
 
 
 func activate_head(head: Sprite2D):
+	if test_flight:
+		return
 	head_idle.hide()
 	head_flying.hide()
 	head_running.hide()
@@ -230,6 +250,9 @@ func activate_head(head: Sprite2D):
 
 
 func play_animation():
+	if test_flight:
+		return
+
 	if idle_sprite:
 		idle_sprite.hide()
 	if animated_run_sprite:

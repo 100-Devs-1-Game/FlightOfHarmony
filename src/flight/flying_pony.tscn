@@ -19,6 +19,7 @@ rotation_speed = 1.5
 rotation_acceleration = 5.0
 gravity = 1000.0
 perfect_lift_angle = 0.0
+back_lift_angle = 5.0
 propulsion_force = 3000.0
 stats = ExtResource("2_t5pyb")
 idle_sprite = NodePath("Sprite2D Idle")
