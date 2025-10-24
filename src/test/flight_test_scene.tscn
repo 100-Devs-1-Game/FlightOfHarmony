@@ -82,6 +82,13 @@ texture_mode = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Test UI Panel" parent="CanvasLayer" node_paths=PackedStringArray("pony") instance=ExtResource("5_1arhw")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -322.0
+offset_right = 201.0
+offset_bottom = 0.0
+grow_vertical = 0
 pony = NodePath("../../Pony")
 
 [connection signal="has_reset" from="Pony" to="Pony/Pony Flight Debugger" method="on_reset"]
