@@ -26,7 +26,7 @@ enum State { WALKING, FLYING, LANDING }
 ## The drag ( air resistance ) when the pony is at a right angle to its traveling
 ## direction or inverted
 @export var maximum_drag: float= 0.5
-@export var drag_coefficient: float= 0.0001
+@export var drag_coefficient: float= 0.001
 ## The perfect angle of attack ( counter-clockwise ) compared to the traveling
 ## direction to achieve maximum lift
 @export var perfect_lift_angle: float= -30
@@ -174,20 +174,27 @@ func fly_logic(delta: float):
 
 
 	var drag: float= get_drag()
-	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * delta
+	var lost_velocity: float= velocity.length()
+	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * 0.01 * delta
+	lost_velocity= lost_velocity - velocity.length()
+	print(lost_velocity)
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
 		var lift_vector:= -global_transform.y.rotated(-deg_to_rad(back_lift_angle))
 		#lift_vector.x= max(0, lift_vector.x)
 		velocity+= lift_vector * lift * delta
-		arcade_ratio= lift * 0.001
+		arcade_ratio= lift * 0.0001
 	
-	print(arcade_ratio)
 	if propulsion_active:
 		arcade_ratio= 1.0
 		
-	velocity= lerp(velocity, global_transform.x * velocity.length(), clampf(arcade_ratio, 0.0, 1.0))
+	arcade_ratio= clampf(arcade_ratio, 0.0, 1.0)
+	arcade_ratio= pow(arcade_ratio, 2)
+
+	#print(arcade_ratio)
+
+	velocity= lerp(velocity, global_transform.x * velocity.length(), arcade_ratio)
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
