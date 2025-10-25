@@ -83,7 +83,7 @@ func update_and_display(desc: String, hovered: bool) -> void:
 	if animator:
 		if hovered:
 			animator.play("toggle")
-			$DescPanel/Desc.text = desc
+			item_desc.text = desc
 		else:
 			animator.play_backwards("toggle")
 

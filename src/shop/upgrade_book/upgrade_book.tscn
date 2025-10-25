@@ -64,7 +64,7 @@ grow_vertical = 2
 script = ExtResource("1_2q2ey")
 clickables = [NodePath("BookTexture/BookBack"), NodePath("BookTexture/BookNext"), NodePath("BookTexture/BookPrevious")]
 pony_stats = ExtResource("2_cxhan")
-item_desc = NodePath("DescPanel/Desc")
+item_desc = NodePath("DescPanel/MarginContainer/Desc")
 animator = NodePath("BookAnim")
 upgrade_component_scene = ExtResource("3_ll3wv")
 
@@ -168,14 +168,17 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ayxug")
 
-[node name="Desc" type="Label" parent="DescPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="DescPanel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 21.0
+offset_bottom = 46.1667
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+
+[node name="Desc" type="Label" parent="DescPanel/MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.678431, 0.223529, 0.00392157, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
