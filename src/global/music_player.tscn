@@ -14,6 +14,7 @@ script = ExtResource("1_uyuvo")
 custom_minimum_size = Vector2(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
+focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("4_vgkik")
 texture_pressed = ExtResource("5_av52r")
