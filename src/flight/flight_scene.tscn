@@ -427,11 +427,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kocle")
 
 [node name="Fuel Display" type="TextureProgressBar" parent="UI/Speedometer"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 159.0
-offset_right = 650.0
-offset_bottom = 605.0
-scale = Vector2(0.205, 0.205)
+offset_left = 152.0
+offset_top = 151.0
+offset_right = 634.0
+offset_bottom = 597.0
+scale = Vector2(0.26, 0.26)
 max_value = 1.0
 step = 0.01
 fill_mode = 3
