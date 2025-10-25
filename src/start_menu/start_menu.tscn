@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6r4x4ndjity0"]
+[gd_scene load_steps=13 format=3 uid="uid://b6r4x4ndjity0"]
 
 [ext_resource type="Script" uid="uid://ckab8xbh88au1" path="res://start_menu/start_menu.gd" id="1_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://biywkamqamutf" path="res://assets/art/start_menu/start_button_normal.png" id="1_dkj6a"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b8k2kgyccp2py" path="res://assets/art/start_menu/settings_button_normal.png" id="4_4g1kg"]
 [ext_resource type="Texture2D" uid="uid://cjeiebs8xmkgd" path="res://assets/art/start_menu/settings_button_pressed.png" id="5_wnxcw"]
 [ext_resource type="Texture2D" uid="uid://fqtyda076wri" path="res://assets/art/start_menu/settings_button_hover.png" id="6_1w3tn"]
+[ext_resource type="Script" uid="uid://jfv57rrfviw" path="res://start_menu/tutorial.gd" id="9_sgpvk"]
+[ext_resource type="Texture2D" uid="uid://bm7iysn5b4y84" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_shop.png" id="10_cr72d"]
+[ext_resource type="Texture2D" uid="uid://brxqlpohhkn2x" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_shop_book.png" id="11_iuh5w"]
+[ext_resource type="Texture2D" uid="uid://dgynu67dampae" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_Flying.png" id="12_btrqw"]
 
 [node name="StartMenu" type="Node2D" node_paths=PackedStringArray("ui_buttons")]
 script = ExtResource("1_0uyxu")
@@ -55,9 +59,72 @@ texture_hover = ExtResource("6_1w3tn")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Tutorial" type="Button" parent="Title/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "TUTORIAL"
+
 [node name="Reset" type="Button" parent="Title/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "RESET"
 
+[node name="Tutorial" type="Control" parent="Title"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_sgpvk")
+
+[node name="TextureRect" type="TextureRect" parent="Title/Tutorial"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_cr72d")
+
+[node name="TextureRect3" type="TextureRect" parent="Title/Tutorial"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("11_iuh5w")
+
+[node name="TextureRect2" type="TextureRect" parent="Title/Tutorial"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_btrqw")
+
+[node name="Button Tutorial Next" type="Button" parent="Title/Tutorial"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Next"
+
+[node name="Button Tutorial Close" type="Button" parent="Title/Tutorial"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+offset_right = 175.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Close"
+
+[connection signal="pressed" from="Title/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Title/Tutorial/Button Tutorial Next" to="Title/Tutorial" method="_on_button_tutorial_next_pressed"]
+[connection signal="pressed" from="Title/Tutorial/Button Tutorial Close" to="Title/Tutorial" method="_on_button_tutorial_close_pressed"]

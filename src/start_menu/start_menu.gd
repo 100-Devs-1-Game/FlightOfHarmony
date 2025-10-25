@@ -2,6 +2,10 @@ extends Node2D
 
 @export var ui_buttons: Array[BaseButton] = []
 
+@onready var tutorial: Control = %Tutorial
+
+
+
 func _ready() -> void:
 	#if we add a quit button to win/lin exports this will hide it in the future
 	#we just need to make sure its spelt "Quit"
@@ -28,3 +32,7 @@ func _on_reset_pressed() -> void:
 	SaveManager.reset()
 	Global.reset()
 	EventChannel.reset_progress.emit()
+
+
+func _on_tutorial_pressed() -> void:
+	tutorial.open()
