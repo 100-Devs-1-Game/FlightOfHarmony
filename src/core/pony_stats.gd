@@ -69,7 +69,8 @@ func get_fuel_cost()-> int:
 	var cost: int= 10
 	for i in get_level(PonyStats.StatType.FUEL):
 		cost*= 2
-	return cost
+		
+	return cost / 2
 
 
 func get_stat_value(stat: StatType) -> float:
