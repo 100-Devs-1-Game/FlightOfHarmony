@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cnt8bmvfl4d1r" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Running.png" id="5_y8g1j"]
 [ext_resource type="Texture2D" uid="uid://2l1fovioth2h" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Flying.png" id="6_22ryr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ph0dt"]
-radius = 197.8
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ryr"]
+size = Vector2(250, 130)
 
 [node name="Pony" type="CharacterBody2D" node_paths=PackedStringArray("idle_sprite", "animated_run_sprite", "animated_flight_sprite")]
 script = ExtResource("1_22ryr")
@@ -28,7 +28,7 @@ animated_run_sprite = NodePath("AnimatedSprite2D Run")
 animated_flight_sprite = NodePath("AnimatedSprite2D Flight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ph0dt")
+shape = SubResource("RectangleShape2D_22ryr")
 
 [node name="Sprite2D Idle" type="Sprite2D" parent="."]
 texture = ExtResource("3_i84oc")
