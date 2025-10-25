@@ -7,8 +7,8 @@
 script = ExtResource("2_uccxc")
 bonus = 15
 category = 3
-display_name = "Money"
-item_description = "Earn + 15%"
+display_name = "Bag of bits"
+item_description = "Now we’re making some moola"
 cost = 100
 icon = ExtResource("1_g6kx5")
 metadata/_custom_type_script = "uid://bdlbntowhp1k0"

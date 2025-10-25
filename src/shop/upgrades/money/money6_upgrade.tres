@@ -7,8 +7,8 @@
 script = ExtResource("2_gdb27")
 bonus = 50
 category = 3
-display_name = "Money"
-item_description = "Earn + 50%"
+display_name = "Diamonds are Forever"
+item_description = "You must have raided a Diamond Dogs group to have all this."
 cost = 500
 icon = ExtResource("1_crebq")
 metadata/_custom_type_script = "uid://bdlbntowhp1k0"
