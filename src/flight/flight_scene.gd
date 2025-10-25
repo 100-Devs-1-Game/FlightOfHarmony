@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		return
 
 	var distance_m = int(roundi(player.get_distance())) / 100
-	$UI/Distancelbl.text = "Distance - " + str(distance_m) + "m"
+	%Distancelbl.text = "Distance - " + str(distance_m) + "m"
 
 	var h = max(0.0, player.get_height())
 	if h > _max_height:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=32 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmslr614nfwt" path="res://assets/art/shop/buttons/back_normal.png" id="19_w6niu"]
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="20_aovsx"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="21_svsci"]
+[ext_resource type="Texture2D" uid="uid://dt0648q3tar4v" path="res://assets/art/flight/ui/Distance_Bar_1.png" id="22_aovsx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50frv"]
 animations = [{
@@ -537,15 +538,24 @@ libraries = {
 &"": SubResource("AnimationLibrary_nkrtd")
 }
 
-[node name="Distancelbl" type="Label" parent="UI"]
+[node name="TextureRect" type="TextureRect" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -187.0
-offset_top = 37.0
-offset_right = 187.0
-offset_bottom = 102.0
+offset_left = -341.0
+offset_right = 341.0
+offset_bottom = 128.0
 grow_horizontal = 2
+texture = ExtResource("22_aovsx")
+
+[node name="Distancelbl" type="Label" parent="UI/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 47
 text = "DISTANCE - 0.0M"
 horizontal_alignment = 1
