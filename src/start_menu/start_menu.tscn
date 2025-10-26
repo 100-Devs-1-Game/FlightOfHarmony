@@ -18,7 +18,7 @@
 
 [node name="StartMenu" type="Node2D" node_paths=PackedStringArray("ui_buttons")]
 script = ExtResource("1_0uyxu")
-ui_buttons = [NodePath("Title/VBoxContainer/Start"), NodePath("")]
+ui_buttons = [NodePath("Title/VBoxContainer/Start"), null]
 
 [node name="Title" type="CanvasLayer" parent="."]
 
