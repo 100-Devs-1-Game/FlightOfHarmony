@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=33 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="20_aovsx"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="21_svsci"]
 [ext_resource type="Texture2D" uid="uid://dt0648q3tar4v" path="res://assets/art/flight/ui/Distance_Bar_1.png" id="22_aovsx"]
+[ext_resource type="LabelSettings" uid="uid://5bb3b84vqvbr" path="res://flight/clipboard_label_settings.tres" id="22_svsci"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50frv"]
 animations = [{
@@ -82,7 +83,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Results/VBoxContainer/Distlbl:visible")
+tracks/2/path = NodePath("Results/TextureButton Back:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -94,58 +95,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Results/VBoxContainer/Heightlbl:visible")
+tracks/3/path = NodePath("Results/GridContainer:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Results/VBoxContainer/Moneylbl:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Results/VBoxContainer/Totallbl:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Results/TextureButton Back:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -182,11 +135,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Results/VBoxContainer/Distlbl:visible")
+tracks/2/path = NodePath("Results/TextureButton Back:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.56),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -194,58 +147,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Results/VBoxContainer/Heightlbl:visible")
+tracks/3/path = NodePath("Results/GridContainer:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.75),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Results/VBoxContainer/Moneylbl:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Results/VBoxContainer/Bonuslbl:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Results/VBoxContainer/Totallbl:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.99),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Results/TextureButton Back:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -485,7 +390,8 @@ texture_hover = ExtResource("21_svsci")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Results"]
+[node name="GridContainer" type="GridContainer" parent="UI/Results"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -496,42 +402,78 @@ offset_right = -93.0
 offset_bottom = -227.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 33
+theme_override_constants/v_separation = 10
+columns = 2
 
-[node name="Distlbl" type="Label" parent="UI/Results/VBoxContainer"]
-visible = false
+[node name="Label" type="Label" parent="UI/Results/GridContainer"]
 layout_mode = 2
+text = "Distance"
+label_settings = ExtResource("22_svsci")
+
+[node name="Distlbl" type="Label" parent="UI/Results/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Distance:"
+text = "10m"
+horizontal_alignment = 2
 
-[node name="Heightlbl" type="Label" parent="UI/Results/VBoxContainer"]
-visible = false
+[node name="Label2" type="Label" parent="UI/Results/GridContainer"]
 layout_mode = 2
+text = "Max Height"
+label_settings = ExtResource("22_svsci")
+
+[node name="Heightlbl" type="Label" parent="UI/Results/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Height Reached:"
+text = "10m"
+horizontal_alignment = 2
 
-[node name="Moneylbl" type="Label" parent="UI/Results/VBoxContainer"]
-visible = false
+[node name="Label3" type="Label" parent="UI/Results/GridContainer"]
 layout_mode = 2
+text = "Earned"
+label_settings = ExtResource("22_svsci")
+
+[node name="Moneylbl" type="Label" parent="UI/Results/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Money Earned:"
+text = "$10"
+horizontal_alignment = 2
 
-[node name="Bonuslbl" type="Label" parent="UI/Results/VBoxContainer"]
-visible = false
+[node name="Label4" type="Label" parent="UI/Results/GridContainer"]
 layout_mode = 2
+text = "Bonus"
+label_settings = ExtResource("22_svsci")
+
+[node name="Bonuslbl" type="Label" parent="UI/Results/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Money Earned:"
+text = "---"
+horizontal_alignment = 2
 
-[node name="Totallbl" type="Label" parent="UI/Results/VBoxContainer"]
-visible = false
+[node name="Label5" type="Label" parent="UI/Results/GridContainer"]
 layout_mode = 2
+text = "Total"
+label_settings = ExtResource("22_svsci")
+
+[node name="Totallbl" type="Label" parent="UI/Results/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Money Earned:"
+text = "$10"
+horizontal_alignment = 2
 
 [node name="UIAnim" type="AnimationPlayer" parent="UI"]
 libraries = {

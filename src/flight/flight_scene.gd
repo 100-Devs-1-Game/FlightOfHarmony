@@ -44,12 +44,12 @@ func _on_player_landed() -> void:
 	var interest_rate: float= get_interest_rate()
 	var bonus: int= money_earned * interest_rate
 
-	$UI/Results/VBoxContainer/Distlbl.text = "Distance: " + str(distance_m) + "m"
-	$UI/Results/VBoxContainer/Heightlbl.text = "Max Height: " + str(height_m) + "m"
-	$UI/Results/VBoxContainer/Moneylbl.text = "Earned: $" + str(money_earned)
+	%Distlbl.text = str(distance_m) + "m"
+	%Heightlbl.text = str(height_m) + "m"
+	%Moneylbl.text = str("$", money_earned)
 	if interest_rate > 0:
-		$UI/Results/VBoxContainer/Bonuslbl.text = "Bonus: $" + str(bonus)
-	$UI/Results/VBoxContainer/Totallbl.text = "Total: $" + str(money_earned + bonus)
+		%Bonuslbl.text = str("$", bonus)
+	%Totallbl.text = str("$", money_earned + bonus)
 	
 	run_ended(money_earned + bonus)
 
