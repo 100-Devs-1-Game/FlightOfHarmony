@@ -1,21 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6r4x4ndjity0"]
+[gd_scene load_steps=16 format=3 uid="uid://b6r4x4ndjity0"]
 
 [ext_resource type="Script" uid="uid://ckab8xbh88au1" path="res://start_menu/start_menu.gd" id="1_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://biywkamqamutf" path="res://assets/art/start_menu/start_button_normal.png" id="1_dkj6a"]
 [ext_resource type="Texture2D" uid="uid://c67r7s4crbuep" path="res://assets/art/start_menu/shack.png" id="2_0h8rd"]
 [ext_resource type="Texture2D" uid="uid://smqdtvp6tu7l" path="res://assets/art/start_menu/start_button_pressed.png" id="2_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://djm3x171y1b6l" path="res://assets/art/start_menu/start_button_hover.png" id="3_0h8rd"]
-[ext_resource type="Texture2D" uid="uid://b8k2kgyccp2py" path="res://assets/art/start_menu/settings_button_normal.png" id="4_4g1kg"]
-[ext_resource type="Texture2D" uid="uid://cjeiebs8xmkgd" path="res://assets/art/start_menu/settings_button_pressed.png" id="5_wnxcw"]
-[ext_resource type="Texture2D" uid="uid://fqtyda076wri" path="res://assets/art/start_menu/settings_button_hover.png" id="6_1w3tn"]
+[ext_resource type="Texture2D" uid="uid://d7yqqwsba5xs" path="res://assets/art/start_menu/Tutorial_button_Normal.png" id="9_nhcql"]
 [ext_resource type="Script" uid="uid://jfv57rrfviw" path="res://start_menu/tutorial.gd" id="9_sgpvk"]
 [ext_resource type="Texture2D" uid="uid://bm7iysn5b4y84" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_shop.png" id="10_cr72d"]
+[ext_resource type="Texture2D" uid="uid://xf5qbk8irra4" path="res://assets/art/start_menu/Tutorial_button_Press.png" id="10_ijmyg"]
 [ext_resource type="Texture2D" uid="uid://brxqlpohhkn2x" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_shop_book.png" id="11_iuh5w"]
+[ext_resource type="Texture2D" uid="uid://x677ahgpvg8l" path="res://assets/art/start_menu/Tutorial_button_Hover.png" id="11_wrska"]
 [ext_resource type="Texture2D" uid="uid://dgynu67dampae" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_Flying.png" id="12_btrqw"]
+[ext_resource type="Texture2D" uid="uid://c3csastjkesfd" path="res://assets/art/start_menu/New_game_button_normal.png" id="12_ce5ty"]
+[ext_resource type="Texture2D" uid="uid://dumvhmx5pusim" path="res://assets/art/start_menu/New_game_button_press.png" id="13_np8na"]
+[ext_resource type="Texture2D" uid="uid://bcy80iqm5wv26" path="res://assets/art/start_menu/New_game_button_hover.png" id="14_0oa52"]
 
 [node name="StartMenu" type="Node2D" node_paths=PackedStringArray("ui_buttons")]
 script = ExtResource("1_0uyxu")
-ui_buttons = [NodePath("Title/VBoxContainer/Start"), NodePath("Title/VBoxContainer/Settings")]
+ui_buttons = [NodePath("Title/VBoxContainer/Start"), NodePath("")]
 
 [node name="Title" type="CanvasLayer" parent="."]
 
@@ -33,41 +36,31 @@ anchor_left = 0.75
 anchor_top = 0.706
 anchor_right = 0.75
 anchor_bottom = 0.706
-offset_left = -242.0
-offset_top = -225.0
-offset_right = 242.0
-offset_bottom = 225.0
+offset_left = -237.0
+offset_top = -382.48
+offset_right = 313.0
+offset_bottom = 299.52
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -40
 
 [node name="Start" type="TextureButton" parent="Title/VBoxContainer"]
-custom_minimum_size = Vector2(0, 166.665)
 layout_mode = 2
 texture_normal = ExtResource("1_dkj6a")
 texture_pressed = ExtResource("2_0uyxu")
 texture_hover = ExtResource("3_0h8rd")
-ignore_texture_size = true
-stretch_mode = 0
 
-[node name="Settings" type="TextureButton" parent="Title/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 166.665)
+[node name="Tutorial" type="TextureButton" parent="Title/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_4g1kg")
-texture_pressed = ExtResource("5_wnxcw")
-texture_hover = ExtResource("6_1w3tn")
-ignore_texture_size = true
-stretch_mode = 0
+texture_normal = ExtResource("9_nhcql")
+texture_pressed = ExtResource("10_ijmyg")
+texture_hover = ExtResource("11_wrska")
 
-[node name="Tutorial" type="Button" parent="Title/VBoxContainer"]
+[node name="New Game" type="TextureButton" parent="Title/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "TUTORIAL"
-
-[node name="Reset" type="Button" parent="Title/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "RESET"
+texture_normal = ExtResource("12_ce5ty")
+texture_pressed = ExtResource("13_np8na")
+texture_hover = ExtResource("14_0oa52")
 
 [node name="Tutorial" type="Control" parent="Title"]
 unique_name_in_owner = true
@@ -124,7 +117,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 80
 text = "Close"
 
+[connection signal="pressed" from="Title/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Title/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/New Game" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Title/Tutorial/Button Tutorial Next" to="Title/Tutorial" method="_on_button_tutorial_next_pressed"]
 [connection signal="pressed" from="Title/Tutorial/Button Tutorial Close" to="Title/Tutorial" method="_on_button_tutorial_close_pressed"]
