@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func _on_texture_button_launch_pressed() -> void:
+	SoundManager.suit_up.play()
 	LevelManager.goto_flight()
 
 
@@ -26,6 +27,7 @@ func _on_texture_button_fuel_pressed() -> void:
 	var cost: int= pony_stats.get_fuel_cost()
 	if not Global.can_afford(cost):
 		return
+	$"AudioStreamPlayer Fuel".play()
 	var level: int= pony_stats.get_level(PonyStats.StatType.FUEL)
 	pony_stats.set_level(PonyStats.StatType.FUEL, level + 1)
 	Global.try_spend(cost)
@@ -53,6 +55,8 @@ func _on_open_book_pressed(category: ShopUpgrade.Category) -> void:
 
 
 func on_upgrade_book_closed():
+	$"AudioStreamPlayer CloseBook".play()
+	
 	for button in book_buttons:
 		button.update()
 

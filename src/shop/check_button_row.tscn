@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2nwncnt6pa1y"]
+[gd_scene load_steps=5 format=3 uid="uid://2nwncnt6pa1y"]
 
 [ext_resource type="PackedScene" uid="uid://dtwitqmbb0l2v" path="res://shop/check_button.tscn" id="1_8jbk5"]
 [ext_resource type="Script" uid="uid://4naiqe6rmgwe" path="res://shop/check_button_row.gd" id="1_odlvf"]
+[ext_resource type="AudioStream" uid="uid://pyhwtn3qwt81" path="res://assets/sfx/Chalk_Board1.mp3" id="3_y6fkm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_odlvf"]
 font_size = 36
@@ -68,3 +69,8 @@ theme_override_font_sizes/font_size = 54
 text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y6fkm")
+volume_db = 10.146
+bus = &"Sfx"

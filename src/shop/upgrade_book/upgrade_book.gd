@@ -52,8 +52,10 @@ func _on_button_pressed(action: StringName) -> void:
 			queue_free.call_deferred()
 		"BookNext":
 			next_page()
+			$"AudioStreamPlayer Next Page".play()
 		"BookPrevious":
 			previous_page()
+			$"AudioStreamPlayer Prev Page".play()
 
 
 func next_page() -> void:

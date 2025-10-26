@@ -65,7 +65,8 @@ func try_spend(cost: int) -> bool:
 	if cost <= 0:
 		return true
 	if money < cost:
-		push_error("Insufficient money to buy upgrade")
+		#push_warning("Insufficient money to buy upgrade")
+		SoundManager.fail.play()
 		return false
 	money -= cost
 	money_changed.emit()

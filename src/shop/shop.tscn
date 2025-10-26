@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=34 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://dq7sdbpxoma6n" path="res://assets/art/shop/book/BB_Bottom_Right_Normal.png" id="24_y5wjr"]
 [ext_resource type="Texture2D" uid="uid://cd0weh2ijuavo" path="res://assets/art/shop/book/BB_Bottom_Right_Hover.png" id="25_wxm6m"]
 [ext_resource type="Texture2D" uid="uid://c05miwtugx7qh" path="res://assets/art/shop/book/Money_icon.png" id="26_543nj"]
+[ext_resource type="AudioStream" uid="uid://bmoirjxnb7n12" path="res://assets/sfx/Book_Close1.mp3" id="28_hfu2j"]
+[ext_resource type="AudioStream" uid="uid://ct56dqppfjd2y" path="res://assets/sfx/Liquid_Pouring1.mp3" id="29_7bca8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pafut"]
 font_size = 80
@@ -226,6 +228,14 @@ theme_override_font_sizes/font_size = 80
 text = "Press SPACE to accelerate using the Thrusters & Fuel"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer CloseBook" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_hfu2j")
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer Fuel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_7bca8")
+bus = &"Sfx"
 
 [connection signal="pressed" from="TextureButton Launch" to="." method="_on_texture_button_launch_pressed"]
 [connection signal="pressed" from="TextureButton Fuel" to="." method="_on_texture_button_fuel_pressed"]

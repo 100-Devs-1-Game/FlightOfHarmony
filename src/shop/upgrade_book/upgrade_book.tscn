@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dewexmnyk7otn"]
+[gd_scene load_steps=15 format=3 uid="uid://dewexmnyk7otn"]
 
 [ext_resource type="Script" uid="uid://dq14emo1iu048" path="res://shop/upgrade_book/upgrade_book.gd" id="1_2q2ey"]
 [ext_resource type="Texture2D" uid="uid://psomt7buxqip" path="res://assets/art/upgrades/book/Open_book_blank.png" id="1_qo7ku"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://buk8y05uqosfs" path="res://shop/upgrade_component.tscn" id="3_ll3wv"]
 [ext_resource type="Texture2D" uid="uid://iw06ek8udrbr" path="res://assets/art/upgrades/book/Back_Hover.png" id="4_22r1i"]
 [ext_resource type="Texture2D" uid="uid://bl2nii174xj5a" path="res://assets/art/upgrades/book/icons/Page_Arrow.png" id="6_ks1ea"]
+[ext_resource type="AudioStream" uid="uid://del2y0yetyf70" path="res://assets/sfx/Page_Turn2.mp3" id="9_m4olb"]
+[ext_resource type="AudioStream" uid="uid://boo5akrshn4q7" path="res://assets/sfx/Page_Turn1.mp3" id="10_2x0kb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayxug"]
 bg_color = Color(0.984314, 0.980392, 0.764706, 1)
@@ -189,3 +191,13 @@ autowrap_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_mgxne")
 }
+
+[node name="AudioStreamPlayer Open" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer Next Page" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m4olb")
+
+[node name="AudioStreamPlayer Prev Page" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2x0kb")

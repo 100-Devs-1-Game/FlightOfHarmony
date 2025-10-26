@@ -38,6 +38,8 @@ func _on_level_up(level: int) -> void:
 	if !Global.try_spend(cost):
 		return
 
+	$AudioStreamPlayer.play()
+
 	pony_stats.set_level(stat, level)
 	_disable_buttons()
 	SaveManager.save_game()

@@ -97,6 +97,7 @@ func get_adjusted_stat_bar_value(value: float)-> float:
 func _on_upgrade_pressed(upgrade: ShopUpgrade) -> void:
 	if not upgrade in SaveManager.bought_upgrades:
 		if Global.try_spend(upgrade.cost):
+			$AudioStreamPlayer.play()
 			SaveManager.bought_upgrades.append(upgrade)
 			SaveManager.save_game()
 
