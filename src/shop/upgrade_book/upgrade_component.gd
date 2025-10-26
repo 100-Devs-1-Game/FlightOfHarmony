@@ -65,8 +65,8 @@ func _exit() -> void:
 
 
 func _update_from_res() -> void:
-	name = res.display_name
-	display_label.text = res.display_name
+	name = res.get_display_name()
+	display_label.text = name
 	cost_label.text = "$%d.00" % int(res.cost)
 	texture.texture = res.icon
 
