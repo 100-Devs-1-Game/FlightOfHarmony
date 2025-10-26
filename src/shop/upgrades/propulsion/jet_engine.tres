@@ -21,6 +21,6 @@ custom_flight_animation = ""
 category = 1
 display_name = "Jet Engine"
 item_description = "I don’t even want to know how you got this, but this jet engine will help you reach speeds that no living pony has reached before."
-cost = 500
+cost = 1000
 icon = ExtResource("1_bhf2q")
 metadata/_custom_type_script = "uid://bgwt4hvflnx2h"
