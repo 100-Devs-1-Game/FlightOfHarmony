@@ -1,0 +1,44 @@
+[gd_scene load_steps=24 format=3 uid="uid://ehney871vf0d"]
+
+[ext_resource type="Script" uid="uid://bisv3et41qmqe" path="res://cutscene/cutscene.gd" id="1_lrrjc"]
+[ext_resource type="Texture2D" uid="uid://mg70xbvpfxcs" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_10.png" id="2_5lsr2"]
+[ext_resource type="Texture2D" uid="uid://dba5b7sg0xajn" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_20.png" id="3_fip1w"]
+[ext_resource type="Texture2D" uid="uid://bqjiqwf8wtyu" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_30.png" id="4_fwgje"]
+[ext_resource type="Texture2D" uid="uid://b25x7bds7en2t" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_40.png" id="5_8elv6"]
+[ext_resource type="Texture2D" uid="uid://ba3tf7q3gahvt" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_50.png" id="6_iwsr8"]
+[ext_resource type="Texture2D" uid="uid://bsqsinjt5k8oq" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_60.png" id="7_pt28t"]
+[ext_resource type="Texture2D" uid="uid://dg8aj3m2hi5k7" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_70.png" id="8_ogbte"]
+[ext_resource type="Texture2D" uid="uid://cw2ervct6rrlv" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_80.png" id="9_44eui"]
+[ext_resource type="Texture2D" uid="uid://cydwliyo7xiot" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_90.png" id="10_m2fhd"]
+[ext_resource type="Texture2D" uid="uid://cgfhduxxtvlol" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_100.png" id="11_7j8ym"]
+[ext_resource type="Texture2D" uid="uid://cjyunlltmuph7" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_110.png" id="12_f5npm"]
+[ext_resource type="Texture2D" uid="uid://c3dinpy7krwvk" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_120.png" id="13_8gn6t"]
+[ext_resource type="Texture2D" uid="uid://dwk8kam303co7" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_130.png" id="14_yorw5"]
+[ext_resource type="Texture2D" uid="uid://u0dfljl2emeu" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_150.png" id="15_wvtai"]
+[ext_resource type="Texture2D" uid="uid://cnb4yibw5066y" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_160.png" id="16_6u1sw"]
+[ext_resource type="Texture2D" uid="uid://b10f52doc2i" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_170.png" id="17_3armq"]
+[ext_resource type="Texture2D" uid="uid://dimqfcgnrnkyy" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_180.png" id="18_0sljd"]
+[ext_resource type="Texture2D" uid="uid://tdlhskmnemds" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_190.png" id="19_o6p32"]
+[ext_resource type="Texture2D" uid="uid://cjbih15o77scl" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_200.png" id="20_r2s5u"]
+[ext_resource type="Texture2D" uid="uid://tvrpnki50ul0" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_210.png" id="21_5kccw"]
+[ext_resource type="Texture2D" uid="uid://bqepmklhhykdt" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_220.png" id="22_g2663"]
+[ext_resource type="Texture2D" uid="uid://dflidavvmipca" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_230.png" id="23_g0qr7"]
+
+[node name="Cutscene1" type="CanvasLayer"]
+script = ExtResource("1_lrrjc")
+images = Array[Texture2D]([ExtResource("2_5lsr2"), ExtResource("3_fip1w"), ExtResource("4_fwgje"), ExtResource("5_8elv6"), ExtResource("6_iwsr8"), ExtResource("7_pt28t"), ExtResource("8_ogbte"), ExtResource("9_44eui"), ExtResource("10_m2fhd"), ExtResource("11_7j8ym"), ExtResource("12_f5npm"), ExtResource("13_8gn6t"), ExtResource("14_yorw5"), ExtResource("15_wvtai"), ExtResource("16_6u1sw"), ExtResource("17_3armq"), ExtResource("18_0sljd"), ExtResource("19_o6p32"), ExtResource("20_r2s5u"), ExtResource("21_5kccw"), ExtResource("22_g2663"), ExtResource("23_g0qr7")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
