@@ -48,7 +48,9 @@ enum State { WALKING, FLYING, LANDING }
 @onready var head_flying: Sprite2D = $HeadFlying
 
 @onready var orig_pos: Vector2= position
+
 @onready var audio_trotting: AudioStreamPlayer = $"AudioStreamPlayer Trotting"
+@onready var audio_wind: AudioStreamPlayer = $"AudioStreamPlayer Wind"
 
 
 var state: State= State.WALKING
@@ -130,12 +132,14 @@ func jump():
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
 	started_flying.emit()
-	
+	audio_wind.play()
+
 
 func land():
 	state= State.LANDING
 	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
+	audio_wind.stop()
 	landed.emit()
 
 
@@ -201,6 +205,7 @@ func fly_logic(delta: float):
 	#print(arcade_ratio)
 
 	velocity= lerp(velocity, global_transform.x * velocity.length(), arcade_ratio)
+	audio_wind.volume_linear= clampf(sqrt(velocity.length()) * 0.01, 0, 1)
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):
