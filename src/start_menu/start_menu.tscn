@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6r4x4ndjity0"]
+[gd_scene load_steps=20 format=3 uid="uid://b6r4x4ndjity0"]
 
 [ext_resource type="Script" uid="uid://ckab8xbh88au1" path="res://start_menu/start_menu.gd" id="1_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://biywkamqamutf" path="res://assets/art/start_menu/start_button_normal.png" id="1_dkj6a"]
 [ext_resource type="Texture2D" uid="uid://c67r7s4crbuep" path="res://assets/art/start_menu/shack.png" id="2_0h8rd"]
 [ext_resource type="Texture2D" uid="uid://smqdtvp6tu7l" path="res://assets/art/start_menu/start_button_pressed.png" id="2_0uyxu"]
+[ext_resource type="PackedScene" uid="uid://cciynkfdcarca" path="res://start_menu/credits.tscn" id="2_ijmyg"]
 [ext_resource type="Texture2D" uid="uid://djm3x171y1b6l" path="res://assets/art/start_menu/start_button_hover.png" id="3_0h8rd"]
 [ext_resource type="Texture2D" uid="uid://d7yqqwsba5xs" path="res://assets/art/start_menu/Tutorial_button_Normal.png" id="9_nhcql"]
 [ext_resource type="Script" uid="uid://jfv57rrfviw" path="res://start_menu/tutorial.gd" id="9_sgpvk"]
@@ -13,12 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://x677ahgpvg8l" path="res://assets/art/start_menu/Tutorial_button_Hover.png" id="11_wrska"]
 [ext_resource type="Texture2D" uid="uid://dgynu67dampae" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_Flying.png" id="12_btrqw"]
 [ext_resource type="Texture2D" uid="uid://c3csastjkesfd" path="res://assets/art/start_menu/New_game_button_normal.png" id="12_ce5ty"]
+[ext_resource type="Texture2D" uid="uid://b0hgcyne5q2lu" path="res://assets/art/start_menu/CREDITS_BUTTON_Normal.png" id="12_nhcql"]
+[ext_resource type="Texture2D" uid="uid://bcvl4pbi88e22" path="res://assets/art/start_menu/CREDITS_BUTTON_Press.png" id="13_ijmyg"]
 [ext_resource type="Texture2D" uid="uid://dumvhmx5pusim" path="res://assets/art/start_menu/New_game_button_press.png" id="13_np8na"]
 [ext_resource type="Texture2D" uid="uid://bcy80iqm5wv26" path="res://assets/art/start_menu/New_game_button_hover.png" id="14_0oa52"]
+[ext_resource type="Texture2D" uid="uid://bvsggr6ni44b" path="res://assets/art/start_menu/CREDITS_BUTTON_Hover.png" id="14_wrska"]
 
 [node name="StartMenu" type="Node2D" node_paths=PackedStringArray("ui_buttons")]
 script = ExtResource("1_0uyxu")
 ui_buttons = [NodePath("Title/VBoxContainer/Start"), null]
+credits_scene = ExtResource("2_ijmyg")
 
 [node name="Title" type="CanvasLayer" parent="."]
 
@@ -32,16 +37,14 @@ texture = ExtResource("2_0h8rd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Title"]
 anchors_preset = -1
-anchor_left = 0.75
-anchor_top = 0.706
-anchor_right = 0.75
-anchor_bottom = 0.706
-offset_left = -237.0
-offset_top = -382.48
-offset_right = 313.0
-offset_bottom = 299.52
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.9
+anchor_top = 0.9
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -550.0
+offset_top = -896.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/separation = -40
 
 [node name="Start" type="TextureButton" parent="Title/VBoxContainer"]
@@ -61,6 +64,12 @@ layout_mode = 2
 texture_normal = ExtResource("12_ce5ty")
 texture_pressed = ExtResource("13_np8na")
 texture_hover = ExtResource("14_0oa52")
+
+[node name="Credits" type="TextureButton" parent="Title/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_nhcql")
+texture_pressed = ExtResource("13_ijmyg")
+texture_hover = ExtResource("14_wrska")
 
 [node name="Tutorial" type="Control" parent="Title"]
 unique_name_in_owner = true
@@ -120,5 +129,6 @@ text = "Close"
 [connection signal="pressed" from="Title/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/New Game" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Title/Tutorial/Button Tutorial Next" to="Title/Tutorial" method="_on_button_tutorial_next_pressed"]
 [connection signal="pressed" from="Title/Tutorial/Button Tutorial Close" to="Title/Tutorial" method="_on_button_tutorial_close_pressed"]

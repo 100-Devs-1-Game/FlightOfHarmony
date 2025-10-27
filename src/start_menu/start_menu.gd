@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var ui_buttons: Array[BaseButton] = []
+@export var credits_scene: PackedScene
 
 @onready var tutorial: Control = %Tutorial
 
@@ -24,3 +25,7 @@ func _on_tutorial_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	LevelManager.goto_shop()
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_packed(credits_scene)
