@@ -8,7 +8,7 @@ func _ready() -> void:
 	if OS.is_debug_build():
 		_on_texture_button_toggled(true)
 		
-	audio_player_shop.play()
+	#audio_player_shop.play()
 
 
 func switch():
@@ -23,6 +23,10 @@ func switch():
 	tween.tween_property(target_player, "volume_linear", 1.0, duration)
 	tween.tween_callback(func(): source_player.stop())
 
+
+func is_playing()-> bool:
+	return audio_player_shop.playing or audio_player_flight.playing
+	
 
 func _on_texture_button_toggled(toggled_on: bool) -> void:
 	var bus= AudioServer.get_bus_index("Music")

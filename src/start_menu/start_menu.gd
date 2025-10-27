@@ -5,6 +5,10 @@ extends Node2D
 @onready var tutorial: Control = %Tutorial
 
 
+func _ready() -> void:
+	if not MusicPlayer.is_playing():
+		MusicPlayer.audio_player_shop.play()
+		
 
 func _on_reset_pressed() -> void:
 	SaveManager.pony_stats.reset_all_upgrades()
