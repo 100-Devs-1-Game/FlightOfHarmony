@@ -24,6 +24,11 @@ func switch():
 	tween.tween_callback(func(): source_player.stop())
 
 
+func stop():
+	audio_player_flight.stop()
+	audio_player_shop.stop()
+
+
 func is_playing()-> bool:
 	return audio_player_shop.playing or audio_player_flight.playing
 	
