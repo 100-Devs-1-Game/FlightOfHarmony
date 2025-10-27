@@ -1,8 +1,9 @@
+class_name Cutscene
 extends CanvasLayer
 
 @export var frames_per_second: float= .25
 @export var fade_duration: float= 0.1
-@export var follow_scene: PackedScene
+@export var audio_player: AudioStreamPlayer
 
 @export var images: Array[Texture2D]
 
@@ -17,7 +18,16 @@ func _ready() -> void:
 	run.call_deferred()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton or event is InputEventKey:
+		if event.is_pressed():
+			on_finished()
+
+
 func run():
+	if audio_player:
+		audio_player.play()
+		
 	var interval: float= 1.0 / frames_per_second
 	texture_rect.texture= images[0]
 	texture_rect_2.texture= images[1]
@@ -35,8 +45,7 @@ func run():
 	swap()
 	await get_tree().create_timer(interval).timeout
 	
-	if follow_scene:
-		get_tree().change_scene_to_packed(follow_scene)
+	on_finished()
 
 
 func update_textures():
@@ -61,3 +70,7 @@ func swap():
 	tween.tween_property(from, "modulate", Color.TRANSPARENT, fade_duration * 5)
 	to.modulate.a= 1
 	tween.parallel().tween_property(to, "modulate", Color.WHITE, fade_duration)
+
+
+func on_finished():
+	pass

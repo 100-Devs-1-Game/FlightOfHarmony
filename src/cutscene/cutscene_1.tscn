@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://ehney871vf0d"]
+[gd_scene load_steps=25 format=3 uid="uid://ehney871vf0d"]
 
-[ext_resource type="Script" uid="uid://bisv3et41qmqe" path="res://cutscene/cutscene.gd" id="1_lrrjc"]
+[ext_resource type="Script" uid="uid://6yor8owaw510" path="res://cutscene/cutscene_1.gd" id="1_iwsr8"]
 [ext_resource type="Texture2D" uid="uid://mg70xbvpfxcs" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_10.png" id="2_5lsr2"]
 [ext_resource type="Texture2D" uid="uid://dba5b7sg0xajn" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_20.png" id="3_fip1w"]
 [ext_resource type="Texture2D" uid="uid://bqjiqwf8wtyu" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_30.png" id="4_fwgje"]
@@ -23,9 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://tvrpnki50ul0" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_210.png" id="21_5kccw"]
 [ext_resource type="Texture2D" uid="uid://bqepmklhhykdt" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_220.png" id="22_g2663"]
 [ext_resource type="Texture2D" uid="uid://dflidavvmipca" path="res://assets/art/cutscenes/Cutscene_001/Cutscene_230.png" id="23_g0qr7"]
+[ext_resource type="AudioStream" uid="uid://dwb2ycvtplesv" path="res://assets/music/FFH_Intro_Cutscene1.mp3" id="24_pt28t"]
 
-[node name="Cutscene1" type="CanvasLayer"]
-script = ExtResource("1_lrrjc")
+[node name="Cutscene1" type="CanvasLayer" node_paths=PackedStringArray("audio_player")]
+script = ExtResource("1_iwsr8")
+audio_player = NodePath("AudioStreamPlayer")
 images = Array[Texture2D]([ExtResource("2_5lsr2"), ExtResource("3_fip1w"), ExtResource("4_fwgje"), ExtResource("5_8elv6"), ExtResource("6_iwsr8"), ExtResource("7_pt28t"), ExtResource("8_ogbte"), ExtResource("9_44eui"), ExtResource("10_m2fhd"), ExtResource("11_7j8ym"), ExtResource("12_f5npm"), ExtResource("13_8gn6t"), ExtResource("14_yorw5"), ExtResource("15_wvtai"), ExtResource("16_6u1sw"), ExtResource("17_3armq"), ExtResource("18_0sljd"), ExtResource("19_o6p32"), ExtResource("20_r2s5u"), ExtResource("21_5kccw"), ExtResource("22_g2663"), ExtResource("23_g0qr7")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -42,3 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_pt28t")
+bus = &"Music"
