@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://uuqiwu1f3pvw"
-valid=false
+path="res://.godot/imported/Hover1.mp3-c50edb455440f4d468ab12f98f48fc2c.mp3str"
 
 [deps]
 
 source_file="res://assets/sfx/Hover1.mp3"
+dest_files=["res://.godot/imported/Hover1.mp3-c50edb455440f4d468ab12f98f48fc2c.mp3str"]
 
 [params]
 

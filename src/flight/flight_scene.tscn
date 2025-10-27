@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=34 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmslr614nfwt" path="res://assets/art/shop/buttons/back_normal.png" id="19_w6niu"]
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="20_aovsx"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="21_svsci"]
+[ext_resource type="Script" uid="uid://cbmmwlx3gpygj" path="res://misc/button_click_sound.gd" id="22_aiso4"]
 [ext_resource type="Texture2D" uid="uid://dt0648q3tar4v" path="res://assets/art/flight/ui/Distance_Bar_1.png" id="22_aovsx"]
 [ext_resource type="LabelSettings" uid="uid://5bb3b84vqvbr" path="res://flight/clipboard_label_settings.tres" id="22_svsci"]
 
@@ -389,6 +390,10 @@ texture_pressed = ExtResource("20_aovsx")
 texture_hover = ExtResource("21_svsci")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="ButtonClickSound" type="Node" parent="UI/Results/TextureButton Back"]
+script = ExtResource("22_aiso4")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
 
 [node name="GridContainer" type="GridContainer" parent="UI/Results"]
 visible = false

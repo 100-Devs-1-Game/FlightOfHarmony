@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6r4x4ndjity0"]
+[gd_scene load_steps=21 format=3 uid="uid://b6r4x4ndjity0"]
 
 [ext_resource type="Script" uid="uid://ckab8xbh88au1" path="res://start_menu/start_menu.gd" id="1_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://biywkamqamutf" path="res://assets/art/start_menu/start_button_normal.png" id="1_dkj6a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://smqdtvp6tu7l" path="res://assets/art/start_menu/start_button_pressed.png" id="2_0uyxu"]
 [ext_resource type="PackedScene" uid="uid://cciynkfdcarca" path="res://start_menu/credits.tscn" id="2_ijmyg"]
 [ext_resource type="Texture2D" uid="uid://djm3x171y1b6l" path="res://assets/art/start_menu/start_button_hover.png" id="3_0h8rd"]
+[ext_resource type="Script" uid="uid://cbmmwlx3gpygj" path="res://misc/button_click_sound.gd" id="7_wrska"]
 [ext_resource type="Texture2D" uid="uid://d7yqqwsba5xs" path="res://assets/art/start_menu/Tutorial_button_Normal.png" id="9_nhcql"]
 [ext_resource type="Script" uid="uid://jfv57rrfviw" path="res://start_menu/tutorial.gd" id="9_sgpvk"]
 [ext_resource type="Texture2D" uid="uid://bm7iysn5b4y84" path="res://assets/art/start_menu/tutorial/FOH_Tutorial_shop.png" id="10_cr72d"]
@@ -53,11 +54,19 @@ texture_normal = ExtResource("1_dkj6a")
 texture_pressed = ExtResource("2_0uyxu")
 texture_hover = ExtResource("3_0h8rd")
 
+[node name="ButtonClickSound" type="Node" parent="Title/VBoxContainer/Start"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
+
 [node name="Tutorial" type="TextureButton" parent="Title/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nhcql")
 texture_pressed = ExtResource("10_ijmyg")
 texture_hover = ExtResource("11_wrska")
+
+[node name="ButtonClickSound" type="Node" parent="Title/VBoxContainer/Tutorial"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
 
 [node name="New Game" type="TextureButton" parent="Title/VBoxContainer"]
 layout_mode = 2
@@ -65,11 +74,19 @@ texture_normal = ExtResource("12_ce5ty")
 texture_pressed = ExtResource("13_np8na")
 texture_hover = ExtResource("14_0oa52")
 
+[node name="ButtonClickSound" type="Node" parent="Title/VBoxContainer/New Game"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
+
 [node name="Credits" type="TextureButton" parent="Title/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("12_nhcql")
 texture_pressed = ExtResource("13_ijmyg")
 texture_hover = ExtResource("14_wrska")
+
+[node name="ButtonClickSound" type="Node" parent="Title/VBoxContainer/Credits"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
 
 [node name="Tutorial" type="Control" parent="Title"]
 unique_name_in_owner = true
@@ -115,6 +132,10 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 80
 text = "Next"
 
+[node name="ButtonClickSound" type="Node" parent="Title/Tutorial/Button Tutorial Next"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
+
 [node name="Button Tutorial Close" type="Button" parent="Title/Tutorial"]
 layout_mode = 1
 anchors_preset = 2
@@ -125,6 +146,10 @@ offset_right = 175.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 80
 text = "Close"
+
+[node name="ButtonClickSound" type="Node" parent="Title/Tutorial/Button Tutorial Close"]
+script = ExtResource("7_wrska")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
 
 [connection signal="pressed" from="Title/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

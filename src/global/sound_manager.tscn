@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b338bk46n1x60"]
+[gd_scene load_steps=6 format=3 uid="uid://b338bk46n1x60"]
 
 [ext_resource type="Script" uid="uid://cx3gcs3ehiguv" path="res://global/sound_manager.gd" id="1_klwgq"]
 [ext_resource type="AudioStream" uid="uid://cb1lcl767blcc" path="res://assets/sfx/Fail1.mp3" id="2_ilgwi"]
 [ext_resource type="AudioStream" uid="uid://c0h13r4kd0fsn" path="res://assets/sfx/Suiting_Up2.mp3" id="3_7ihqy"]
+[ext_resource type="AudioStream" uid="uid://85u8gti5gd4e" path="res://assets/sfx/Click3.mp3" id="4_keghn"]
+[ext_resource type="AudioStream" uid="uid://uuqiwu1f3pvw" path="res://assets/sfx/Hover1.mp3" id="5_xnce2"]
 
 [node name="Sound Manager" type="Node"]
 script = ExtResource("1_klwgq")
@@ -13,4 +15,14 @@ bus = &"Sfx"
 
 [node name="AudioStreamPlayer Suit Up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7ihqy")
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer Button Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_keghn")
+max_polyphony = 2
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer Button Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xnce2")
+max_polyphony = 2
 bus = &"Sfx"

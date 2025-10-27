@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://byhur504waec0"]
+[gd_scene load_steps=35 format=3 uid="uid://byhur504waec0"]
 
 [ext_resource type="Script" uid="uid://dr5kwj7uptsbq" path="res://shop/shop.gd" id="1_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://sn8jbi8r1l2e" path="res://assets/art/shop/buttons/launch_button_normal.png" id="3_2wf2a"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmslr614nfwt" path="res://assets/art/shop/buttons/back_normal.png" id="11_yrv44"]
 [ext_resource type="Texture2D" uid="uid://bqbp00do5bnud" path="res://assets/art/shop/buttons/back_pressed.png" id="12_pafut"]
 [ext_resource type="Texture2D" uid="uid://bp211m767j4tg" path="res://assets/art/shop/buttons/back_hover.png" id="13_hv745"]
+[ext_resource type="Script" uid="uid://cbmmwlx3gpygj" path="res://misc/button_click_sound.gd" id="14_51dvj"]
 [ext_resource type="PackedScene" uid="uid://3tpoiqp6wdoo" path="res://shop/open_book_button.tscn" id="15_pafut"]
 [ext_resource type="Texture2D" uid="uid://dj43sbgnhjwf5" path="res://assets/art/shop/book/BB_Top_Left_normal.png" id="16_k6x22"]
 [ext_resource type="Texture2D" uid="uid://cm8fvhvmqevga" path="res://assets/art/shop/book/BB_Top_Left_Hover.png" id="17_mtsdc"]
@@ -93,6 +94,10 @@ texture_pressed = ExtResource("12_pafut")
 texture_hover = ExtResource("13_hv745")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="ButtonClickSound" type="Node" parent="TextureButton Back"]
+script = ExtResource("14_51dvj")
+metadata/_custom_type_script = "uid://cbmmwlx3gpygj"
 
 [node name="ButtonRow Speed" parent="." instance=ExtResource("11_mmyc1")]
 offset_left = 536.0
