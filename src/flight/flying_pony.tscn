@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm5bowlclh7go"]
+[gd_scene load_steps=14 format=3 uid="uid://dm5bowlclh7go"]
 
 [ext_resource type="Script" uid="uid://g6tnlryar2uj" path="res://flight/flying_pony.gd" id="1_22ryr"]
 [ext_resource type="Resource" uid="uid://6mawpae7apr7" path="res://core/pony_stats.tres" id="2_t5pyb"]
@@ -8,8 +8,10 @@
 [ext_resource type="SpriteFrames" uid="uid://b0840uun3i2k2" path="res://flight/flying_pony_animations.tres" id="5_22ryr"]
 [ext_resource type="Texture2D" uid="uid://cnt8bmvfl4d1r" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Running.png" id="5_y8g1j"]
 [ext_resource type="Texture2D" uid="uid://2l1fovioth2h" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Flying.png" id="6_22ryr"]
+[ext_resource type="Texture2D" uid="uid://bk41eb1bg6wcd" path="res://assets/art/flight/Dirt_pile_up.png" id="9_d5je4"]
 [ext_resource type="AudioStream" uid="uid://ccadkt4t548it" path="res://assets/sfx/Horse_Trotting1.mp3" id="9_ph0dt"]
 [ext_resource type="AudioStream" uid="uid://bkpf0hw1v32tn" path="res://assets/sfx/Wind_Noise1.mp3" id="10_t5pyb"]
+[ext_resource type="AudioStream" uid="uid://cm6mddqw56qn" path="res://assets/sfx/Fall1.mp3" id="12_jna2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22ryr"]
 size = Vector2(250, 130)
@@ -60,6 +62,10 @@ visible = false
 position = Vector2(6, -19)
 texture = ExtResource("6_22ryr")
 
+[node name="Sprite2D Dirt Pile" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_d5je4")
+
 [node name="AudioStreamPlayer Trotting" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_ph0dt")
 bus = &"Sfx"
@@ -69,3 +75,7 @@ parameters/looping = false
 stream = ExtResource("10_t5pyb")
 bus = &"Sfx"
 parameters/looping = false
+
+[node name="AudioStreamPlayer Land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jna2y")
+bus = &"Sfx"

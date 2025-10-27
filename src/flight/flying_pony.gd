@@ -52,6 +52,7 @@ enum State { WALKING, FLYING, LANDING }
 @onready var audio_trotting: AudioStreamPlayer = $"AudioStreamPlayer Trotting"
 @onready var audio_wind: AudioStreamPlayer = $"AudioStreamPlayer Wind"
 
+@onready var dirt_pile: Sprite2D = $"Sprite2D Dirt Pile"
 
 var state: State= State.WALKING
 ## Lift effects only get enabled once the ponys jump arc has reached it's maximum
@@ -140,6 +141,11 @@ func land():
 	remove_upgrade_overlays()
 	velocity= Vector2.ZERO
 	audio_wind.stop()
+	play_animation()
+	idle_sprite.hide()
+	dirt_pile.show()
+	dirt_pile.global_rotation= 0
+	$"AudioStreamPlayer Land".play()
 	landed.emit()
 
 
@@ -187,7 +193,7 @@ func fly_logic(delta: float):
 	var lost_velocity: float= velocity.length()
 	velocity-= velocity.length_squared() * velocity.normalized() * drag * drag_coefficient * 0.01 * delta
 	lost_velocity= lost_velocity - velocity.length()
-	print(lost_velocity)
+	#print(lost_velocity)
 
 	if enable_lift: #and ( is_zero_approx(top_speed) or get_forward_speed() < top_speed ):
 		var lift: float= get_lift()
