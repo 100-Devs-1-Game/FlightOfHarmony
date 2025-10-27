@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://duilapbtj7eyg"]
+[gd_scene load_steps=11 format=3 uid="uid://duilapbtj7eyg"]
 
 [ext_resource type="Script" uid="uid://do7220dqlfe05" path="res://shop/upgrades/propulsion/scenes/iron_man_boots/iron_man_boots_upgrade.gd" id="1_pqgiu"]
 [ext_resource type="Texture2D" uid="uid://ddyplbtx7tar8" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0001.png" id="2_fgc4a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dns6esd0xfy03" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0005.png" id="6_jqjhh"]
 [ext_resource type="Texture2D" uid="uid://dvalsh7f4e060" path="res://assets/art/upgrades/propulsion/iron_man_boots/Blast_Blurred/Blured_Blast_0006.png" id="7_ba7se"]
 [ext_resource type="PackedScene" uid="uid://d06tqq46rtdsh" path="res://shop/upgrades/propulsion/scenes/thrust_particles.tscn" id="8_e3qj6"]
+[ext_resource type="AudioStream" uid="uid://bpkbpex4vvnht" path="res://assets/sfx/Laser_Burst1.mp3" id="9_m84mf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fgc4a"]
 animations = [{
@@ -51,3 +52,7 @@ autoplay = "default"
 [node name="Thrust Particles" parent="." instance=ExtResource("8_e3qj6")]
 modulate = Color(0.510601, 0.510601, 0.510601, 1)
 position = Vector2(-175, 61)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m84mf")
+bus = &"Sfx"

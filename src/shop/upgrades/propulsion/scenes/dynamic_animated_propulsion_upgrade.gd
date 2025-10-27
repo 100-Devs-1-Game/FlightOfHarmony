@@ -7,12 +7,14 @@ extends UpgradeOverlayScene
 
 func _ready() -> void:
 	pony.start_propulsion.connect(func():
+		$AudioStreamPlayer.play()
 		if propulsion_animation:
 			propulsion_animation.play("default")
 		if particles:
 			particles.set_active(true))
 
 	pony.stop_propulsion.connect(func():
+		$AudioStreamPlayer.stop()
 		if propulsion_animation:
 			propulsion_animation.stop()
 		if particles:

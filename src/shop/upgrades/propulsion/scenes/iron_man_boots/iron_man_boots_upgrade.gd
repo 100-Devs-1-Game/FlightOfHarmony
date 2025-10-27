@@ -9,6 +9,7 @@ func _ready() -> void:
 	flame_sprite.hide()
 	
 	pony.start_propulsion.connect(func():
+		$AudioStreamPlayer.play()
 		flame_sprite.show()
 		flame_sprite.play("default")
 		particles.set_active(true))

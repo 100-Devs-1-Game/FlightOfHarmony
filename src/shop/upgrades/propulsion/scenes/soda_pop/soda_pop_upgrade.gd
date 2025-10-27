@@ -12,9 +12,11 @@ func _ready() -> void:
 	pony.fuel_ran_out.connect(on_fuel_empty)
 
 	pony.start_propulsion.connect(func():
+		$AudioStreamPlayer.play()
 		particles.set_active(true))
 
 	pony.stop_propulsion.connect(func():
+		$AudioStreamPlayer.stop()
 		particles.set_active(false))
 
 
