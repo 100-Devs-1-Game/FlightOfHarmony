@@ -1,0 +1,54 @@
+[gd_scene load_steps=28 format=3 uid="uid://ckvi8i1uiv8y7"]
+
+[ext_resource type="Script" uid="uid://hch73b72wtm" path="res://cutscene/cutscene_2.gd" id="1_jm3x0"]
+[ext_resource type="PackedScene" uid="uid://cciynkfdcarca" path="res://start_menu/credits.tscn" id="2_26dcd"]
+[ext_resource type="Texture2D" uid="uid://c5beqdfn4hwsj" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_10.png" id="3_pgu3q"]
+[ext_resource type="Texture2D" uid="uid://dvie82mpf0ec" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_20.png" id="4_c4f47"]
+[ext_resource type="Texture2D" uid="uid://cxl8bsfk6vtlg" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_30.png" id="5_6gli5"]
+[ext_resource type="Texture2D" uid="uid://dt77geuq4q4db" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_40.png" id="6_pcq4y"]
+[ext_resource type="Texture2D" uid="uid://c8qstmisfrlsk" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_50.png" id="7_kyvet"]
+[ext_resource type="Texture2D" uid="uid://xsf248wbmxrv" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_60.png" id="8_7jusm"]
+[ext_resource type="Texture2D" uid="uid://cfiyta2aj3hhg" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_70.png" id="9_slt1i"]
+[ext_resource type="Texture2D" uid="uid://d6nycc5df35c" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_80.png" id="10_udbic"]
+[ext_resource type="Texture2D" uid="uid://bx2wm7a8ytp32" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_90.png" id="11_bdwxs"]
+[ext_resource type="Texture2D" uid="uid://dg3qolurvtwmb" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_100.png" id="12_k1ko8"]
+[ext_resource type="Texture2D" uid="uid://mlk0537a4q38" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_110.png" id="13_gqys4"]
+[ext_resource type="Texture2D" uid="uid://bsltftfr34d12" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_120.png" id="14_xthc6"]
+[ext_resource type="Texture2D" uid="uid://ck3u0wqhv6471" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_130.png" id="15_wsknb"]
+[ext_resource type="Texture2D" uid="uid://deyrk5dgtsoyu" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_140.png" id="16_ekhku"]
+[ext_resource type="Texture2D" uid="uid://cmu287bgvwle8" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_150.png" id="17_dryk2"]
+[ext_resource type="Texture2D" uid="uid://dihvytrn0phrc" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_160.png" id="18_egjso"]
+[ext_resource type="Texture2D" uid="uid://kna7mobg1701" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_170.png" id="19_l53n5"]
+[ext_resource type="Texture2D" uid="uid://dgg8e7etql3gp" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_180.png" id="20_cgu0b"]
+[ext_resource type="Texture2D" uid="uid://c8hanik01a21c" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_185.png" id="21_bdkix"]
+[ext_resource type="Texture2D" uid="uid://46kgg8llx6sj" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_190.png" id="22_e81yc"]
+[ext_resource type="Texture2D" uid="uid://bopjewe3etwow" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_200.png" id="23_g1pon"]
+[ext_resource type="Texture2D" uid="uid://cf47f8f0epd5n" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_210.png" id="24_a4xh7"]
+[ext_resource type="AudioStream" uid="uid://dwb2ycvtplesv" path="res://assets/music/FFH_Intro_Cutscene1.mp3" id="24_e81yc"]
+[ext_resource type="Texture2D" uid="uid://d3pd6yxnqm3kl" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_215.png" id="25_id154"]
+[ext_resource type="Texture2D" uid="uid://bvnhhn1cb6s3u" path="res://assets/art/cutscenes/Cutscene_002/Cutscene_2_220.png" id="26_5jonu"]
+
+[node name="Cutscene2" type="CanvasLayer" node_paths=PackedStringArray("audio_player")]
+script = ExtResource("1_jm3x0")
+credits_scene = ExtResource("2_26dcd")
+audio_player = NodePath("AudioStreamPlayer")
+images = Array[Texture2D]([ExtResource("3_pgu3q"), ExtResource("4_c4f47"), ExtResource("5_6gli5"), ExtResource("6_pcq4y"), ExtResource("7_kyvet"), ExtResource("8_7jusm"), ExtResource("9_slt1i"), ExtResource("10_udbic"), ExtResource("11_bdwxs"), ExtResource("12_k1ko8"), ExtResource("13_gqys4"), ExtResource("14_xthc6"), ExtResource("15_wsknb"), ExtResource("16_ekhku"), ExtResource("17_dryk2"), ExtResource("18_egjso"), ExtResource("19_l53n5"), ExtResource("20_cgu0b"), ExtResource("21_bdkix"), ExtResource("22_e81yc"), ExtResource("23_g1pon"), ExtResource("24_a4xh7"), ExtResource("25_id154"), ExtResource("26_5jonu")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_e81yc")
+bus = &"Music"
