@@ -3,6 +3,8 @@ extends Node
 const START_PATH := "res://start_menu/start_menu.tscn"
 const SHOP_PATH := "res://shop/shop.tscn"
 const FLIGHT_PATH := "res://flight/flight_scene.tscn"
+const WIN_PATH := "res://cutscene/cutscene_2.tscn"
+
 
 func load_level_by_path(path: String) -> void:
 	var scene := load(path) as PackedScene
@@ -22,6 +24,12 @@ func goto_shop() -> void:
 func goto_flight() -> void:
 	load_level_by_path(FLIGHT_PATH)
 	MusicPlayer.switch()
+
+
+func goto_end() -> void:
+	MusicPlayer.stop()
+	load_level_by_path(WIN_PATH)
+	
 
 func _change_to(packed: PackedScene) -> void:
 	var current = get_tree().current_scene

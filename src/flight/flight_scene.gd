@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var player: CharacterBody2D
+@export var win_distance: float= 250000
+@export var win_height: float= 45000
 @export var clouds_fade_min_height: float= 2000.0
 @export var clouds_fade_max_height: float= 3000.0
 
@@ -32,6 +34,11 @@ func _process(_delta: float) -> void:
 
 	var weight:= clampf((h - clouds_fade_min_height) / (clouds_fade_max_height - clouds_fade_min_height), 0.0, 1.0)
 	foreground_clouds.modulate.a= lerp(0.0, 0.75, weight)
+
+
+func _physics_process(_delta: float) -> void:
+	if player.get_distance() > win_distance or player.get_height() > win_height:
+		LevelManager.goto_end()
 
 
 func _on_player_landed() -> void:
