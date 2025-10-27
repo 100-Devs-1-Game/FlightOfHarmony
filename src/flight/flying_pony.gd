@@ -48,6 +48,8 @@ enum State { WALKING, FLYING, LANDING }
 @onready var head_flying: Sprite2D = $HeadFlying
 
 @onready var orig_pos: Vector2= position
+@onready var audio_trotting: AudioStreamPlayer = $"AudioStreamPlayer Trotting"
+
 
 var state: State= State.WALKING
 ## Lift effects only get enabled once the ponys jump arc has reached it's maximum
@@ -111,6 +113,9 @@ func reset():
 	state= State.WALKING
 	play_animation()
 	
+	audio_trotting.play()
+	audio_trotting.pitch_scale= 1 + stats.get_level(PonyStats.StatType.SPEED) * 0.05
+	
 	add_upgrade_overlays()
 
 	#enable_lift= false
@@ -120,7 +125,8 @@ func reset():
 func jump():
 	state= State.FLYING
 	play_animation()
-	
+	audio_trotting.stop()
+
 	velocity= velocity.length() * Vector2.from_angle(-deg_to_rad(jump_angle))
 	look_at(position + velocity)
 	started_flying.emit()
