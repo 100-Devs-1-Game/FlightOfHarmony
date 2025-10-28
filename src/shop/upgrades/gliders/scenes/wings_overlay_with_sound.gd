@@ -4,7 +4,8 @@ extends UpgradeOverlayScene
 
 
 func _ready() -> void:
-	pony.started_flying.connect(func():
-		if audio_player:
-			audio_player.play())
+	audio_player.play()
+	#pony.started_flying.connect(func():
+		#if audio_player:
+			#audio_player.play())
 	
