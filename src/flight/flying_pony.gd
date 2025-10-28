@@ -143,6 +143,10 @@ func land():
 	audio_wind.stop()
 	play_animation()
 	idle_sprite.hide()
+	head_idle.hide()
+	head_flying.hide()
+	head_running.hide()
+
 	dirt_pile.show()
 	dirt_pile.global_rotation= 0
 	$"AudioStreamPlayer Land".play()

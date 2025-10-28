@@ -64,6 +64,7 @@ texture = ExtResource("6_22ryr")
 
 [node name="Sprite2D Dirt Pile" type="Sprite2D" parent="."]
 visible = false
+scale = Vector2(2, 2)
 texture = ExtResource("9_d5je4")
 
 [node name="AudioStreamPlayer Trotting" type="AudioStreamPlayer" parent="."]
