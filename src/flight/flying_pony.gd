@@ -215,7 +215,7 @@ func fly_logic(delta: float):
 	#print(arcade_ratio)
 
 	velocity= lerp(velocity, global_transform.x * velocity.length(), arcade_ratio)
-	audio_wind.volume_linear= clampf(sqrt(velocity.length()) * 0.01, 0, 1)
+	audio_wind.volume_linear= clampf(sqrt(velocity.length()) * 0.002, 0, 1)
 
 	var prev_y: float= position.y
 	if move_and_collide(velocity * delta):

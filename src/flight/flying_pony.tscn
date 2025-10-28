@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2l1fovioth2h" path="res://assets/art/flight/pony/heads/Default_Normal/SL_head_Flying.png" id="6_22ryr"]
 [ext_resource type="Texture2D" uid="uid://bk41eb1bg6wcd" path="res://assets/art/flight/Dirt_pile_up.png" id="9_d5je4"]
 [ext_resource type="AudioStream" uid="uid://ccadkt4t548it" path="res://assets/sfx/Horse_Trotting1.mp3" id="9_ph0dt"]
-[ext_resource type="AudioStream" uid="uid://bkpf0hw1v32tn" path="res://assets/sfx/Wind_Noise1.mp3" id="10_t5pyb"]
+[ext_resource type="AudioStream" uid="uid://u5evh1iy8ct4" path="res://assets/sfx/Wind_Loop2.mp3" id="11_jna2y"]
 [ext_resource type="AudioStream" uid="uid://cm6mddqw56qn" path="res://assets/sfx/Fall1.mp3" id="12_jna2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22ryr"]
@@ -74,9 +74,9 @@ bus = &"Sfx"
 parameters/looping = false
 
 [node name="AudioStreamPlayer Wind" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_t5pyb")
+stream = ExtResource("11_jna2y")
 bus = &"Sfx"
-parameters/looping = false
+parameters/looping = true
 
 [node name="AudioStreamPlayer Land" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_jna2y")
