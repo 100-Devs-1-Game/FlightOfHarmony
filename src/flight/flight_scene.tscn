@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c4nvpv8pfo84r"]
+[gd_scene load_steps=35 format=3 uid="uid://c4nvpv8pfo84r"]
 
 [ext_resource type="PackedScene" uid="uid://pshtri5coy5i" path="res://flight/flight_background.tscn" id="1_fdqhy"]
 [ext_resource type="Script" uid="uid://25e544x3pyvi" path="res://flight/flight_scene.gd" id="1_fg568"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://cbmmwlx3gpygj" path="res://misc/button_click_sound.gd" id="22_aiso4"]
 [ext_resource type="Texture2D" uid="uid://dt0648q3tar4v" path="res://assets/art/flight/ui/Distance_Bar_1.png" id="22_aovsx"]
 [ext_resource type="LabelSettings" uid="uid://5bb3b84vqvbr" path="res://flight/clipboard_label_settings.tres" id="22_svsci"]
+[ext_resource type="AudioStream" uid="uid://x7ygs3c5ppbq" path="res://assets/sfx/Boing1.mp3" id="25_v8qpq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50frv"]
 animations = [{
@@ -510,6 +511,11 @@ theme_override_font_sizes/font_size = 47
 text = "DISTANCE - 0.0M"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer Boing" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("25_v8qpq")
+bus = &"Sfx"
 
 [connection signal="body_entered" from="AnimatedSprite Springboard/Area2D" to="." method="_on_springboard_body_entered"]
 [connection signal="landed" from="Pony" to="." method="on_landed"]

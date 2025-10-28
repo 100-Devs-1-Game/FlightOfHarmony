@@ -86,3 +86,4 @@ func _on_return_pressed() -> void:
 func _on_springboard_body_entered(body: Node2D) -> void:
 	if body is FlyingPony:
 		springboard.play("default")
+		%"AudioStreamPlayer Boing".play()
