@@ -65,6 +65,10 @@ func swap():
 	else:
 		from= texture_rect_2
 		to= texture_rect
+	
+	from.z_index= 1
+	to.z_index= -1
+
 
 	var tween:= create_tween()
 	tween.tween_property(from, "modulate", Color.TRANSPARENT, fade_duration * 5)
