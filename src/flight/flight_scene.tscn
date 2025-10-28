@@ -168,6 +168,8 @@ _data = {
 [node name="FlightScene" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_fg568")
 player = NodePath("Pony")
+win_distance = 200000.0
+win_height = 30000.0
 
 [node name="StaticBackground" type="CanvasLayer" parent="."]
 layer = -10
