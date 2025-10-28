@@ -149,7 +149,7 @@ func land():
 
 	dirt_pile.show()
 	dirt_pile.global_rotation= 0
-	$"AudioStreamPlayer Land".play()
+	#$"AudioStreamPlayer Land".play()
 	landed.emit()
 
 
