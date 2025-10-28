@@ -83,5 +83,6 @@ func _on_return_pressed() -> void:
 	LevelManager.goto_shop()
 
 
-func _on_springboard_body_entered(_body: Node2D) -> void:
-	springboard.play("default")
+func _on_springboard_body_entered(body: Node2D) -> void:
+	if body is FlyingPony:
+		springboard.play("default")

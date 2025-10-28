@@ -43,6 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uj46"]
+size = Vector2(20, 500)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x3l2y"]
 
