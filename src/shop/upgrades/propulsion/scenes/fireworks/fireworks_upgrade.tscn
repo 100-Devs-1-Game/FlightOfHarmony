@@ -51,6 +51,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_2ljub")
+volume_db = 7.61
 bus = &"Sfx"
 
 [editable path="Thrust Particles"]

@@ -26,6 +26,7 @@ texture = ExtResource("4_8k78j")
 
 [node name="AudioStreamPlayer Release" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mpvnv")
+volume_db = 5.073
 bus = &"Sfx"
 parameters/looping = false
 
