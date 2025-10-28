@@ -50,6 +50,7 @@ sprite_frames = SubResource("SpriteFrames_fgc4a")
 autoplay = "default"
 
 [node name="Thrust Particles" parent="." instance=ExtResource("8_e3qj6")]
+z_index = -2
 position = Vector2(-175, 61)
 rotation = -0.44847
 
