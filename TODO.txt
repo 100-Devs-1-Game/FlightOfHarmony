@@ -1,0 +1,60 @@
+
+End creddits scene, when the trigger happens fade it to white and then fade out from white to the cut scene.
+=> no inter-scene fading implemented
+
+Flapping should just loop from the start. => no idea why it doesnt, but the wings dont visually flap either before takeoff!?
+
+For the two Color’s, pick which one looks better.
+Yeah just put it in the empty space on the clipboard
+
+The firework should have a clean/normal version without the spark when it runs out of fuel.
+
+Replace speedometer
+
+landing=> maybe a tire skidding sound? idk
+
+maybe find another unused sound for the falling?
+
+Add the Dust partciale animation I sent to the dust pile up.
+
+Remove the last image and have it fade into the main menu ( it just cuts atm)
+
+Add a "back to main menu" on the credits scene"
+
+(Low priority) Could we have a pop up window for the other things in the workshop? If so write a basic description like "Fuel, buy more here" etc
+
+Delay the Flight results clip board (not the numbers)
+
+[tutorial]
+bring the Close and Next buttons away from the edges so it's grinding against them.
+Close color = red? Next = light blue or yellow.
+
+color the results on clipboard
+
+space out the balloon particales? so they last longer/go further,
+
+Soda bottle particles should be the same size/try to get it more like a stream of water?,
+
+Boots particales, put behind pony, lower the opacity/ less darker as it looks like a coal mine. have them go long enough to leave the screen, If can't remove particles from boots.,
+
+add shadow ( add to pony scene? )
+
+Transitions, fading between scenes.
+
+impact dust animation, dirt pile, delay
+
+hide music button in tutorial/cutscenes
+
+fireworks should have default sprite that isnt burning
+
+Hide left arrow on first page, hide right arrow on last page (as you can't flip more.)
+
+Space under the upgrades, add a buy button? Or enlarge the area to click so it covers the stat bar as well. As it's unclear where to click?
+
+Propulsion Effect: Maybe add a air cresent image that fades in so it looks like its affecting the air?
+
+Add a Score thing to the main menu of "Best time: X Days" that doesn't get reset ?
+
+settings + full screen
+
+wax wings melt
