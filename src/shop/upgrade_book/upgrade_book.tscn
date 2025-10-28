@@ -178,6 +178,7 @@ offset_bottom = 46.1667
 grow_horizontal = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
 
 [node name="Desc" type="Label" parent="DescPanel/MarginContainer"]
 layout_mode = 2
