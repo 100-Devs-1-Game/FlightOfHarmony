@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df4cjjli2yo2e"]
+[gd_scene load_steps=9 format=3 uid="uid://df4cjjli2yo2e"]
 
 [ext_resource type="Script" uid="uid://uj0ies1ay24a" path="res://shop/upgrades/propulsion/scenes/dynamic_animated_propulsion_upgrade.gd" id="1_uiuyk"]
 [ext_resource type="Texture2D" uid="uid://cu5cp24t433xn" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0001.png" id="2_ngp0q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d8egtnaxebox" path="res://assets/art/upgrades/propulsion/jet_engine/Jet_engine_0003.png" id="4_w12b5"]
 [ext_resource type="PackedScene" uid="uid://d06tqq46rtdsh" path="res://shop/upgrades/propulsion/scenes/thrust_particles.tscn" id="5_w12b5"]
 [ext_resource type="Texture2D" uid="uid://bmhxswx41lpyw" path="res://assets/art/flight/particles/Particles_6_Air_for fan and jet.png" id="6_ywhl0"]
+[ext_resource type="AudioStream" uid="uid://c3panq1ipwdcu" path="res://assets/sfx/jet_engine_sound.mp3" id="7_ywhl0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1rm8e"]
 animations = [{
@@ -40,5 +41,9 @@ position = Vector2(-108, -55)
 [node name="CPUParticles2D" parent="Thrust Particles" index="0"]
 position = Vector2(0, -2)
 texture = ExtResource("6_ywhl0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ywhl0")
+bus = &"Sfx"
 
 [editable path="Thrust Particles"]

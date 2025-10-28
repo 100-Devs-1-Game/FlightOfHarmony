@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://11shuusqlhhp"]
+[gd_scene load_steps=12 format=3 uid="uid://11shuusqlhhp"]
 
-[ext_resource type="Script" uid="uid://cu5rib3w51sqa" path="res://core/upgrade_overlay_scene.gd" id="1_o37l0"]
+[ext_resource type="Script" uid="uid://bm7vfggnhmxid" path="res://shop/upgrades/gliders/scenes/wings_overlay_with_sound.gd" id="1_i5ds4"]
 [ext_resource type="Texture2D" uid="uid://bqyjox8pbye58" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0003.png" id="1_sb4bd"]
 [ext_resource type="Texture2D" uid="uid://cx3e2ujk36b8d" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0004.png" id="2_o37l0"]
 [ext_resource type="Texture2D" uid="uid://cqeanioe6wytt" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0005.png" id="3_i5ds4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2y0tse4rq00w" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0008.png" id="6_rb2ds"]
 [ext_resource type="Texture2D" uid="uid://uee6dpch5w1j" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0009.png" id="7_vdv8t"]
 [ext_resource type="Texture2D" uid="uid://dr7ugryvkvwd2" path="res://assets/art/upgrades/gliders/mechanical_wings/Final_Wing_upgrade0010.png" id="8_ymjuf"]
+[ext_resource type="AudioStream" uid="uid://c66abctvqbbcr" path="res://assets/sfx/Flapping_sound.mp3" id="10_i5ds4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqwak"]
 animations = [{
@@ -42,8 +43,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MechanicalWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
-script = ExtResource("1_o37l0")
+[node name="MechanicalWingsUpgrade" type="Node2D" node_paths=PackedStringArray("audio_player", "running_node", "flying_node")]
+script = ExtResource("1_i5ds4")
+audio_player = NodePath("AudioStreamPlayer")
 running_node = NodePath("AnimatedSprite2D")
 flying_node = NodePath("AnimatedSprite2D2")
 
@@ -59,3 +61,8 @@ scale = Vector2(0.362, 0.362)
 sprite_frames = SubResource("SpriteFrames_nqwak")
 animation = &"flying"
 autoplay = "flying"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_i5ds4")
+bus = &"Sfx"
+parameters/looping = true

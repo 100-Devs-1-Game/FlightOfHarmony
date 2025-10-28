@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://chlhpm5orc2s6"]
+[gd_scene load_steps=10 format=3 uid="uid://chlhpm5orc2s6"]
 
+[ext_resource type="Script" uid="uid://bm7vfggnhmxid" path="res://shop/upgrades/gliders/scenes/wings_overlay_with_sound.gd" id="1_20mh7"]
 [ext_resource type="Texture2D" uid="uid://rlo5fjkcpfb1" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_001.png" id="1_e8alf"]
-[ext_resource type="Script" uid="uid://cu5rib3w51sqa" path="res://core/upgrade_overlay_scene.gd" id="1_wc8m8"]
 [ext_resource type="Texture2D" uid="uid://65u3efxm4uks" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_002.png" id="2_wc8m8"]
 [ext_resource type="Texture2D" uid="uid://xmu2dgk0dnmk" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_003.png" id="3_20mh7"]
 [ext_resource type="Texture2D" uid="uid://dldjruo6tjxjp" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_004.png" id="4_goq76"]
 [ext_resource type="Texture2D" uid="uid://b7r0slc8cg5rj" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_005.png" id="5_4ybuw"]
 [ext_resource type="Texture2D" uid="uid://dervvua6jssd6" path="res://assets/art/upgrades/gliders/magic_wings/scene/magic_wings_upgrade_006.png" id="6_f8k08"]
+[ext_resource type="AudioStream" uid="uid://daygjbwe27s2o" path="res://assets/sfx/Fan_sound.mp3" id="8_20mh7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8p4uv"]
 animations = [{
@@ -34,8 +35,9 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="MagicWingsUpgrade" type="Node2D" node_paths=PackedStringArray("running_node", "flying_node")]
-script = ExtResource("1_wc8m8")
+[node name="MagicWingsUpgrade" type="Node2D" node_paths=PackedStringArray("audio_player", "running_node", "flying_node")]
+script = ExtResource("1_20mh7")
+audio_player = NodePath("AudioStreamPlayer")
 running_node = NodePath("AnimatedSprite2D")
 flying_node = NodePath("AnimatedSprite2D2")
 
@@ -53,3 +55,8 @@ rotation = -0.335451
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_8p4uv")
 autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_20mh7")
+bus = &"Sfx"
+parameters/looping = true
