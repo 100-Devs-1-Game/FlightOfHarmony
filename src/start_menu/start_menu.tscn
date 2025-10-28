@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6r4x4ndjity0"]
+[gd_scene load_steps=23 format=3 uid="uid://b6r4x4ndjity0"]
 
 [ext_resource type="Script" uid="uid://ckab8xbh88au1" path="res://start_menu/start_menu.gd" id="1_0uyxu"]
 [ext_resource type="Texture2D" uid="uid://biywkamqamutf" path="res://assets/art/start_menu/start_button_normal.png" id="1_dkj6a"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dumvhmx5pusim" path="res://assets/art/start_menu/New_game_button_press.png" id="13_np8na"]
 [ext_resource type="Texture2D" uid="uid://bcy80iqm5wv26" path="res://assets/art/start_menu/New_game_button_hover.png" id="14_0oa52"]
 [ext_resource type="Texture2D" uid="uid://bvsggr6ni44b" path="res://assets/art/start_menu/CREDITS_BUTTON_Hover.png" id="14_wrska"]
+[ext_resource type="Texture2D" uid="uid://oeh6nwo4u1ii" path="res://assets/art/start_menu/tutorial/FOH TUT GOAL_last page.png" id="22_np8na"]
 
 [node name="StartMenu" type="Node2D" node_paths=PackedStringArray("ui_buttons")]
 script = ExtResource("1_0uyxu")
@@ -124,6 +125,12 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_btrqw")
+
+[node name="TextureRect4" type="TextureRect" parent="Title/Tutorial"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("22_np8na")
 
 [node name="Button Tutorial Next" type="Button" parent="Title/Tutorial"]
 unique_name_in_owner = true
