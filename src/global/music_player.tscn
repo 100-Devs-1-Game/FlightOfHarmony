@@ -29,5 +29,6 @@ parameters/looping = false
 [node name="AudioStreamPlayer Flight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bemw7")
 bus = &"Music"
+parameters/looping = true
 
 [connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]
