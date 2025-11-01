@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if player.get_distance() > win_distance or player.get_height() > win_height:
+	if player.get_distance() > win_distance and player.get_height() > win_height:
 		LevelManager.goto_end()
 
 
