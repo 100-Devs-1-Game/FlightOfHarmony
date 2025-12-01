@@ -32,4 +32,3 @@ mono_crash.*.json
 
 # Rider specific ignores
 .idea/
-/src/addons
